@@ -13,7 +13,7 @@ window.addEventListener("keydown", e => {
     switch (e.key) {
 
         case " ":
-            buzz();
+            if (answerInput.hasAttribute("hidden")) buzz();
             break;
 
         case "n":

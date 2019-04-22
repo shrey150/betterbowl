@@ -7,6 +7,7 @@ class Room {
 
         this.name = name;
         this.players = [];
+        this.scores = [];
         this.question = null;
 
         // index of "this.players"
@@ -16,6 +17,9 @@ class Room {
         this.listen();
 
         this.fetchQuestionBank();
+
+        this.logHistory = [];
+
     }
 
     listen() {
@@ -23,8 +27,12 @@ class Room {
         this.io.on("connection", socket => {
 
             this.players.push(socket.id);
+            this.scores.push({ name: socket.id, score: 0 });
 
-            console.log(`${socket.id} connected (total ${this.players.length})`);
+            // update previous log messages
+            this.io.to(socket.id).emit("updateLogHistory", this.logHistory);
+
+            this.log(`${socket.id} connected (total players ${this.players.length})`);
 
             // update players who joined in the middle of a question
             if (this.question) this.question.update(socket.id);
@@ -64,20 +72,30 @@ class Room {
 
                 console.log("Received answer: " + data);
 
-                if (socket.id === this.players[this.buzzed]) {
+                if (socket.id === this.players[this.buzzed] && this.question) {
 
                     if (data === this.question.answer) {
-                        this.io.emit("answerResponse", true);
-                        console.log("Correct answer!");
+
+                        let score;
+
+                        this.scores.forEach(n => {
+                            if (n.name === socket.id) {
+                                n.score += 10;
+                                score = n.score;
+                            }
+                        });
+                        
+                        this.log(`${socket.id} buzzed correctly! (score ${score})`);
+
                     }
                     else {
                         this.io.emit("answerResponse", false);
-                        console.log("Incorrect answer.");
+                        this.log(`${socket.id} buzzed incorrectly.`);
+                        this.clearBuzz();
                     }
 
-                    this.clearBuzz();
-
                 }
+                else this.clearBuzz();
 
             });
 
@@ -85,7 +103,8 @@ class Room {
 
                 // remove player from array
                 this.players = this.players.filter(x => x !== socket.id);
-                console.log(`${socket.id} disconnected (total ${this.players.length})`);
+                this.scores = this.scores.filter(x => x.name !== socket.id);
+                this.log(`${socket.id} disconnected (total players ${this.players.length})`);
 
             });
             
@@ -146,6 +165,14 @@ class Room {
         console.log(q);
 
         this.question = new Question(q.text, q.answer, 100, this.io);
+    }
+
+    log(msg) {
+
+        console.log(msg);
+        this.io.emit("log", msg + "\n");
+        this.logHistory.unshift(msg);
+
     }
 
 }

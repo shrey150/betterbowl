@@ -2,6 +2,7 @@ console.log("script.js loaded");
 
 let socket = io();
 let question = document.querySelector("#question");
+let log = document.querySelector("#log");
 let buzzBtn = document.querySelector("#buzzBtn");
 let nextBtn = document.querySelector("#nextBtn");
 let answerInput = document.querySelector("#answerInput");
@@ -42,11 +43,22 @@ socket.on("connect", data => {
         answerInput.focus();
     });
 
-    socket.on("answerResponse", data => {
-        console.log("Correct answer: " + data);
+    socket.on("pong", () => console.log("pong"));
+
+    socket.on("log", data => {
+        let msg = document.createElement("p");
+        msg.innerHTML = data;
+        log.insertBefore(msg, log.firstChild);
+
     });
 
-    socket.on("pong", () => console.log("pong"));
+    socket.on("updateLogHistory", data => {
+
+        let msgs = "";
+        data.forEach(n => msgs += `<p>${n}</p>`);
+        log.innerHTML += msgs;
+
+    });
 
 });
 
