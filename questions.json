@@ -1,0 +1,2484 @@
+{
+  "data": {
+    "num_tossups_found": 39,
+    "num_tossups_shown": 39,
+    "tossups": [
+      {
+        "id": 150634,
+        "text": "The Kovats retention index is used to compare the results of this process, and one equation governing this process multiplies a function of the Peclet number with the flow rate and is named for Alirio Rodrigues; that equation extends another one governing this process, which includes the quantity HETP. The retardation factor of the planar type of this process is the ratio of the distance travelled by the substance to the distance travelled by the (*) solvent front. One form of this technique uses an unreactive gas as the mobile phase, and the paper form of this technique commonly tests the separation of constituents of ink in water based on capillary action. For 10 points, name this process that separates materials based on the speed at which they travel through a medium.",
+        "answer": "chromatography [accept specific types of chromatography, such as gas chromatography, paper chromatography, and thin layer chromatography]",
+        "number": 9,
+        "tournament_id": 370,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "Ed 7",
+        "created_at": "2018-05-02T04:43:28.040Z",
+        "updated_at": "2018-05-02T04:43:28.040Z",
+        "quinterest_id": null,
+        "formatted_text": "<strong> The Kovats retention index is used to compare the results of this process, and one equation governing this process multiplies a function of the Peclet number with the flow rate and is named for Alirio Rodrigues; that equation extends another one governing this process, which includes the quantity HETP. The retardation factor of the planar type of this process is the ratio of the distance travelled by the substance to the distance travelled by the (*)</strong> solvent front. One form of this technique uses an unreactive gas as the mobile phase, and the paper form of this technique commonly tests the separation of constituents of ink in water based on capillary action. For 10 points, name this process that separates materials based on the speed at which they travel through a medium.",
+        "formatted_answer": "<strong>chromatography</strong> [accept specific types of chromatography, such as gas <strong>chromatography</strong>, paper <strong>chromatography</strong>, and thin layer <strong>chromatography</strong>]",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/150634",
+        "type": "tossup",
+        "tournament": {
+          "id": 370,
+          "year": 2018,
+          "name": "2018 FACTS",
+          "address": "",
+          "quality": "okay",
+          "type": null,
+          "link": "http://www.quizbowlpackets.com/2005/",
+          "created_at": "2018-05-02T04:41:46.155Z",
+          "updated_at": "2018-05-02T04:41:46.155Z",
+          "difficulty": "Regular High School",
+          "difficulty_num": 3,
+          "url": "https://www.quizdb.org/api/tournaments/370"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 156748,
+        "text": "An equation governing this process includes terms like the resistance to mass transfer, the Eddy diffusion, and the longitudinal diffusion, and that equation is often written as HETP equals A plus B over u plus C times u. A wash step in this technique called an elution sees the continuous addition of a (*) mobile phase, whose velocity can be calculated using the van Deemter equation. The Kovats retention index is used in the gas version of this technique, and silica gel draws a solvent up to a plate in the thin-layer version of this technique. For 10 points, name this separation laboratory technique in which a mobile phase moves past a stationary phase, with types like “high-performance liquid,” “column,” and “paper.”",
+        "answer": "chromatography [accept specific forms] &lt;McMaken&gt;",
+        "number": 10,
+        "tournament_id": 382,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "7",
+        "created_at": "2018-12-23T22:41:24.167Z",
+        "updated_at": "2018-12-23T22:41:24.167Z",
+        "quinterest_id": null,
+        "formatted_text": "<strong>An equation governing this process includes terms like the resistance to mass transfer, the Eddy diffusion, and the longitudinal diffusion, and that equation is often written as HETP equals A plus B over u plus C times u. A wash step in this technique called an elution sees the continuous addition of a (*)</strong> mobile phase, whose velocity can be calculated using the van Deemter equation. The Kovats retention index is used in the gas version of this technique, and silica gel draws a solvent up to a plate in the thin-layer version of this technique. For 10 points, name this separation laboratory technique in which a mobile phase moves past a stationary phase, with types like “high-performance liquid,” “column,” and “paper.”",
+        "formatted_answer": "<strong>chromatography</strong> [accept specific forms] &lt;McMaken&gt;",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/156748",
+        "type": "tossup",
+        "tournament": {
+          "id": 382,
+          "year": 2018,
+          "name": "2018 Great Lakes Regional Academic Championship (GLRAC)",
+          "address": "",
+          "quality": "okay",
+          "type": null,
+          "link": "http://quizbowlpackets.com/2096/",
+          "created_at": "2018-12-23T22:39:35.368Z",
+          "updated_at": "2018-12-23T22:41:45.658Z",
+          "difficulty": "Easy High School",
+          "difficulty_num": 2,
+          "url": "https://www.quizdb.org/api/tournaments/382"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 153724,
+        "text": "Probes in this lab technique have index codes of x-prime, y-prime, and z-prime, and are used to determine the Rohrschneider and McReynolds constants. An equation for organic compounds used in this lab technique linearly relates the log of t sub r and the number of carbon atoms in a molecule to determine the (*) Kováts retention index. The theoretical plate height of this process can be determined using the van Deemter equation. The “partition” form of this technique modifies the thin-layer type, which uses a silica gel stationary phase. For 10 points, name this lab technique that can be used to separate pigments.",
+        "answer": "chromatography (accept gas chromatography)",
+        "number": 3,
+        "tournament_id": 375,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "2",
+        "created_at": "2018-08-03T21:06:03.151Z",
+        "updated_at": "2018-08-03T21:06:03.151Z",
+        "quinterest_id": null,
+        "formatted_text": "<strong>Probes in this lab technique have index codes of x-prime, y-prime, and z-prime, and are used to determine the Rohrschneider and McReynolds constants. An equation for organic compounds used in this lab technique linearly relates the log of t sub r and the number of carbon atoms in a molecule to determine the</strong> (*) Kováts retention index. The theoretical plate height of this process can be determined using the van Deemter equation. The “partition” form of this technique modifies the thin-layer type, which uses a silica gel stationary phase. For 10 points, name this lab technique that can be used to separate pigments.",
+        "formatted_answer": "<strong>chromatography</strong> (accept <strong>gas chromatography</strong>)",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/153724",
+        "type": "tossup",
+        "tournament": {
+          "id": 375,
+          "year": 2018,
+          "name": "2018 Montgomery Blair Academic Tournament (MBAT)",
+          "address": "",
+          "quality": null,
+          "type": null,
+          "link": "",
+          "created_at": "2018-08-03T21:05:16.017Z",
+          "updated_at": "2018-08-03T21:05:16.017Z",
+          "difficulty": "Regular High School",
+          "difficulty_num": 3,
+          "url": "https://www.quizdb.org/api/tournaments/375"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 154024,
+        "text": "It's not electrophoresis (electro-for-EE-siss), but running this technique, removing the solvent, rotating the system 90 degrees, and adding a new solvent is this technique's two-dimensional form. A polyhistidine (poly-HISS-tid-een) tag and nickel, or GST and glutathione (gloot-uh-THIGH-own), are common methods of immobilizing biomolecules in the \"affinity\" version of this technique. Salt concentration is tightly controlled in the ion-exchange form of this technique, and broadening in it is described by the (*) van Deemter equation. A column full of gel is used in this technique’s gel permeation type, while the HPLC (H-P-L-C) type performs it at high pressure. Every technique of this kind has a stationary and a mobile phase. For 10 points, identify this technique that separates mixtures, such as ink on wet paper.",
+        "answer": "two-dimensional chromatography [or affinity chromatography; or ion-exchange chromatography; or gel permeation chromatography; or high-pressure liquid chromatography; prompt on IEC, GPC, or HPLC] &lt;Prieto, Science - Chemistry&gt;",
+        "number": 9,
+        "tournament_id": 376,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "2",
+        "created_at": "2018-08-03T23:05:06.839Z",
+        "updated_at": "2018-08-03T23:05:06.839Z",
+        "quinterest_id": null,
+        "formatted_text": "<strong>It's not electrophoresis</strong> (electro-for-EE-siss)<strong>, but running this technique, removing the solvent, rotating the system 90 degrees, and adding a new solvent is this technique's two-dimensional form. A polyhistidine</strong> (poly-HISS-tid-een) <strong>tag and nickel, or GST and glutathione</strong> (gloot-uh-THIGH-own)<strong>, are common methods of immobilizing biomolecules in the \"affinity\" version of this technique. Salt concentration is tightly controlled in the ion-exchange form of this technique, and broadening in it is described by the (*)</strong> van Deemter equation. A column full of gel is used in this technique’s gel permeation type, while the HPLC (H-P-L-C) type performs it at high pressure. Every technique of this kind has a stationary and a mobile phase. For 10 points, identify this technique that separates mixtures, such as ink on wet paper.",
+        "formatted_answer": "two-dimensional <strong>chromatography</strong> [or affinity <strong>chromatography</strong>; or ion-exchange <strong>chromatography</strong>; or gel permeation <strong>chromatography</strong>; or high-pressure liquid <strong>chromatography</strong>; prompt on IEC, GPC, or HPLC] &lt;Prieto, Science - Chemistry&gt;",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/154024",
+        "type": "tossup",
+        "tournament": {
+          "id": 376,
+          "year": 2018,
+          "name": "2018 PACE NSC",
+          "address": "",
+          "quality": null,
+          "type": null,
+          "link": "",
+          "created_at": "2018-08-03T23:03:01.359Z",
+          "updated_at": "2018-08-03T23:16:22.470Z",
+          "difficulty": "National High School",
+          "difficulty_num": 5,
+          "url": "https://www.quizdb.org/api/tournaments/376"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 147506,
+        "text": "Protein A residues assist in the purification of monoclonal antibodies in the immunoaffinity type of this procedure. The reduction in band-broadening in this technique correlates with eddy diffusion and mass transfer resistance, according to the Van Deemter equation. Carbamates and amines can be detected by the purple-staining compound ninhydrin in one form of this technique. The ratio of the analyte’s migration distance to the solvent front’s migration distance is this procedure’s retention factor. This procedure usually features a non-polar mobile phase traveling over a polar stationary phase. For 10 points, name this mixture-partitioning technique whose “thin layer” type is commonly used to separate colored dyes.",
+        "answer": "chromatography [or specific varieties of chromatography, including thin layer chromatography, column chromatography, high-performance liquid chromatography, gas chromatography, size-exclusion chromatography and immunoaffinity chromatography]",
+        "number": 3,
+        "tournament_id": 358,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "Berkeley A_Boston College_WUSTL B",
+        "created_at": "2017-12-17T20:07:10.590Z",
+        "updated_at": "2017-12-17T20:07:10.590Z",
+        "quinterest_id": null,
+        "formatted_text": "Protein A residues assist in the purification of monoclonal antibodies in the immunoaffinity type of this procedure. The reduction in band-broadening in this technique correlates with eddy diffusion and mass transfer resistance, according to the Van Deemter equation. Carbamates and amines can be detected by the purple-staining compound ninhydrin in one form of this technique. The ratio of the analyte’s migration distance to the solvent front’s migration distance is this procedure’s retention factor. This procedure usually features a non-polar mobile phase traveling over a polar stationary phase. For 10 points, name this mixture-partitioning technique whose “thin layer” type is commonly used to separate colored dyes.",
+        "formatted_answer": "<strong><u>chromatography</u></strong> [or specific varieties of chromatography, including thin layer <strong><u>chromatography</u></strong>, column <strong><u>chromatography</u></strong>, high-performance liquid <strong><u>chromatography</u></strong>, gas <strong><u>chromatography</u></strong>, size-exclusion <strong><u>chromatography</u></strong> and immunoaffinity <strong><u>chromatography</u></strong>]",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/147506",
+        "type": "tossup",
+        "tournament": {
+          "id": 358,
+          "year": 2017,
+          "name": "2017 ACF Fall",
+          "address": "",
+          "quality": "good",
+          "type": null,
+          "link": "http://collegiate.quizbowlpackets.com/2040/",
+          "created_at": "2017-12-17T20:05:10.315Z",
+          "updated_at": "2017-12-17T20:05:10.315Z",
+          "difficulty": "Easy College",
+          "difficulty_num": 6,
+          "url": "https://www.quizdb.org/api/tournaments/358"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 149115,
+        "text": "“Droplet” and “rotation locular” devices are used in a variety of this technique that mimics countercurrent exchange. An “air peak” is usually disregarded when interpreting outputs of a version of this technique using flame ionization detectors. Resolving power in this technique is related to eddy diffusion, mass transfer coefficients, and velocity in the (*) van Deemter equation. A version of this technique uses tightly packed beds of particles and pressures over 400 atmospheres to achieve its “high performance” type. This class of techniques measures the retention time, which shows how long the components of the mobile phase stay in the stationary phase. For 10 points, name this class of techniques, including “gas” and “thin layer” varieties, which separate mixtures.",
+        "answer": "chromatography [accept specific types like gas chromatography, High Performance Liquid Chromatography or HPLC] &lt;JL, Chem&gt;",
+        "number": 9,
+        "tournament_id": 365,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "8",
+        "created_at": "2018-02-19T05:42:58.563Z",
+        "updated_at": "2018-02-19T05:42:58.563Z",
+        "quinterest_id": null,
+        "formatted_text": "<strong>“Droplet” and “rotation locular” devices are used in a variety of this technique that mimics countercurrent exchange. An “air peak” is usually disregarded when interpreting outputs of a version of this technique using flame ionization detectors. Resolving power in this technique is related to eddy diffusion, mass transfer coefficients, and velocity in the (*)</strong> van Deemter equation. A version of this technique uses tightly packed beds of particles and pressures over 400 atmospheres to achieve its “high performance” type. This class of techniques measures the retention time, which shows how long the components of the mobile phase stay in the stationary phase. For 10 points, name this class of techniques, including “gas” and “thin layer” varieties, which separate mixtures.",
+        "formatted_answer": "<strong>chromatography</strong> [accept specific types like <strong>gas chromatography</strong>, <strong>High Performance Liquid Chromatography</strong> or <strong>HPLC</strong>] &lt;JL, Chem&gt;",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/149115",
+        "type": "tossup",
+        "tournament": {
+          "id": 365,
+          "year": 2017,
+          "name": "2017 Early Fall Tournament (EFT)",
+          "address": "",
+          "quality": "good",
+          "type": null,
+          "link": "http://collegiate.quizbowlpackets.com/2048/",
+          "created_at": "2018-02-19T04:38:52.580Z",
+          "updated_at": "2018-02-19T04:38:57.618Z",
+          "difficulty": "Easy College",
+          "difficulty_num": 6,
+          "url": "https://www.quizdb.org/api/tournaments/365"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 149862,
+        "text": "Peak-broadening in this technique can be minimized by optimizing flow rate to account for both eddy-diffusional and mass-transfer kinetics. One variant of this technique uses a polyarc reactor paired with a flame ionization detector. A solution of hexane and ethyl acetate is often used as an (*) eluent in this technique for which a retention factor is typically measured. One class of this technique uses silica gel as an adsorbent as the mobile phase runs through the stationary phase. There are thin-layer, column, and paper types of, for 10 points, what analytical technique used to separate chemical mixtures?",
+        "answer": "chromatography (accept word forms; accept specific types like high-performance liquid chromatography, thin-layer chromatography, or gas chromatography) &lt;Pendyala&gt;",
+        "number": 20,
+        "tournament_id": 368,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "1",
+        "created_at": "2018-04-30T01:37:12.312Z",
+        "updated_at": "2018-04-30T01:37:12.312Z",
+        "quinterest_id": null,
+        "formatted_text": "<strong>Peak-broadening in this technique can be minimized by optimizing flow rate to account for both eddy-diffusional and mass-transfer kinetics. One variant of this technique uses a polyarc reactor paired with a flame ionization detector. A solution of hexane and ethyl acetate is often used as an (*)</strong> eluent in this technique for which a retention factor is typically measured. One class of this technique uses silica gel as an adsorbent as the mobile phase runs through the stationary phase. There are thin-layer, column, and paper types of, for 10 points, what analytical technique used to separate chemical mixtures?",
+        "formatted_answer": "<strong>chromatography</strong> (accept word forms; accept specific types like high-performance liquid <strong>chromatography</strong>, thin-layer <strong>chromatography</strong>, or gas <strong>chromatography</strong>) &lt;Pendyala&gt;",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/149862",
+        "type": "tossup",
+        "tournament": {
+          "id": 368,
+          "year": 2017,
+          "name": "2017 HFT XII",
+          "address": "",
+          "quality": "good",
+          "type": null,
+          "link": "http://www.quizbowlpackets.com/2013/",
+          "created_at": "2018-04-30T01:35:51.460Z",
+          "updated_at": "2018-04-30T01:35:51.460Z",
+          "difficulty": "Hard High School",
+          "difficulty_num": 4,
+          "url": "https://www.quizdb.org/api/tournaments/368"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 141761,
+        "text": "The first true use of this technique is often attributed to Russian-Italian botanist Mikhail Tsvet (“tsee-VYET”), who used it to separate the components of petroleum. One form of this technique is used to analyze and purify mixtures of proteins. That form, the (*) fast protein liquid type of this process, is contrasted with the high performance liquid type, which uses pumps to pass pressurized liquid solvent through an adsorbent material. Lathe and Ruthven invented the size-exclusion form of this process. The paper form of this technique involves a mobile phase that moves up the stationary phase due to capillary action. For 10 points, name this laboratory technique used to separate mixtures.",
+        "answer": "chromatography [do not accept or prompt on specific types] &lt;AP&gt;",
+        "number": 19,
+        "tournament_id": 348,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "4",
+        "created_at": "2017-10-09T23:27:35.659Z",
+        "updated_at": "2017-10-09T23:27:35.659Z",
+        "quinterest_id": null,
+        "formatted_text": "<strong>The first true use of this technique is often attributed to Russian-Italian botanist Mikhail Tsvet (“tsee-VYET”), who used it to separate the components of petroleum. One form of this technique is used to analyze and purify mixtures of proteins. That form, the</strong> (*) fast protein liquid type of this process, is contrasted with the high performance liquid type, which uses pumps to pass pressurized liquid solvent through an adsorbent material. Lathe and Ruthven invented the size-exclusion form of this process. The paper form of this technique involves a mobile phase that moves up the stationary phase due to capillary action. For 10 points, name this laboratory technique used to separate mixtures.",
+        "formatted_answer": "<strong><u>chromatography</u></strong> [do not accept or prompt on specific types] &lt;AP&gt;",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/141761",
+        "type": "tossup",
+        "tournament": {
+          "id": 348,
+          "year": 2017,
+          "name": "2017 Prison Bowl X",
+          "address": "",
+          "quality": "good",
+          "type": null,
+          "link": "http://www.quizbowlpackets.com/1935/",
+          "created_at": "2017-10-09T17:00:56.237Z",
+          "updated_at": "2017-10-09T23:39:50.765Z",
+          "difficulty": "Hard High School",
+          "difficulty_num": 4,
+          "url": "https://www.quizdb.org/api/tournaments/348"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 151573,
+        "text": "The \"tailing\" factor is applied in this technique when its output, a series of Gaussian peaks, is asymmetrical. An equation governing this process is usually written \"A plus B over u plus C times u equals HETP.\" Purification of monoclonal antibodies with this technique relies on cation exchange and protein A resins. Most DNA extractions end with a (*) wash step done after this procedure, called an elution. The resolution of this process is given by a ratio of residence times. The canonical form of this technique breaks plant pigments into their individual components. For 10 points, name this separations technique in which a mobile phase moves past a stationary phase, which comes in thin-layer and paper forms.",
+        "answer": "chromatography [or high-performance liquid chromatography; or paper chromatography; or affinity chromatography; or other forms of chromatography] &lt;Silverman&gt;",
+        "number": 5,
+        "tournament_id": 99,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "TB 2",
+        "created_at": "2018-05-19T21:32:39.586Z",
+        "updated_at": "2018-05-19T21:32:39.586Z",
+        "quinterest_id": null,
+        "formatted_text": "<strong> The \"tailing\" factor is applied in this technique when its output, a series of Gaussian peaks, is asymmetrical. An equation governing this process is usually written \"A plus B over u plus C times u equals HETP.\" Purification of monoclonal antibodies with this technique relies on cation exchange and protein A resins. Most DNA extractions end with a (*)</strong> wash step done after this procedure, called an elution. The resolution of this process is given by a ratio of residence times. The canonical form of this technique breaks plant pigments into their individual components. For 10 points, name this separations technique in which a mobile phase moves past a stationary phase, which comes in thin-layer and paper forms.",
+        "formatted_answer": "<strong>chromatography</strong> [or <strong>high-performance liquid chromatography</strong>; or <strong>paper chromatography</strong>; or <strong>affinity chromatography</strong>; or other forms of chromatography] &lt;Silverman&gt;",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/151573",
+        "type": "tossup",
+        "tournament": {
+          "id": 99,
+          "year": 2016,
+          "name": "2016 PACE NSC",
+          "address": "",
+          "quality": "amazing",
+          "type": null,
+          "link": "",
+          "created_at": "2017-08-27T18:44:32.728Z",
+          "updated_at": "2017-09-12T20:43:11.139Z",
+          "difficulty": "National High School",
+          "difficulty_num": 5,
+          "url": "https://www.quizdb.org/api/tournaments/99"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 121340,
+        "text": "This technique sometimes uses a porous monolithic rod or an \"open tubular\" tube, and it often uses silica gel or alumina as a packing material. Large molecules like proteins and polymers are often analyzed with the size-exclusion type of it. In forensics, this technique is performed on gases and followed with mass spec in (*) GC-MS. High pressures are applied to the mobile phase in a type of this abbreviated HPLC. In one family of this technique, the retention factor measures the ratio between the distance moved by the spot and the solvent. For 10 points, column, thin layer, and paper are all types of what technique for separating mixtures?",
+        "answer": "chromatography [accept any specific type of chromatography] ",
+        "number": 3,
+        "tournament_id": 95,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "Round 5",
+        "created_at": "2017-08-27T22:44:19.177Z",
+        "updated_at": "2017-09-01T07:10:09.655Z",
+        "quinterest_id": 61854,
+        "formatted_text": "<b>This technique sometimes uses a porous monolithic rod or an \"open tubular\" tube, and it often uses silica gel or alumina as a packing material. Large molecules like proteins and polymers are often analyzed with the size-exclusion type of it. In forensics, this technique is performed on gases and followed with mass spec in (*)</b>) GC-MS. High pressures are applied to the mobile phase in a type of this abbreviated HPLC. In one family of this technique, the retention factor measures the ratio between the distance moved by the spot and the solvent. For 10 points, column, thin layer, and paper are all types of what technique for separating mixtures?",
+        "formatted_answer": "chromatography [accept any specific type of chromatography] <NW/JR>",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/121340",
+        "type": "tossup",
+        "tournament": {
+          "id": 95,
+          "year": 2015,
+          "name": "2015 BHSAT",
+          "address": "",
+          "quality": "good",
+          "type": null,
+          "link": "",
+          "created_at": "2017-08-27T18:44:31.298Z",
+          "updated_at": "2017-09-12T03:26:29.688Z",
+          "difficulty": "Hard High School",
+          "difficulty_num": 4,
+          "url": "https://www.quizdb.org/api/tournaments/95"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 144304,
+        "text": "The time taken for one form of this process can be described by the Kovats retention index. An eluotropic series can be used to rank solvents used in this process. Iodine vapor can visualize the results of one form of this process when separating (*) plant pigments, its thin-layer type. Silica gel is commonly used as an adsorbent in the column type of this process, which works due to a difference in partition coefficient between the mobile and stationary phases. For 10 points, identify this technique used to separate mixtures that has gas and liquid variants.",
+        "answer": "chromatography [accept specific forms like “thin-layer,” “column,” “gas,” or “liquid” until read] &lt;SR Chemistry&gt;",
+        "number": 13,
+        "tournament_id": 353,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "6",
+        "created_at": "2017-10-14T17:45:30.570Z",
+        "updated_at": "2017-10-14T17:45:30.570Z",
+        "quinterest_id": null,
+        "formatted_text": "<strong>The time taken for one form of this process can be described by the Kovats retention index. An eluotropic series can be used to rank solvents used in this process. Iodine vapor can visualize the results of one form of this process when separating</strong> (*) plant pigments, its thin-layer type. Silica gel is commonly used as an adsorbent in the column type of this process, which works due to a difference in partition coefficient between the mobile and stationary phases. For 10 points, identify this technique used to separate mixtures that has gas and liquid variants.",
+        "formatted_answer": "<strong><u>chromatography</u></strong> [accept specific forms like “thin-layer,” “column,” “gas,” or “liquid” until read] &lt;SR Chemistry&gt;",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/144304",
+        "type": "tossup",
+        "tournament": {
+          "id": 353,
+          "year": 2015,
+          "name": "2015 Maryland Fall",
+          "address": "",
+          "quality": "good",
+          "type": null,
+          "link": "http://www.quizbowlpackets.com/1786/",
+          "created_at": "2017-10-14T17:44:00.070Z",
+          "updated_at": "2017-10-14T17:44:00.070Z",
+          "difficulty": "Hard High School",
+          "difficulty_num": 4,
+          "url": "https://www.quizdb.org/api/tournaments/353"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 107185,
+        "text": "One equation associated with this procedure includes the Eddy-diffusion parameter and calculates the heightequivalent to a theoretical plate, the Van Deemter equation. Lathe and Ruthven developed one version of thisprocedure that isolates macromolecules, the size-exclusion type. Dividing the sample distance by the migrationdistance of the solvent calculates this procedure's retention factor. Commonly performed with silica gel, thisprocedure's mobile phase flows through a column containing the stationary phase. For 10 points, name thislaboratory technique with gas, paper, and thin-layer varieties that is used to separate mixtures.",
+        "answer": " chromatography",
+        "number": 11,
+        "tournament_id": 64,
+        "category_id": 17,
+        "subcategory_id": 14,
+        "round": "6",
+        "created_at": "2017-08-27T22:43:33.550Z",
+        "updated_at": "2017-09-01T17:59:56.733Z",
+        "quinterest_id": 47713,
+        "formatted_text": "One equation associated with this procedure includes the Eddy-diffusion parameter and calculates the heightequivalent to a theoretical plate, the Van Deemter equation. Lathe and Ruthven developed one version of thisprocedure that isolates macromolecules, the size-exclusion type. Dividing the sample distance by the migrationdistance of the solvent calculates this procedure's retention factor. Commonly performed with silica gel, thisprocedure's mobile phase flows through a column containing the stationary phase. For 10 points, name thislaboratory technique with gas, paper, and thin-layer varieties that is used to separate mixtures.",
+        "formatted_answer": " chromatography",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/107185",
+        "type": "tossup",
+        "tournament": {
+          "id": 64,
+          "year": 2014,
+          "name": "2014 BELLOCO",
+          "address": "",
+          "quality": null,
+          "type": null,
+          "link": "",
+          "created_at": "2017-08-27T18:44:23.305Z",
+          "updated_at": "2017-09-12T03:30:35.830Z",
+          "difficulty": "Regular High School",
+          "difficulty_num": 3,
+          "url": "https://www.quizdb.org/api/tournaments/64"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 14,
+          "name": "Science Biology",
+          "created_at": "2017-08-27T19:36:35.042Z",
+          "updated_at": "2017-08-27T19:36:35.042Z",
+          "url": "https://www.quizdb.org/api/subcategories/14"
+        }
+      },
+      {
+        "id": 145327,
+        "text": "In one form of this technique, analytes are said to elute from the apparatus. In a modern version of that form, liquids are forced through a sorbent column at high pressure. One common setup applies it to a gas before performing mass spectrometry. The retention factor measures the relative distance traveled by an analyte in one variety of this technique, in which a thin adsorbent layer often made of silica acts as a stationary phase. Another variety of it was seminally used to separate plant pigments for the first time; in that variety, various components of a plant extract rise up a paper at different speeds. For 10 points, name this powerful class of techniques for separating mixtures.",
+        "answer": "chromatography [accept more specific answers, including thin-layer chromatography, paper chromatography] &lt;JG&gt;",
+        "number": 18,
+        "tournament_id": 221,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "10",
+        "created_at": "2017-11-11T00:02:58.979Z",
+        "updated_at": "2017-11-11T00:02:58.979Z",
+        "quinterest_id": null,
+        "formatted_text": "In one form of this technique, analytes are said to elute from the apparatus. In a modern version of that form, liquids are forced through a sorbent column at high pressure. One common setup applies it to a gas before performing mass spectrometry. The retention factor measures the relative distance traveled by an analyte in one variety of this technique, in which a thin adsorbent layer often made of silica acts as a stationary phase. Another variety of it was seminally used to separate plant pigments for the first time; in that variety, various components of a plant extract rise up a paper at different speeds. For 10 points, name this powerful class of techniques for separating mixtures.",
+        "formatted_answer": "<strong><u>chromatography</u></strong> [accept more specific answers, including <strong><u>thin-layer chromatography</u></strong>, <strong><u>paper chromatography</u></strong>] &lt;JG&gt;",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/145327",
+        "type": "tossup",
+        "tournament": {
+          "id": 221,
+          "year": 2013,
+          "name": "2013 BHSAT",
+          "address": "",
+          "quality": "amazing",
+          "type": null,
+          "link": "",
+          "created_at": "2017-08-27T18:48:25.369Z",
+          "updated_at": "2017-09-12T03:26:13.875Z",
+          "difficulty": "Hard High School",
+          "difficulty_num": 4,
+          "url": "https://www.quizdb.org/api/tournaments/221"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 112252,
+        "text": "The UCM hump appears in a form of this procedure which is often followed by mass spectrometry. Acetic acid and water are at the far end of the eluatropic series, which describes this technique. It often involves calculating retention times and the retardation factor. This technique is called \"high-performance\" when it occurs at high pressures. Silica gel is used in the \"thin-layer\" form of this technique. It relies on differences in polarity between solute particles, giving the mobile phase differential affinity for the stationary phase. For 10 points, name this technique which can be used to separate pigments on paper.",
+        "answer": "chromatography [or gas chromatography; or high performance liquid chromatography; or thin-layer chromatography; or paper chromatography]",
+        "number": 19,
+        "tournament_id": 81,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "13",
+        "created_at": "2017-08-27T22:43:49.107Z",
+        "updated_at": "2017-08-28T03:55:31.876Z",
+        "quinterest_id": 52780,
+        "formatted_text": "The UCM hump appears in a form of this procedure which is often followed by mass spectrometry. Acetic acid and water are at the far end of the eluatropic series, which describes this technique. It often involves calculating retention times and the retardation factor. This technique is called \"high-performance\" when it occurs at high pressures. Silica gel is used in the \"thin-layer\" form of this technique. It relies on differences in polarity between solute particles, giving the mobile phase differential affinity for the stationary phase. For 10 points, name this technique which can be used to separate pigments on paper.",
+        "formatted_answer": "chromatography [or gas chromatography; or high performance liquid chromatography; or thin-layer chromatography; or paper chromatography]",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/112252",
+        "type": "tossup",
+        "tournament": {
+          "id": 81,
+          "year": 2013,
+          "name": "2013 Brookwood Invitational Scholars Bowl",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:44:27.606Z",
+          "updated_at": "2017-09-06T06:00:09.101Z",
+          "difficulty": "Regular High School",
+          "difficulty_num": 3,
+          "url": "https://www.quizdb.org/api/tournaments/81"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 92886,
+        "text": "Results of this technique for organic molecules can be used to calculate the Kovats index. The molar mass distribution of polymers can be found with the size-exclusion type of this technique. The retention factor of this technique can be calculated as the migration distance of the analyte divided by the migration distance of the solvent. Pigments can be analyzed in the \"paper\" type of this technique, which also comes in high-performance liquid and \"thin layer\" types. For 10 points, name this chemical technique that separates mixtures based on polarity.",
+        "answer": "chromatography [accept word forms and more specific answers]",
+        "number": 1,
+        "tournament_id": 37,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "10",
+        "created_at": "2017-08-27T22:42:48.208Z",
+        "updated_at": "2017-10-16T23:00:47.001Z",
+        "quinterest_id": 33388,
+        "formatted_text": "Results of this technique for organic molecules can be used to calculate the Kovats index. The molar mass distribution of polymers can be found with the size-exclusion type of this technique. The retention factor of this technique can be calculated as the migration distance of the analyte divided by the migration distance of the solvent. Pigments can be analyzed in the \"paper\" type of this technique, which also comes in high-performance liquid and \"thin layer\" types. For 10 points, name this chemical technique that separates mixtures based on polarity.",
+        "formatted_answer": "<strong><u>chromatography</u></strong> [accept word forms and more specific answers]",
+        "wikipedia_url": "",
+        "url": "https://www.quizdb.org/api/tossups/92886",
+        "type": "tossup",
+        "tournament": {
+          "id": 37,
+          "year": 2013,
+          "name": "2013 Collegiate Novice",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:44:19.070Z",
+          "updated_at": "2017-08-27T18:44:19.070Z",
+          "difficulty": "Easy College",
+          "difficulty_num": 6,
+          "url": "https://www.quizdb.org/api/tournaments/37"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 131512,
+        "text": "Blue dextran is used as a void volume marker in a form of this technique. Lipids are transferred to a membrane after this technique is performed in a far-eastern blot. In this technique, the theoretical plate height is calculated using the van Deemter equation. In one form of this technique, the Kovats index and a flame ionization detector are used. In another form of this technique, the distance traveled by a sample is divided by the distance traveled by a solvent front to calculate the retention factor. This technique, which makes use of stationary and mobile phases, has size exclusion and thin-layer forms. For 10 points, name this method of separating mixtures. ",
+        "answer": "chromatography [accept specific forms] ",
+        "number": 14,
+        "tournament_id": 247,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "5",
+        "created_at": "2017-08-27T22:44:54.830Z",
+        "updated_at": "2017-09-01T18:01:47.162Z",
+        "quinterest_id": 72482,
+        "formatted_text": "Blue dextran is used as a void volume marker in a form of this technique. Lipids are transferred to a membrane after this technique is performed in a far-eastern blot. In this technique, the theoretical plate height is calculated using the van Deemter equation. In one form of this technique, the Kovats index and a flame ionization detector are used. In another form of this technique, the distance traveled by a sample is divided by the distance traveled by a solvent front to calculate the retention factor. This technique, which makes use of stationary and mobile phases, has size exclusion and thin-layer forms. For 10 points, name this method of separating mixtures. ",
+        "formatted_answer": "chromatography [accept specific forms] ",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/131512",
+        "type": "tossup",
+        "tournament": {
+          "id": 247,
+          "year": 2013,
+          "name": "2013 Delta Burke",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:48:30.722Z",
+          "updated_at": "2017-09-06T05:56:22.402Z",
+          "difficulty": "Easy College",
+          "difficulty_num": 6,
+          "url": "https://www.quizdb.org/api/tournaments/247"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 111968,
+        "text": "The first few steps in MudPIT protein analysis involve this process. Van Deemter's equation can be used to find the optimal velocity of this process, and one form of this technique is done on glass coated with absorbent material. One variety of this technique has dry and wet methods, and a material often used in this process is sepharose. These procedures rely on a ratio known as partition coefficient, and they involve stationary and moving phrases. For 10 points, name this laboratory technique which can be used to separate the different pigments of a pen's ink.",
+        "answer": "Chromatography",
+        "number": 8,
+        "tournament_id": 225,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "Finals 2",
+        "created_at": "2017-08-27T22:43:48.201Z",
+        "updated_at": "2017-08-28T03:55:30.564Z",
+        "quinterest_id": 52496,
+        "formatted_text": "The first few steps in MudPIT protein analysis involve this process. Van Deemter's equation can be used to find the optimal velocity of this process, and one form of this technique is done on glass coated with absorbent material. One variety of this technique has dry and wet methods, and a material often used in this process is sepharose. These procedures rely on a ratio known as partition coefficient, and they involve stationary and moving phrases. For 10 points, name this laboratory technique which can be used to separate the different pigments of a pen's ink.",
+        "formatted_answer": "Chromatography",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/111968",
+        "type": "tossup",
+        "tournament": {
+          "id": 225,
+          "year": 2013,
+          "name": "2013 Maggie Walker GSAC",
+          "address": "",
+          "quality": null,
+          "type": null,
+          "link": "",
+          "created_at": "2017-08-27T18:48:26.190Z",
+          "updated_at": "2017-09-12T02:37:01.648Z",
+          "difficulty": "Regular High School",
+          "difficulty_num": 3,
+          "url": "https://www.quizdb.org/api/tournaments/225"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 106403,
+        "text": "This technique uses Dragendorff's reagent when it is applied to alkaloids. One object used in thistechnique can be impregnated with zinc silicate to visualize the results under UV light. Whenstudying cell membrane lipids, the results of this process are transferred to a PVDF membrane in afar-eastern blot. When applied to amino acids, this technique can use ninhydrin as a derivatizingagent. In this technique, iodine vapor is used to develop the sample and the distance the sampletravels is divided by the (*) solvent front to calculate the retention factor. For 10 points, name this type ofchromatography in which capillary action draws a sample through a silica plate, commonly used on plantpigments and pen ink.",
+        "answer": "Thin-layer chromatography [or TLC]",
+        "number": 11,
+        "tournament_id": 26,
+        "category_id": 17,
+        "subcategory_id": 14,
+        "round": "18",
+        "created_at": "2017-08-27T22:43:31.126Z",
+        "updated_at": "2017-09-01T18:09:45.119Z",
+        "quinterest_id": 46931,
+        "formatted_text": "<b>This technique uses Dragendorff's reagent when it is applied to alkaloids. One object used in thistechnique can be impregnated with zinc silicate to visualize the results under UV light. Whenstudying cell membrane lipids, the results of this process are transferred to a PVDF membrane in afar-eastern blot. When applied to amino acids, this technique can use ninhydrin as a derivatizingagent. In this technique, iodine vapor is used to develop the sample and the distance the sampletravels is divided by the (*)</b>) solvent front to calculate the retention factor. For 10 points, name this type ofchromatography in which capillary action draws a sample through a silica plate, commonly used on plantpigments and pen ink.",
+        "formatted_answer": "Thin-layer chromatography [or TLC]",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/106403",
+        "type": "tossup",
+        "tournament": {
+          "id": 26,
+          "year": 2013,
+          "name": "2013 PACE NSC",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:44:16.669Z",
+          "updated_at": "2017-08-27T18:44:16.669Z",
+          "difficulty": "National High School",
+          "difficulty_num": 5,
+          "url": "https://www.quizdb.org/api/tournaments/26"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 14,
+          "name": "Science Biology",
+          "created_at": "2017-08-27T19:36:35.042Z",
+          "updated_at": "2017-08-27T19:36:35.042Z",
+          "url": "https://www.quizdb.org/api/subcategories/14"
+        }
+      },
+      {
+        "id": 108874,
+        "text": "This process can be characterized for organic compounds by the Kovats index, which uses the peaks of two known alkanes to determine the retention index of a sample. One type of this technique exploits capillary action on an activated glass plate, while in another type of this process, pressurized gas forces the elutant through small grains of silica to increase the flow rate. That \"flash\" type of this method is an example of the \"column\" type, which uses a solid stationary phase and a solvent as the mobile phase. For 10 points, name this analytical technique used to separate mixtures, often into differently-colored layers.",
+        "answer": "chromatography [accept gas chromatography in the first sentence] ",
+        "number": 6,
+        "tournament_id": 10,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "7",
+        "created_at": "2017-08-27T22:43:38.723Z",
+        "updated_at": "2017-08-28T03:55:19.209Z",
+        "quinterest_id": 49402,
+        "formatted_text": "This process can be characterized for organic compounds by the Kovats index, which uses the peaks of two known alkanes to determine the retention index of a sample. One type of this technique exploits capillary action on an activated glass plate, while in another type of this process, pressurized gas forces the elutant through small grains of silica to increase the flow rate. That \"flash\" type of this method is an example of the \"column\" type, which uses a solid stationary phase and a solvent as the mobile phase. For 10 points, name this analytical technique used to separate mixtures, often into differently-colored layers.",
+        "formatted_answer": "chromatography [accept gas chromatography in the first sentence] ",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/108874",
+        "type": "tossup",
+        "tournament": {
+          "id": 10,
+          "year": 2013,
+          "name": "2013 Prison Bowl",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:44:14.023Z",
+          "updated_at": "2017-08-27T18:44:14.023Z",
+          "difficulty": "Hard High School",
+          "difficulty_num": 4,
+          "url": "https://www.quizdb.org/api/tournaments/10"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 90346,
+        "text": "Dowex resin is used in one form of this technique, while another type can be carried out using isocratic or gradient conditions. One type of this technique can be normal phase or reverse phase depending on the polarity of the surface used. This technique makes use of a substance's retention factor, which can be calculated using the distance traveled by the substance and the eluent. This technique involves creating a mobile phase and a stationary phase, and comes in liquid, gas, paper, and thin layer types. For 10 points, name this laboratory technique used to separate and analyze mixtures.",
+        "answer": "chromatography",
+        "number": 11,
+        "tournament_id": 7,
+        "category_id": 17,
+        "subcategory_id": 14,
+        "round": "Michigan A",
+        "created_at": "2017-08-27T22:42:40.066Z",
+        "updated_at": "2017-08-28T03:54:19.353Z",
+        "quinterest_id": 30854,
+        "formatted_text": "Dowex resin is used in one form of this technique, while another type can be carried out using isocratic or gradient conditions. One type of this technique can be normal phase or reverse phase depending on the polarity of the surface used. This technique makes use of a substance's retention factor, which can be calculated using the distance traveled by the substance and the eluent. This technique involves creating a mobile phase and a stationary phase, and comes in liquid, gas, paper, and thin layer types. For 10 points, name this laboratory technique used to separate and analyze mixtures.",
+        "formatted_answer": "chromatography",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/90346",
+        "type": "tossup",
+        "tournament": {
+          "id": 7,
+          "year": 2012,
+          "name": "2012 ACF Fall",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:44:13.601Z",
+          "updated_at": "2017-08-27T18:44:13.601Z",
+          "difficulty": "Easy College",
+          "difficulty_num": 6,
+          "url": "https://www.quizdb.org/api/tournaments/7"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 14,
+          "name": "Science Biology",
+          "created_at": "2017-08-27T19:36:35.042Z",
+          "updated_at": "2017-08-27T19:36:35.042Z",
+          "url": "https://www.quizdb.org/api/subcategories/14"
+        }
+      },
+      {
+        "id": 117420,
+        "text": "The so-called 'fast-protein' type of this process is an important method for protein-purification, and often the associated resin contains Ni(II) ions that bind to His residues. The size-exclusion type of this chemical procedure is also used for proteins and is a low-resolution process that separates based on size. The high-performance liquid type of this process, along with other types, involves a mobile phase and a stationary phase. In the thin-layer type, retention factors can be calculated as the ratio of the migration distance of the mobile phase over that of the solvent front. For 10 points, name this procedure in chemistry involved in the separation of mixtures based on polarity.",
+        "answer": "chromatography [Accept more specific answers, i.e. thin-layer chromatography, affinity chromatography, column chromatography, size-exclusion chromatography, ion-exchange chromatography, etc.]",
+        "number": 4,
+        "tournament_id": 336,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "5",
+        "created_at": "2017-08-27T22:44:05.521Z",
+        "updated_at": "2017-08-28T03:55:45.975Z",
+        "quinterest_id": 57949,
+        "formatted_text": "The so-called 'fast-protein' type of this process is an important method for protein-purification, and often the associated resin contains Ni(II) ions that bind to His residues. The size-exclusion type of this chemical procedure is also used for proteins and is a low-resolution process that separates based on size. The high-performance liquid type of this process, along with other types, involves a mobile phase and a stationary phase. In the thin-layer type, retention factors can be calculated as the ratio of the migration distance of the mobile phase over that of the solvent front. For 10 points, name this procedure in chemistry involved in the separation of mixtures based on polarity.",
+        "formatted_answer": "chromatography [Accept more specific answers, i.e. thin-layer chromatography, affinity chromatography, column chromatography, size-exclusion chromatography, ion-exchange chromatography, etc.]",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/117420",
+        "type": "tossup",
+        "tournament": {
+          "id": 336,
+          "year": 2012,
+          "name": "2012 Harvard Fall Tournament",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T22:40:32.806Z",
+          "updated_at": "2017-08-27T22:41:11.730Z",
+          "difficulty": "Hard High School",
+          "difficulty_num": 4,
+          "url": "https://www.quizdb.org/api/tournaments/336"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 111519,
+        "text": "Proteins are purified by a ligand interaction in the affinity version of this technique, and peak area is proportional to concentration in another variant of this procedure. Quantities important in this technique include retention time and retardation factor, which is commonly abbreviated as the R.F. value. Those values are important in the gas and thin layer types of this procedure, and this technique involves a mobile phase traveling through a stationary phase. For 10 points, name this chemical technique used to separate the components of a mixture, which is often utilized to separate the pigments in ink.",
+        "answer": "Chromatography",
+        "number": 21,
+        "tournament_id": 224,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "7",
+        "created_at": "2017-08-27T22:43:46.731Z",
+        "updated_at": "2017-08-28T03:55:28.649Z",
+        "quinterest_id": 52047,
+        "formatted_text": "Proteins are purified by a ligand interaction in the affinity version of this technique, and peak area is proportional to concentration in another variant of this procedure. Quantities important in this technique include retention time and retardation factor, which is commonly abbreviated as the R.F. value. Those values are important in the gas and thin layer types of this procedure, and this technique involves a mobile phase traveling through a stationary phase. For 10 points, name this chemical technique used to separate the components of a mixture, which is often utilized to separate the pigments in ink.",
+        "formatted_answer": "Chromatography",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/111519",
+        "type": "tossup",
+        "tournament": {
+          "id": 224,
+          "year": 2012,
+          "name": "2012 Maggie Walker GSAC",
+          "address": "",
+          "quality": null,
+          "type": null,
+          "link": "",
+          "created_at": "2017-08-27T18:48:26.035Z",
+          "updated_at": "2017-09-12T02:36:31.269Z",
+          "difficulty": "Regular High School",
+          "difficulty_num": 3,
+          "url": "https://www.quizdb.org/api/tournaments/224"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 112512,
+        "text": "Multi-angle scattering is used in conjunction with a dextran-based polymer in the size-exclusion type of this technique. Dividing the migration distance of the analyte by the migration distance of the solvent gives the retention factor in this technique. Iodine vapor is used as a developer in a simple version of this technique, and mass spectrometry relies on initially using the gas or (*) high-performance liquid versions of this technique. All forms of this technique rely on the differing partition coefficient of an analyte for a stationary phase versus a mobile phase. Silica plates are used in the thin-layer version of this technique, which is used to determine the components of dyes. For 10 points, name this chemical technique used to separate mixtures.",
+        "answer": "chromatography [accept more specific answers, eg thin-layer chromatography, HPLC, liquid chromatography, gas chromatography, etc]",
+        "number": 19,
+        "tournament_id": 23,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "24",
+        "created_at": "2017-08-27T22:43:49.914Z",
+        "updated_at": "2017-09-01T07:04:14.147Z",
+        "quinterest_id": 53040,
+        "formatted_text": "<b>Multi-angle scattering is used in conjunction with a dextran-based polymer in the size-exclusion type of this technique. Dividing the migration distance of the analyte by the migration distance of the solvent gives the retention factor in this technique. Iodine vapor is used as a developer in a simple version of this technique, and mass spectrometry relies on initially using the gas or (*)</b>) high-performance liquid versions of this technique. All forms of this technique rely on the differing partition coefficient of an analyte for a stationary phase versus a mobile phase. Silica plates are used in the thin-layer version of this technique, which is used to determine the components of dyes. For 10 points, name this chemical technique used to separate mixtures.",
+        "formatted_answer": "chromatography [accept more specific answers, eg thin-layer chromatography, HPLC, liquid chromatography, gas chromatography, etc]",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/112512",
+        "type": "tossup",
+        "tournament": {
+          "id": 23,
+          "year": 2012,
+          "name": "2012 PACE NSC",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:44:15.668Z",
+          "updated_at": "2017-08-27T18:44:15.668Z",
+          "difficulty": "National High School",
+          "difficulty_num": 5,
+          "url": "https://www.quizdb.org/api/tournaments/23"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 108539,
+        "text": "Van Deemter's equation for this process accounts for Eddy-diffusion and mass transfer, and the Kovats index describes the time taken for one form of this process. Another form of this process uses high pressures to improve performance. The extent of the solvent front is used to calculate the retardation factor in the thin-layer form of this technique. Often performed in a silica-packed column, it involves mobile and stationary phases. A common demonstration of it involves using filter paper strips to separate pigments. For 10 points, name this group of techniques for separating mixtures.",
+        "answer": "chromatography ",
+        "number": 6,
+        "tournament_id": 5,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "6",
+        "created_at": "2017-08-27T22:43:37.705Z",
+        "updated_at": "2017-08-28T03:55:18.347Z",
+        "quinterest_id": 49067,
+        "formatted_text": "Van Deemter's equation for this process accounts for Eddy-diffusion and mass transfer, and the Kovats index describes the time taken for one form of this process. Another form of this process uses high pressures to improve performance. The extent of the solvent front is used to calculate the retardation factor in the thin-layer form of this technique. Often performed in a silica-packed column, it involves mobile and stationary phases. A common demonstration of it involves using filter paper strips to separate pigments. For 10 points, name this group of techniques for separating mixtures.",
+        "formatted_answer": "chromatography ",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/108539",
+        "type": "tossup",
+        "tournament": {
+          "id": 5,
+          "year": 2012,
+          "name": "2012 Prison Bowl",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:44:13.267Z",
+          "updated_at": "2017-08-27T18:44:13.267Z",
+          "difficulty": "Hard High School",
+          "difficulty_num": 4,
+          "url": "https://www.quizdb.org/api/tournaments/5"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 63876,
+        "text": "Csaba Horvath did pioneering work on the high performance liquid version of this technique. Other variants include gas and thin layer. Affinity beads or an ion exchange resin are common components in the column family of this technique. Commonly a stationary and mobile phase is used. An easy to do version involves putting a strip of paper partially in a solvent like water. Its name comes from its initial use in separating out plant pigments producing different colored bands. For 10 points, name this chemistry technique used in separating mixtures.",
+        "answer": "chromatography",
+        "number": 15,
+        "tournament_id": 108,
+        "category_id": 17,
+        "subcategory_id": null,
+        "round": "29.pdf",
+        "created_at": "2017-08-27T22:41:29.899Z",
+        "updated_at": "2017-08-28T03:53:00.568Z",
+        "quinterest_id": 4114,
+        "formatted_text": "Csaba Horvath did pioneering work on the high performance liquid version of this technique. Other variants include gas and thin layer. Affinity beads or an ion exchange resin are common components in the column family of this technique. Commonly a stationary and mobile phase is used. An easy to do version involves putting a strip of paper partially in a solvent like water. Its name comes from its initial use in separating out plant pigments producing different colored bands. For 10 points, name this chemistry technique used in separating mixtures.",
+        "formatted_answer": "chromatography",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/63876",
+        "type": "tossup",
+        "tournament": {
+          "id": 108,
+          "year": 2011,
+          "name": "2011 HSAPQ VHSL Regular Season",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:47:59.659Z",
+          "updated_at": "2017-09-01T12:37:29.219Z",
+          "difficulty": "Regular High School",
+          "difficulty_num": 3,
+          "url": "https://www.quizdb.org/api/tournaments/108"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+        }
+      },
+      {
+        "id": 65603,
+        "text": "In one form of this process, unwanted silanol interactions can be prevented by using end-capping. Another form of this technique may employ a layer of sand to absorb the shock of pouring in the eluent. The retardation factor is calculated as the ratio of the distances traveled by the analyte and the solvent front in the thin-layer form of this technique. With liquid, gas, and column types, this term describes any technique wherein a mobile phase is passed through a stationary phase, such as a strip of filter paper. For 10 points, name this method of separating mixtures, which may be used to separate the pigments in a colored marker.",
+        "answer": "chromatography [accept reversed-phase High Performance Liquid Chromatography within first sentence]",
+        "number": 7,
+        "tournament_id": 119,
+        "category_id": 17,
+        "subcategory_id": null,
+        "round": "Round05.doc",
+        "created_at": "2017-08-27T22:41:34.657Z",
+        "updated_at": "2017-08-28T03:53:05.271Z",
+        "quinterest_id": 5841,
+        "formatted_text": "In one form of this process, unwanted silanol interactions can be prevented by using end-capping. Another form of this technique may employ a layer of sand to absorb the shock of pouring in the eluent. The retardation factor is calculated as the ratio of the distances traveled by the analyte and the solvent front in the thin-layer form of this technique. With liquid, gas, and column types, this term describes any technique wherein a mobile phase is passed through a stationary phase, such as a strip of filter paper. For 10 points, name this method of separating mixtures, which may be used to separate the pigments in a colored marker.",
+        "formatted_answer": "chromatography [accept reversed-phase High Performance Liquid Chromatography within first sentence]",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/65603",
+        "type": "tossup",
+        "tournament": {
+          "id": 119,
+          "year": 2011,
+          "name": "2011 Prison Bowl",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:47:59.897Z",
+          "updated_at": "2017-08-27T18:47:59.897Z",
+          "difficulty": "Hard High School",
+          "difficulty_num": 4,
+          "url": "https://www.quizdb.org/api/tournaments/119"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+        }
+      },
+      {
+        "id": 69661,
+        "text": "Selection of reagents in this technique is often performed using the Prisma model, and for particularly complex samples multiple gradient development is often employed. In far-eastern blotting, this technique precedes a transfer to a PVDF membrane. Adding ninhydrin to the samples in this technique is a method to detect amines. Samples are commonly applied by using a small capillary tube. Commonly used on a panel of analgesics in introductory chemistry classes, this technique can use an iodine vapor as a developer. The retention factor is equal to the sample distance divided by the solvent front distance in this technique. It is also commonly used to separate the components of plant extracts. For 10 points, name this type of chromatography commonly performed on silica gel plates.",
+        "answer": "Thin-layer chromatography or TLC",
+        "number": 8,
+        "tournament_id": 124,
+        "category_id": 17,
+        "subcategory_id": null,
+        "round": "Round 14 updated.doc",
+        "created_at": "2017-08-27T22:41:45.738Z",
+        "updated_at": "2017-08-28T03:53:15.585Z",
+        "quinterest_id": 9899,
+        "formatted_text": "Selection of reagents in this technique is often performed using the Prisma model, and for particularly complex samples multiple gradient development is often employed. In far-eastern blotting, this technique precedes a transfer to a PVDF membrane. Adding ninhydrin to the samples in this technique is a method to detect amines. Samples are commonly applied by using a small capillary tube. Commonly used on a panel of analgesics in introductory chemistry classes, this technique can use an iodine vapor as a developer. The retention factor is equal to the sample distance divided by the solvent front distance in this technique. It is also commonly used to separate the components of plant extracts. For 10 points, name this type of chromatography commonly performed on silica gel plates.",
+        "formatted_answer": "Thin-layer chromatography or TLC",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/69661",
+        "type": "tossup",
+        "tournament": {
+          "id": 124,
+          "year": 2010,
+          "name": "2010 EFT",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:48:00.311Z",
+          "updated_at": "2017-08-27T18:48:00.311Z",
+          "difficulty": "Easy College",
+          "difficulty_num": 6,
+          "url": "https://www.quizdb.org/api/tournaments/124"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+        }
+      },
+      {
+        "id": 111043,
+        "text": "The Purnell equation analyzes this procedure which can be quantified in terms of theoretical plate number and graphically depicted with van Deemter plots.  The overlap of peaks in this procedure is measured by resolution, and each component has a unique ratio of two concentrations called a partition coefficient.  Differences in charge are exploited in the ion-exchange variant, and adsorbent materials are used in the thin-layer type.  Performed by passing a mobile phase through a stationary phase, For 10 points, name this method of separating mixtures named for its initial application to colored dyes.",
+        "answer": "Chromatography",
+        "number": 7,
+        "tournament_id": 100,
+        "category_id": 17,
+        "subcategory_id": 5,
+        "round": "9",
+        "created_at": "2017-08-27T22:43:45.173Z",
+        "updated_at": "2017-08-28T03:55:27.529Z",
+        "quinterest_id": 51571,
+        "formatted_text": "The Purnell equation analyzes this procedure which can be quantified in terms of theoretical plate number and graphically depicted with van Deemter plots.  The overlap of peaks in this procedure is measured by resolution, and each component has a unique ratio of two concentrations called a partition coefficient.  Differences in charge are exploited in the ion-exchange variant, and adsorbent materials are used in the thin-layer type.  Performed by passing a mobile phase through a stationary phase, For 10 points, name this method of separating mixtures named for its initial application to colored dyes.",
+        "formatted_answer": "Chromatography",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/111043",
+        "type": "tossup",
+        "tournament": {
+          "id": 100,
+          "year": 2010,
+          "name": "2010 Maggie Walker GSAC",
+          "address": "",
+          "quality": null,
+          "type": null,
+          "link": "",
+          "created_at": "2017-08-27T18:44:32.959Z",
+          "updated_at": "2017-09-12T02:35:52.797Z",
+          "difficulty": "Regular High School",
+          "difficulty_num": 3,
+          "url": "https://www.quizdb.org/api/tournaments/100"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 77483,
+        "text": "A silica plate is usually used for the thin-layer type of this, and in the affinity type of this a salt solution is used to separate the desired molecules from ligands. In the gas type of this, helium is usually used to carry a solute through a column. When you put paper in water just below some colored dyes in chem class, you  used, for 10 points, paper as the stationary phase and colored dye as the mobile phase in what technique for separating a mixture.",
+        "answer": "chromatography",
+        "number": 1,
+        "tournament_id": 179,
+        "category_id": 17,
+        "subcategory_id": null,
+        "round": "FKT Dmitriy Chernyak.rtf",
+        "created_at": "2017-08-27T22:42:06.939Z",
+        "updated_at": "2017-08-28T03:53:39.592Z",
+        "quinterest_id": 17862,
+        "formatted_text": "A silica plate is usually used for the thin-layer type of this, and in the affinity type of this a salt solution is used to separate the desired molecules from ligands. In the gas type of this, helium is usually used to carry a solute through a column. When you put paper in water just below some colored dyes in chem class, you  used, for 10 points, paper as the stationary phase and colored dye as the mobile phase in what technique for separating a mixture.",
+        "formatted_answer": "chromatography",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/77483",
+        "type": "tossup",
+        "tournament": {
+          "id": 179,
+          "year": 2009,
+          "name": "2009 Fall Kickoff Tournament",
+          "address": "",
+          "quality": null,
+          "type": null,
+          "link": "",
+          "created_at": "2017-08-27T18:48:06.309Z",
+          "updated_at": "2017-09-12T03:34:25.507Z",
+          "difficulty": "Easy High School",
+          "difficulty_num": 2,
+          "url": "https://www.quizdb.org/api/tournaments/179"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+        }
+      },
+      {
+        "id": 78680,
+        "text": "Simulated moving beds are often used in the size exclusion form of this technique. The \"rule of ten\" governs the ratio between volume injected and volume of the sample in the gas-liquid form of this. Another version of this has dry and wet methods, with the latter often requiring a separating funnel on top of its namesake column. Non-polar components of the analyte travel highest in the paper form of this technique, which characteristically includes a stationary phase and a mobile phase. For 10 points, name this method of separating mixtures whose name comes from the Greek for \"color writing.\"",
+        "answer": "chromatography [accept answers that include the specific types to which the clues allude]",
+        "number": 9,
+        "tournament_id": 134,
+        "category_id": 17,
+        "subcategory_id": null,
+        "round": "11 HFT.doc",
+        "created_at": "2017-08-27T22:42:09.839Z",
+        "updated_at": "2017-08-28T03:53:42.905Z",
+        "quinterest_id": 19152,
+        "formatted_text": "Simulated moving beds are often used in the size exclusion form of this technique. The \"rule of ten\" governs the ratio between volume injected and volume of the sample in the gas-liquid form of this. Another version of this has dry and wet methods, with the latter often requiring a separating funnel on top of its namesake column. Non-polar components of the analyte travel highest in the paper form of this technique, which characteristically includes a stationary phase and a mobile phase. For 10 points, name this method of separating mixtures whose name comes from the Greek for \"color writing.\"",
+        "formatted_answer": "chromatography [accept answers that include the specific types to which the clues allude]",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/78680",
+        "type": "tossup",
+        "tournament": {
+          "id": 134,
+          "year": 2009,
+          "name": "2009 HFT",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:48:00.798Z",
+          "updated_at": "2017-08-27T18:48:00.798Z",
+          "difficulty": "Hard High School",
+          "difficulty_num": 4,
+          "url": "https://www.quizdb.org/api/tournaments/134"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+        }
+      },
+      {
+        "id": 81950,
+        "text": "N-alkenes can be used as a reference in the Kovats index which is useful in this technique, and the van Deemter equation was originally developed to explain the band broadening in this technique. It requires an inert carrier such as argon or carbon dioxide, and it can be followed up by passing the product through a large electric potential and burning them. The injection of the mixture can be done via a split or a splitless injector, and this process can used either a capillary column or a packed column. For 10 points, identify this procedure in which more volatile compounds travel more quickly through the stationary column, a type of chromatography.",
+        "answer": "gas-liquid chromatography",
+        "number": 19,
+        "tournament_id": 169,
+        "category_id": 17,
+        "subcategory_id": null,
+        "round": "MUT II - Minnesota 5.doc",
+        "created_at": "2017-08-27T22:42:18.177Z",
+        "updated_at": "2017-08-28T03:53:53.320Z",
+        "quinterest_id": 22422,
+        "formatted_text": "N-alkenes can be used as a reference in the Kovats index which is useful in this technique, and the van Deemter equation was originally developed to explain the band broadening in this technique. It requires an inert carrier such as argon or carbon dioxide, and it can be followed up by passing the product through a large electric potential and burning them. The injection of the mixture can be done via a split or a splitless injector, and this process can used either a capillary column or a packed column. For 10 points, identify this procedure in which more volatile compounds travel more quickly through the stationary column, a type of chromatography.",
+        "formatted_answer": "gas-liquid chromatography",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/81950",
+        "type": "tossup",
+        "tournament": {
+          "id": 169,
+          "year": 2009,
+          "name": "2009 MUT",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:48:04.351Z",
+          "updated_at": "2017-08-27T18:48:04.351Z",
+          "difficulty": "Easy College",
+          "difficulty_num": 6,
+          "url": "https://www.quizdb.org/api/tournaments/169"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+        }
+      },
+      {
+        "id": 82568,
+        "text": "In one variation of this technique, ligands reversibly react with proteins which may be tagged with polyhistidine residues. That is usually followed by CIPP. Another form of it is performed on glass coated with an adsorbent material like silica gel, which can also line the insides of capillary tubes useful in this technique after vaporizing the gas. In addition to the thin layer and capillary gas types, this can be performed through a stationary phase of charged particles in the ion exchange type. For 10 points, identify this technique separating substances based on their chemical properties, such as the pigments of a plant into its constituent colors in the paper type.",
+        "answer": "chromatography [accept column chromatography until \"glass\"]",
+        "number": 13,
+        "tournament_id": 184,
+        "category_id": 17,
+        "subcategory_id": null,
+        "round": "PACE NSC 2009 - Round 15.doc",
+        "created_at": "2017-08-27T22:42:19.731Z",
+        "updated_at": "2017-08-28T03:53:56.426Z",
+        "quinterest_id": 23040,
+        "formatted_text": "In one variation of this technique, ligands reversibly react with proteins which may be tagged with polyhistidine residues. That is usually followed by CIPP. Another form of it is performed on glass coated with an adsorbent material like silica gel, which can also line the insides of capillary tubes useful in this technique after vaporizing the gas. In addition to the thin layer and capillary gas types, this can be performed through a stationary phase of charged particles in the ion exchange type. For 10 points, identify this technique separating substances based on their chemical properties, such as the pigments of a plant into its constituent colors in the paper type.",
+        "formatted_answer": "chromatography [accept column chromatography until \"glass\"]",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/82568",
+        "type": "tossup",
+        "tournament": {
+          "id": 184,
+          "year": 2009,
+          "name": "2009 PACE NSC",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:48:08.466Z",
+          "updated_at": "2017-08-27T18:48:08.466Z",
+          "difficulty": "National High School",
+          "difficulty_num": 5,
+          "url": "https://www.quizdb.org/api/tournaments/184"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+        }
+      },
+      {
+        "id": 84763,
+        "text": "Chitin may be used for one form of this, and another, when followed by a transfer to polyvinylidene fluoride and mass spectrometry, is referred to as far-Eastern blotting. The fast protein form often relies on histidine tags, and the size exclusion type is often used to calculate the polydispersity of a synthesized polymer. Another kind uses either packed or capillary columns for a stationary phase, through which a gaseous analyte flows. FTP, name this analytical technique whose best-known variety is the paper form often used to separate the pigments of a pen's ink.",
+        "answer": "chromatography",
+        "number": 12,
+        "tournament_id": 145,
+        "category_id": 17,
+        "subcategory_id": null,
+        "round": "HFT Round 02.doc",
+        "created_at": "2017-08-27T22:42:25.366Z",
+        "updated_at": "2017-08-28T03:54:04.065Z",
+        "quinterest_id": 25235,
+        "formatted_text": "Chitin may be used for one form of this, and another, when followed by a transfer to polyvinylidene fluoride and mass spectrometry, is referred to as far-Eastern blotting. The fast protein form often relies on histidine tags, and the size exclusion type is often used to calculate the polydispersity of a synthesized polymer. Another kind uses either packed or capillary columns for a stationary phase, through which a gaseous analyte flows. FTP, name this analytical technique whose best-known variety is the paper form often used to separate the pigments of a pen's ink.",
+        "formatted_answer": "chromatography",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/84763",
+        "type": "tossup",
+        "tournament": {
+          "id": 145,
+          "year": 2008,
+          "name": "2008 HFT",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:48:02.079Z",
+          "updated_at": "2017-08-27T18:48:02.079Z",
+          "difficulty": "Hard High School",
+          "difficulty_num": 4,
+          "url": "https://www.quizdb.org/api/tournaments/145"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+        }
+      },
+      {
+        "id": 85188,
+        "text": "A Van Deemter plot is used to determine the minimum theoretical plate height necessary to perform this procedure. One type of this procedure often uses agarose as an \"affinity matrix\", while proteins are separated by charge in the \"ion exchange\" variety of it. Forensic analysis of gel pens is one application of the \"high-performance-liquid\" type of this procedure, which also comes in thin-layer, gas, and paper varieties. For 10 points, name this lab technique in which a mobile phase passes through a stationary phase, from the Greek for \"color writing.\"",
+        "answer": "chromatography [accept column chromatography before \"affinity\"]",
+        "number": 17,
+        "tournament_id": 178,
+        "category_id": 17,
+        "subcategory_id": null,
+        "round": "Round_06_HSAPQ4Q.pdf",
+        "created_at": "2017-08-27T22:42:26.414Z",
+        "updated_at": "2017-08-28T03:54:05.132Z",
+        "quinterest_id": 25660,
+        "formatted_text": "A Van Deemter plot is used to determine the minimum theoretical plate height necessary to perform this procedure. One type of this procedure often uses agarose as an \"affinity matrix\", while proteins are separated by charge in the \"ion exchange\" variety of it. Forensic analysis of gel pens is one application of the \"high-performance-liquid\" type of this procedure, which also comes in thin-layer, gas, and paper varieties. For 10 points, name this lab technique in which a mobile phase passes through a stationary phase, from the Greek for \"color writing.\"",
+        "formatted_answer": "chromatography [accept column chromatography before \"affinity\"]",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/85188",
+        "type": "tossup",
+        "tournament": {
+          "id": 178,
+          "year": 2008,
+          "name": "2008 HSAPQ 4Q 1",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:48:05.749Z",
+          "updated_at": "2017-08-27T19:02:41.222Z",
+          "difficulty": "Regular High School",
+          "difficulty_num": 3,
+          "url": "https://www.quizdb.org/api/tournaments/178"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+        }
+      },
+      {
+        "id": 85747,
+        "text": "One problem associated with this technique is known as tailing, but can be avoided by increasing the polarity of the solvent. The flash type of this technique uses air pressure, and the most common variety usually begins with spotting and is used to calculate the retardation factor, or the R-sub-f value. In general, this technique uses two phases, one of which is stationary and the other moving, in order to separate components of a mixture. For 10 points, name this laboratory technique, types of which include column and thin-layer.",
+        "answer": "chromatography",
+        "number": 5,
+        "tournament_id": 164,
+        "category_id": 17,
+        "subcategory_id": null,
+        "round": "Round_14_HSAPQACF1.pdf",
+        "created_at": "2017-08-27T22:42:27.790Z",
+        "updated_at": "2017-08-28T03:54:06.589Z",
+        "quinterest_id": 26219,
+        "formatted_text": "One problem associated with this technique is known as tailing, but can be avoided by increasing the polarity of the solvent. The flash type of this technique uses air pressure, and the most common variety usually begins with spotting and is used to calculate the retardation factor, or the R-sub-f value. In general, this technique uses two phases, one of which is stationary and the other moving, in order to separate components of a mixture. For 10 points, name this laboratory technique, types of which include column and thin-layer.",
+        "formatted_answer": "chromatography",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/85747",
+        "type": "tossup",
+        "tournament": {
+          "id": 164,
+          "year": 2008,
+          "name": "2008 HSAPQ ACF 1",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:48:04.189Z",
+          "updated_at": "2017-08-27T19:02:41.225Z",
+          "difficulty": "Regular High School",
+          "difficulty_num": 3,
+          "url": "https://www.quizdb.org/api/tournaments/164"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+        }
+      },
+      {
+        "id": 86336,
+        "text": "B over u is equal to the longitudinal diffusion of particles undergoing one type of this process in the hyperbolic Van Deemter equation. One version uses silica gel and chloroform and is an a modification of the variety invented by Mikhail Tsvet known as the (*) partition type, to which was later added a glass plate. In addition to the ion-exchange and high-performance liquid types employed today, other common varieties include the paper and thin-layer varieties. For 10 points, name this method for separating solutes into mobile and stationary phases.",
+        "answer": "chromatography",
+        "number": 23,
+        "tournament_id": 176,
+        "category_id": 17,
+        "subcategory_id": null,
+        "round": "Round_12_HSAPQACF3.pdf",
+        "created_at": "2017-08-27T22:42:29.357Z",
+        "updated_at": "2017-09-01T07:06:57.787Z",
+        "quinterest_id": 26808,
+        "formatted_text": "<b>B over u is equal to the longitudinal diffusion of particles undergoing one type of this process in the hyperbolic Van Deemter equation. One version uses silica gel and chloroform and is an a modification of the variety invented by Mikhail Tsvet known as the (*)</b>) partition type, to which was later added a glass plate. In addition to the ion-exchange and high-performance liquid types employed today, other common varieties include the paper and thin-layer varieties. For 10 points, name this method for separating solutes into mobile and stationary phases.",
+        "formatted_answer": "chromatography",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/86336",
+        "type": "tossup",
+        "tournament": {
+          "id": 176,
+          "year": 2008,
+          "name": "2008 HSAPQ ACF 3",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:48:05.559Z",
+          "updated_at": "2017-08-27T19:02:41.230Z",
+          "difficulty": "Regular High School",
+          "difficulty_num": 3,
+          "url": "https://www.quizdb.org/api/tournaments/176"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+        }
+      },
+      {
+        "id": 86501,
+        "text": "One type of this process utilizes ligand binding specificity of proteins and is known as the affinity type, while another type uses porous beads to differentiate volumes of polymers, and is the size exclusion type. Another type which relies on the calculation of Rf values is the \"thin layer\" type that uses a polar solvent as the mobile phase. Also commonly performed using a silica gel matrix as a stationary phase, for 10 points, identify this process which sometimes separates components of a mixture based on their color.",
+        "answer": "chromatography",
+        "number": 3,
+        "tournament_id": 115,
+        "category_id": 17,
+        "subcategory_id": null,
+        "round": "Round_06_HSAPQ_NSC1.pdf",
+        "created_at": "2017-08-27T22:42:29.742Z",
+        "updated_at": "2017-08-28T03:54:08.593Z",
+        "quinterest_id": 26973,
+        "formatted_text": "One type of this process utilizes ligand binding specificity of proteins and is known as the affinity type, while another type uses porous beads to differentiate volumes of polymers, and is the size exclusion type. Another type which relies on the calculation of Rf values is the \"thin layer\" type that uses a polar solvent as the mobile phase. Also commonly performed using a silica gel matrix as a stationary phase, for 10 points, identify this process which sometimes separates components of a mixture based on their color.",
+        "formatted_answer": "chromatography",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/86501",
+        "type": "tossup",
+        "tournament": {
+          "id": 115,
+          "year": 2008,
+          "name": "2008 HSAPQ NSC 1",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:47:59.679Z",
+          "updated_at": "2017-08-27T19:02:41.232Z",
+          "difficulty": "National High School",
+          "difficulty_num": 5,
+          "url": "https://www.quizdb.org/api/tournaments/115"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+        }
+      },
+      {
+        "id": 86733,
+        "text": "The optimal velocity for running this technique can be found using the van Deemter equation, and certain values for it can be found using the Kovats index. One useful value for this technique, the retardation factor, can be found by taking the ratio of two migratory distances. In the \"gas\" type of it, an inert gas like helium is often used as the mobile phase, which along with the stationary phase is used in this technique to separate components of a mixture. For 10 points, name this technique with column and thin-layer varieties.",
+        "answer": "chromatography",
+        "number": 1,
+        "tournament_id": 165,
+        "category_id": 17,
+        "subcategory_id": null,
+        "round": "Round_02_HSAPQ_NSC2.pdf",
+        "created_at": "2017-08-27T22:42:30.344Z",
+        "updated_at": "2017-08-28T03:54:09.251Z",
+        "quinterest_id": 27205,
+        "formatted_text": "The optimal velocity for running this technique can be found using the van Deemter equation, and certain values for it can be found using the Kovats index. One useful value for this technique, the retardation factor, can be found by taking the ratio of two migratory distances. In the \"gas\" type of it, an inert gas like helium is often used as the mobile phase, which along with the stationary phase is used in this technique to separate components of a mixture. For 10 points, name this technique with column and thin-layer varieties.",
+        "formatted_answer": "chromatography",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/86733",
+        "type": "tossup",
+        "tournament": {
+          "id": 165,
+          "year": 2008,
+          "name": "2008 HSAPQ NSC 2",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:48:04.190Z",
+          "updated_at": "2017-08-27T19:02:41.234Z",
+          "difficulty": "National High School",
+          "difficulty_num": 5,
+          "url": "https://www.quizdb.org/api/tournaments/165"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+        }
+      },
+      {
+        "id": 87170,
+        "text": "In one variety of this process, proteins are tagged with polyhistidine and glutathione-s-transferase. Eddy diffusion and mass transfer are related in Van Deemter's equation for this technique.  Centrifuges are often used in countercurrent varieties of it, and size exclusion and ion exchange are among the high performance liquid type of this technique. Kovat's index of retention times is used to compare relative elution times in one type. For 10 points, name this technique which comes in column, planar, gas, and  liquid varieties and is used to separate mixtures of stationary and mobile phases.",
+        "answer": "Chromatography (take column chromatography until \"Centrifuges\")",
+        "number": 3,
+        "tournament_id": 192,
+        "category_id": 17,
+        "subcategory_id": null,
+        "round": "NNT_Packet_6.doc",
+        "created_at": "2017-08-27T22:42:31.395Z",
+        "updated_at": "2017-08-28T03:54:10.409Z",
+        "quinterest_id": 27642,
+        "formatted_text": "In one variety of this process, proteins are tagged with polyhistidine and glutathione-s-transferase. Eddy diffusion and mass transfer are related in Van Deemter's equation for this technique.  Centrifuges are often used in countercurrent varieties of it, and size exclusion and ion exchange are among the high performance liquid type of this technique. Kovat's index of retention times is used to compare relative elution times in one type. For 10 points, name this technique which comes in column, planar, gas, and  liquid varieties and is used to separate mixtures of stationary and mobile phases.",
+        "formatted_answer": "Chromatography (take column chromatography until \"Centrifuges\")",
+        "wikipedia_url": null,
+        "url": "https://www.quizdb.org/api/tossups/87170",
+        "type": "tossup",
+        "tournament": {
+          "id": 192,
+          "year": 2008,
+          "name": "2008 NNT",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:48:13.728Z",
+          "updated_at": "2017-09-06T06:17:16.429Z",
+          "difficulty": "Regular High School",
+          "difficulty_num": 3,
+          "url": "https://www.quizdb.org/api/tournaments/192"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+        }
+      }
+    ],
+    "num_bonuses_found": 11,
+    "num_bonuses_shown": 11,
+    "bonuses": [
+      {
+        "id": 20298,
+        "number": 11,
+        "round": "6",
+        "category_id": 17,
+        "subcategory_id": 5,
+        "quinterest_id": null,
+        "tournament_id": 349,
+        "leadin": "Bonus: Enantiomers can be separated in the chiral form of this technique. For ten points each:",
+        "created_at": "2017-10-10T03:08:17.529Z",
+        "updated_at": "2017-10-10T03:08:17.529Z",
+        "formatted_leadin": "Bonus: Enantiomers can be separated in the chiral form of this technique. For ten points each:",
+        "texts": [
+          "Name this process that relies on a mixture’s components having different attractions to different things, causing the components to move at different rates, which is a common way of separating mixtures.",
+          "This value is calculated in paper chromatography, and is the ratio of the distance a solute travels over the ratio a solvent travels along the paper.",
+          "Chromatography relies on these two phases, one of which is a solid, while the other is a liquid or gas. If a component of a mixture has a high affinity for the solid, it moves at a slower rate while if it is more attracted to the fluid it travels faster. Name both."
+        ],
+        "answers": [
+          "chromatography",
+          "Retention factor [accept Rf value]",
+          "mobile and stationary phases [prompt on partial] &lt;AG&gt;"
+        ],
+        "formatted_texts": [
+          "Name this process that relies on a mixture’s components having different attractions to different things, causing the components to move at different rates, which is a common way of separating mixtures.",
+          "This value is calculated in paper chromatography, and is the ratio of the distance a solute travels over the ratio a solvent travels along the paper.",
+          "Chromatography relies on these two phases, one of which is a solid, while the other is a liquid or gas. If a component of a mixture has a high affinity for the solid, it moves at a slower rate while if it is more attracted to the fluid it travels faster. Name both."
+        ],
+        "formatted_answers": [
+          "<strong><u>chromatography</u></strong>",
+          "<strong><u>R</u></strong>etention <strong><u>f</u></strong>actor [accept <strong><u>Rf</u></strong> value]",
+          "<strong><u>mobile</u></strong> and <strong><u>stationary</u></strong> phases [prompt on partial] &lt;AG&gt;"
+        ],
+        "wikipedia_urls": [
+          null,
+          null,
+          null
+        ],
+        "url": "https://www.quizdb.org/api/bonus/20298",
+        "type": "bonus",
+        "tournament": {
+          "id": 349,
+          "year": 2017,
+          "name": "2017 LIST (Ladue Invitational Spring Tournament) VI",
+          "address": "",
+          "quality": "okay",
+          "type": null,
+          "link": "",
+          "created_at": "2017-10-10T00:52:55.513Z",
+          "updated_at": "2017-10-14T18:00:44.399Z",
+          "difficulty": "Regular High School",
+          "difficulty_num": 3,
+          "url": "https://www.quizdb.org/api/tournaments/349"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 30479,
+        "number": 5,
+        "round": "4",
+        "category_id": 17,
+        "subcategory_id": 5,
+        "quinterest_id": null,
+        "tournament_id": 99,
+        "leadin": "Answer some questions about unusual uses of nickel, for 10 points each.",
+        "created_at": "2018-05-19T21:30:27.410Z",
+        "updated_at": "2018-05-19T21:30:27.410Z",
+        "formatted_leadin": "Answer some questions about unusual uses of nickel, for 10 points each.",
+        "texts": [
+          "Nickel tanks are used to transport this element because it forms a passivation layer on the tank's inside lining. It is the most electronegative element of the periodic table.",
+          "Nickel-63 is used to detect molecules in this type of chromatography, which vaporizes the sample before separation. It is typically coupled with mass spectrometry.",
+          "This nickel-dependent enzyme was crystallized by James Sumner to demonstrate that enzymatic function was performed by proteins. This enzyme hydrolyzes its namesake molecule into carbon dioxide and ammonia."
+        ],
+        "answers": [
+          "fluorine [or F]",
+          "gas chromatography [or GC]",
+          "urease &lt;Prieto&gt;"
+        ],
+        "formatted_texts": [
+          "Nickel tanks are used to transport this element because it forms a passivation layer on the tank's inside lining. It is the most electronegative element of the periodic table.",
+          "Nickel-63 is used to detect molecules in this type of chromatography, which vaporizes the sample before separation. It is typically coupled with mass spectrometry.",
+          "This nickel-dependent enzyme was crystallized by James Sumner to demonstrate that enzymatic function was performed by proteins. This enzyme hydrolyzes its namesake molecule into carbon dioxide and ammonia."
+        ],
+        "formatted_answers": [
+          "<strong>fluorine</strong> [or <strong>F</strong>]",
+          "<strong>gas</strong> chromatography [or <strong>GC</strong>]",
+          "<strong>urease</strong> &lt;Prieto&gt;"
+        ],
+        "wikipedia_urls": [
+          null,
+          null,
+          null
+        ],
+        "url": "https://www.quizdb.org/api/bonus/30479",
+        "type": "bonus",
+        "tournament": {
+          "id": 99,
+          "year": 2016,
+          "name": "2016 PACE NSC",
+          "address": "",
+          "quality": "amazing",
+          "type": null,
+          "link": "",
+          "created_at": "2017-08-27T18:44:32.728Z",
+          "updated_at": "2017-09-12T20:43:11.139Z",
+          "difficulty": "National High School",
+          "difficulty_num": 5,
+          "url": "https://www.quizdb.org/api/tournaments/99"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 34575,
+        "number": 11,
+        "round": "02",
+        "category_id": 17,
+        "subcategory_id": 5,
+        "quinterest_id": null,
+        "tournament_id": 343,
+        "leadin": "Column, thin-layer, flash, gas, and high-performance liquid are all varieties of this technique for separating chemicals. For 10 points each:",
+        "created_at": "2018-09-09T18:54:50.980Z",
+        "updated_at": "2018-09-09T18:54:50.980Z",
+        "formatted_leadin": "Column, thin-layer, flash, gas, and high-performance liquid are all varieties of this technique for separating chemicals. For 10 points each:",
+        "texts": [
+          "Name this broad range of physical methods used to separate and analyze complex mixtures, whose name comes from the Greek word for “color.”",
+          "This stationary phase is used primarily as a teaching tool in simple experiments, such as aiming to separate dyes in pen ink. Instead of this substance, thin-layer chromatography uses an absorbent like silica gel.",
+          "This value, which can be described as the \"speed\" of an analyte through the chromatography, is the distance a compound moves over the distance the solvent moves."
+        ],
+        "answers": [
+          "chromatography",
+          "paper [or cellulose]",
+          "retention factor [or rf] &lt;Alex Harmata/ed. David Dennis&gt;"
+        ],
+        "formatted_texts": [
+          "Name this broad range of physical methods used to separate and analyze complex mixtures, whose name comes from the Greek word for “color.”",
+          "This stationary phase is used primarily as a teaching tool in simple experiments, such as aiming to separate dyes in pen ink. Instead of this substance, thin-layer chromatography uses an absorbent like silica gel.",
+          "This value, which can be described as the \"speed\" of an analyte through the chromatography, is the distance a compound moves over the distance the solvent moves."
+        ],
+        "formatted_answers": [
+          "<strong>chromatography</strong>",
+          "<strong>paper</strong> [or <strong>cellulose</strong>]",
+          "<strong>retention factor</strong> [or <strong>rf</strong>] &lt;Alex Harmata/ed. David Dennis&gt;"
+        ],
+        "wikipedia_urls": [
+          null,
+          null,
+          null
+        ],
+        "url": "https://www.quizdb.org/api/bonus/34575",
+        "type": "bonus",
+        "tournament": {
+          "id": 343,
+          "year": 2016,
+          "name": "2016 WHAQ I",
+          "address": "",
+          "quality": "okay",
+          "type": null,
+          "link": "",
+          "created_at": "2017-09-12T03:35:54.392Z",
+          "updated_at": "2018-09-09T18:53:11.240Z",
+          "difficulty": "Easy High School",
+          "difficulty_num": 2,
+          "url": "https://www.quizdb.org/api/tournaments/343"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 26387,
+        "number": 20,
+        "round": "VCU B and Cambridge A",
+        "category_id": 17,
+        "subcategory_id": 5,
+        "quinterest_id": null,
+        "tournament_id": 245,
+        "leadin": "One form of this technique uses polyhistidine affinity tags to isolate proteins. For 10 points each:",
+        "created_at": "2017-12-21T02:32:13.002Z",
+        "updated_at": "2017-12-21T02:32:13.002Z",
+        "formatted_leadin": "One form of this technique uses polyhistidine affinity tags to isolate proteins. For 10 points each:",
+        "texts": [
+          "Name this general class of separation techniques which move a mobile phase through a stationary phase. A common demonstration uses this technique to separate the dyes of pen ink.",
+          "The typical stationary phase used in column chromatography consists of beads of this substance, which also coats the plates used in TLC. This substance is also commonly used as a desiccant.",
+          "A form of chromatography which isolates molecules by this quality uses a gel or a porous resin. That method is often named for its exclusion of this quantity."
+        ],
+        "answers": [
+          "chromatography [accept specific types of chromatography]",
+          "silica gel [or silicon dioxide or SiO2]",
+          "size [or size-exclusion chromatography; or volume; prompt on “SEC”]"
+        ],
+        "formatted_texts": [
+          "Name this general class of separation techniques which move a mobile phase through a stationary phase. A common demonstration uses this technique to separate the dyes of pen ink.",
+          "The typical stationary phase used in column chromatography consists of beads of this substance, which also coats the plates used in TLC. This substance is also commonly used as a desiccant.",
+          "A form of chromatography which isolates molecules by this quality uses a gel or a porous resin. That method is often named for its exclusion of this quantity."
+        ],
+        "formatted_answers": [
+          "<strong><u>chromatography</u></strong> [accept specific types of chromatography]",
+          "<strong><u>silica</u></strong> gel [or <strong><u>silicon dioxide</u></strong> or <strong><u>SiO</u></strong><strong><u>2</u></strong>]",
+          "<strong><u>size</u></strong> [or <strong><u>size-exclusion</u></strong> chromatography; or <strong><u>volume</u></strong>; prompt on “SEC”]"
+        ],
+        "wikipedia_urls": [
+          "",
+          "",
+          ""
+        ],
+        "url": "https://www.quizdb.org/api/bonus/26387",
+        "type": "bonus",
+        "tournament": {
+          "id": 245,
+          "year": 2015,
+          "name": "2015 ACF Fall",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:48:30.325Z",
+          "updated_at": "2017-08-27T18:48:30.325Z",
+          "difficulty": "Easy College",
+          "difficulty_num": 6,
+          "url": "https://www.quizdb.org/api/tournaments/245"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 31358,
+        "number": 7,
+        "round": "6",
+        "category_id": 17,
+        "subcategory_id": 5,
+        "quinterest_id": null,
+        "tournament_id": 352,
+        "leadin": "Bonus: A high value of it means that a substance spends most of its time in the mobile phase. For 10 points each:",
+        "created_at": "2018-08-02T04:28:28.353Z",
+        "updated_at": "2018-08-02T04:28:28.353Z",
+        "formatted_leadin": "Bonus: A high value of it means that a substance spends most of its time in the mobile phase. For 10 points each:",
+        "texts": [
+          "Name this quantity, which is calculated as the distance traveled by the molecule of interest divided by the distance traveled by the mobile phase in the “paper” form of a certain technique.",
+          "The aforementioned Rf value is calculated after performing the paper type of this chemistry technique, in which substances are separated according to whether they have a higher affinity for the mobile or stationary phase.",
+          "A common solvent used as the mobile phase in paper chromatography is this simplest ketone, which is also used in nail polish remover."
+        ],
+        "answers": [
+          "Rf value [or retention factor; or retardation factor]",
+          "chromatography",
+          "acetone [or propanone] &lt;BZ&gt;"
+        ],
+        "formatted_texts": [
+          "Name this quantity, which is calculated as the distance traveled by the molecule of interest divided by the distance traveled by the mobile phase in the “paper” form of a certain technique.",
+          "The aforementioned Rf value is calculated after performing the paper type of this chemistry technique, in which substances are separated according to whether they have a higher affinity for the mobile or stationary phase.",
+          "A common solvent used as the mobile phase in paper chromatography is this simplest ketone, which is also used in nail polish remover."
+        ],
+        "formatted_answers": [
+          "<strong><u>Rf</u></strong> value [or <strong><u>retention</u></strong> factor; or <strong><u>retardation</u></strong> factor]",
+          "<strong><u>chromatography</u></strong>",
+          "<strong><u>acetone</u></strong> [or <strong><u>propanone</u></strong>] &lt;BZ&gt;"
+        ],
+        "wikipedia_urls": [
+          null,
+          null,
+          null
+        ],
+        "url": "https://www.quizdb.org/api/bonus/31358",
+        "type": "bonus",
+        "tournament": {
+          "id": 352,
+          "year": 2015,
+          "name": "2015 BASK",
+          "address": "",
+          "quality": null,
+          "type": null,
+          "link": "http://www.quizbowlpackets.com/1735/",
+          "created_at": "2017-10-12T17:43:50.423Z",
+          "updated_at": "2017-10-12T17:43:50.423Z",
+          "difficulty": "Regular High School",
+          "difficulty_num": 3,
+          "url": "https://www.quizdb.org/api/tournaments/352"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 21393,
+        "number": 4,
+        "round": "12",
+        "category_id": 17,
+        "subcategory_id": 5,
+        "quinterest_id": null,
+        "tournament_id": 351,
+        "leadin": "In the preparatory thin layer type of this technique, one must use a spotter to transfer an entire sample to a silica-coated plate of glass, one drop at a time. For 10 points each:",
+        "created_at": "2017-10-10T23:24:28.261Z",
+        "updated_at": "2017-10-10T23:24:28.261Z",
+        "formatted_leadin": "In the preparatory thin layer type of this technique, one must use a spotter to transfer an entire sample to a silica-coated plate of glass, one drop at a time. For 10 points each:",
+        "texts": [
+          "Name this lab procedure used to separate mixtures. The retention factor Rf [“R”-“F”] compares the distances moved by the substance and the solvent in this process.",
+          "Compounds that have this property will move slower on a thin layer plate than compounds lacking it. The degree to which a molecule has this property is measured in Debyes [“DEB-yays”].",
+          "How far a substance travels on the plate is often visualized using this type of electromagnetic radiation, which is more energetic than the shortest wavelength of visible light, thus giving this type of radiation its name."
+        ],
+        "answers": [
+          "chromatography",
+          "polarity (accept word forms; prompt on “dipole” or “dipole moment”)",
+          "ultraviolet light"
+        ],
+        "formatted_texts": [
+          "Name this lab procedure used to separate mixtures. The retention factor Rf [“R”-“F”] compares the distances moved by the substance and the solvent in this process.",
+          "Compounds that have this property will move slower on a thin layer plate than compounds lacking it. The degree to which a molecule has this property is measured in Debyes [“DEB-yays”].",
+          "How far a substance travels on the plate is often visualized using this type of electromagnetic radiation, which is more energetic than the shortest wavelength of visible light, thus giving this type of radiation its name."
+        ],
+        "formatted_answers": [
+          "<strong><u>chromatography</u></strong>",
+          "<strong><u>polar</u></strong>ity (accept word forms; prompt on “dipole” or “dipole moment”)",
+          "<strong><u>u</u></strong>ltra<strong><u>v</u></strong>iolet light"
+        ],
+        "wikipedia_urls": [
+          null,
+          null,
+          null
+        ],
+        "url": "https://www.quizdb.org/api/bonus/21393",
+        "type": "bonus",
+        "tournament": {
+          "id": 351,
+          "year": 2015,
+          "name": "2015 HFT X",
+          "address": "",
+          "quality": "amazing",
+          "type": null,
+          "link": "",
+          "created_at": "2017-10-10T23:19:35.271Z",
+          "updated_at": "2017-10-10T23:19:35.271Z",
+          "difficulty": "Hard High School",
+          "difficulty_num": 4,
+          "url": "https://www.quizdb.org/api/tournaments/351"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 17622,
+        "number": 20,
+        "round": "13",
+        "category_id": 17,
+        "subcategory_id": 5,
+        "quinterest_id": 17636,
+        "tournament_id": 92,
+        "leadin": "Dextrose, a form of glucose, gets its name because it does this. For 10 points each:",
+        "created_at": "2017-08-28T03:50:59.512Z",
+        "updated_at": "2017-08-28T03:50:59.512Z",
+        "formatted_leadin": "Dextrose, a form of glucose, gets its name because it does this. For 10 points each:",
+        "texts": [
+          "Name this behavior demonstrated by compounds prefixed with the letters D and L. Polarimetry, a method of quantifying this behavior, can be used to assess the purity of compounds.",
+          "The purity of these compounds can be measured using a polarimeter. These compounds must have a tetrahedral carbon with four different substituents, and mixtures of them are called racemates.",
+          "Separation of enantiomers often requires the chiral form of this technique. The various forms of this process separate components based on how quickly they move through a stationary phase."
+        ],
+        "answers": [
+          "optical rotation [or optical activity; or rotating the plane of polarization of plane-polarized light; or rotating light; or obvious equivalents]",
+          "enantiomers [or chiral molecules; prompt on isomers; prompt on stereoisomers]",
+          "chiral chromatography"
+        ],
+        "formatted_texts": [
+          "Name this behavior demonstrated by compounds prefixed with the letters D and L. Polarimetry, a method of quantifying this behavior, can be used to assess the purity of compounds.",
+          "The purity of these compounds can be measured using a polarimeter. These compounds must have a tetrahedral carbon with four different substituents, and mixtures of them are called racemates.",
+          "Separation of enantiomers often requires the chiral form of this technique. The various forms of this process separate components based on how quickly they move through a stationary phase."
+        ],
+        "formatted_answers": [
+          "optical rotation [or optical activity; or rotating the plane of polarization of plane-polarized light; or rotating light; or obvious equivalents]",
+          "enantiomers [or chiral molecules; prompt on isomers; prompt on stereoisomers]",
+          "chiral chromatography"
+        ],
+        "wikipedia_urls": [
+          null,
+          null,
+          null
+        ],
+        "url": "https://www.quizdb.org/api/bonus/17622",
+        "type": "bonus",
+        "tournament": {
+          "id": 92,
+          "year": 2015,
+          "name": "2015 PACE NSC",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:44:30.898Z",
+          "updated_at": "2017-08-27T18:44:30.898Z",
+          "difficulty": "National High School",
+          "difficulty_num": 5,
+          "url": "https://www.quizdb.org/api/tournaments/92"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 7198,
+        "number": 15,
+        "round": "Ohio State Distance + Louisville A + Tulane A + Clemson A",
+        "category_id": 17,
+        "subcategory_id": 5,
+        "quinterest_id": 7212,
+        "tournament_id": 33,
+        "leadin": "This substance was the only organic starting chemical in the Miller-Urey experiment. For 10 points each: ",
+        "created_at": "2017-08-28T03:49:22.976Z",
+        "updated_at": "2017-08-28T03:49:22.976Z",
+        "formatted_leadin": "This substance was the only organic starting chemical in the Miller-Urey experiment. For 10 points each: ",
+        "texts": [
+          "Name this simplest hydrocarbon, which consists of four hydrogen atoms bonded to a central carbon atom. ",
+          "The amino acids generated in the Miller-Urey experiment were thought to be produced via this reaction. In this reaction, an imine is attacked by a cyanide ion to form a nitrile, which is subsequently hydrolyzed. ",
+          "In the original experiment, the \"paper\" type of this laboratory technique was used to detect amino acids. More modern instances of the experiment have detected amino acids like isovaline using the \"liquid\" type of this technique. "
+        ],
+        "answers": [
+          "methane [prompt on CH4] ",
+          "Strecker synthesis ",
+          "chromatography [accept paper chromatography or liquid chromatography] "
+        ],
+        "formatted_texts": [
+          "Name this simplest hydrocarbon, which consists of four hydrogen atoms bonded to a central carbon atom. ",
+          "The amino acids generated in the Miller-Urey experiment were thought to be produced via this reaction. In this reaction, an imine is attacked by a cyanide ion to form a nitrile, which is subsequently hydrolyzed. ",
+          "In the original experiment, the \"paper\" type of this laboratory technique was used to detect amino acids. More modern instances of the experiment have detected amino acids like isovaline using the \"liquid\" type of this technique. "
+        ],
+        "formatted_answers": [
+          "methane [prompt on CH4] ",
+          "Strecker synthesis ",
+          "chromatography [accept paper chromatography or liquid chromatography] "
+        ],
+        "wikipedia_urls": [
+          null,
+          null,
+          null
+        ],
+        "url": "https://www.quizdb.org/api/bonus/7198",
+        "type": "bonus",
+        "tournament": {
+          "id": 33,
+          "year": 2014,
+          "name": "2014 ACF Fall",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:44:17.465Z",
+          "updated_at": "2017-08-27T18:44:17.465Z",
+          "difficulty": "Easy College",
+          "difficulty_num": 6,
+          "url": "https://www.quizdb.org/api/tournaments/33"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 11594,
+        "number": 10,
+        "round": "24",
+        "category_id": 17,
+        "subcategory_id": 5,
+        "quinterest_id": 11608,
+        "tournament_id": 19,
+        "leadin": "Substances are classified by their retention factors when undergoing this procedure. For 10 points each:",
+        "created_at": "2017-08-28T03:50:04.254Z",
+        "updated_at": "2017-08-28T03:50:04.254Z",
+        "formatted_leadin": "Substances are classified by their retention factors when undergoing this procedure. For 10 points each:",
+        "texts": [
+          "Name this separation technique which uses a mobile phase and a stationary phase. Gas, liquid, and thin-layer are three common types of it.",
+          "After a sample has completely adsorbed to the stationary phase, this procedure is used to remove the remaining solute. In it, a solvent with higher affinity to the stationary phase is added, flushing out the remaining analytes.",
+          "In ion-exchange chromatography of proteins, elutions often make use of this effect, in which the solubility of a protein decreases as small ions are added to the solution."
+        ],
+        "answers": [
+          "chromatography [or word forms]",
+          "elution [do not accept or prompt on \"dilution\"]",
+          "salting out [do not accept or prompt on \"salting in\"]"
+        ],
+        "formatted_texts": [
+          "Name this separation technique which uses a mobile phase and a stationary phase. Gas, liquid, and thin-layer are three common types of it.",
+          "After a sample has completely adsorbed to the stationary phase, this procedure is used to remove the remaining solute. In it, a solvent with higher affinity to the stationary phase is added, flushing out the remaining analytes.",
+          "In ion-exchange chromatography of proteins, elutions often make use of this effect, in which the solubility of a protein decreases as small ions are added to the solution."
+        ],
+        "formatted_answers": [
+          "chromatography [or word forms]",
+          "elution [do not accept or prompt on \"dilution\"]",
+          "salting out [do not accept or prompt on \"salting in\"]"
+        ],
+        "wikipedia_urls": [
+          null,
+          null,
+          null
+        ],
+        "url": "https://www.quizdb.org/api/bonus/11594",
+        "type": "bonus",
+        "tournament": {
+          "id": 19,
+          "year": 2014,
+          "name": "2014 PACE NSC",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:44:15.124Z",
+          "updated_at": "2017-08-27T18:44:15.124Z",
+          "difficulty": "National High School",
+          "difficulty_num": 5,
+          "url": "https://www.quizdb.org/api/tournaments/19"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 1884,
+        "number": 14,
+        "round": "2",
+        "category_id": 17,
+        "subcategory_id": 5,
+        "quinterest_id": 2251,
+        "tournament_id": 18,
+        "leadin": "Answer some questions about electric charges in chemistry, for 10 points each.",
+        "created_at": "2017-08-28T03:48:25.042Z",
+        "updated_at": "2017-08-28T03:48:25.042Z",
+        "formatted_leadin": "Answer some questions about electric charges in chemistry, for 10 points each.",
+        "texts": [
+          "What is the term that refers to unequal sharing of electrons between two atoms in a molecule?",
+          "Polar bonds that can result in hydrogen bonding are what type of bond in which electrons are shared between the two atoms?",
+          "What class of analytical techniques uses differences in polarity to separate molecules based on retention time? Examples include gas, liquid, and thin-layer types."
+        ],
+        "answers": [
+          "polarity [accept word forms]",
+          "covalent bonds",
+          "chromatography [accept word forms]"
+        ],
+        "formatted_texts": [
+          "What is the term that refers to unequal sharing of electrons between two atoms in a molecule?",
+          "Polar bonds that can result in hydrogen bonding are what type of bond in which electrons are shared between the two atoms?",
+          "What class of analytical techniques uses differences in polarity to separate molecules based on retention time? Examples include gas, liquid, and thin-layer types."
+        ],
+        "formatted_answers": [
+          "polarity [accept word forms]",
+          "covalent bonds",
+          "chromatography [accept word forms]"
+        ],
+        "wikipedia_urls": [
+          null,
+          null,
+          null
+        ],
+        "url": "https://www.quizdb.org/api/bonus/1884",
+        "type": "bonus",
+        "tournament": {
+          "id": 18,
+          "year": 2012,
+          "name": "2012 Collegiate Novice",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:44:15.013Z",
+          "updated_at": "2017-08-27T18:44:15.013Z",
+          "difficulty": "Easy College",
+          "difficulty_num": 6,
+          "url": "https://www.quizdb.org/api/tournaments/18"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      },
+      {
+        "id": 2862,
+        "number": 13,
+        "round": "Ohio State A",
+        "category_id": 17,
+        "subcategory_id": 5,
+        "quinterest_id": 2876,
+        "tournament_id": 4,
+        "leadin": "Name the following terms from analytical chemistry. For 10 points each:",
+        "created_at": "2017-08-28T03:48:35.406Z",
+        "updated_at": "2017-08-28T03:48:35.406Z",
+        "formatted_leadin": "Name the following terms from analytical chemistry. For 10 points each:",
+        "texts": [
+          "This technique is used to analyze the concentration of solutions, and it is performed by adding one solution to another through a burette. It is often used to determine the acidity or basicity of solutions.",
+          "This general technique separates components in a mixture based on their relative polarities. All types of this technique include a mobile and stationary phase, and it comes in column, gas, and thin layer types.",
+          "Samples are converted into gas phase ions that are then sorted by their m/z (\"m to z\") ratios in this analytical technique. The ionization of the sample is done by a laser in the MALDI form of this technique."
+        ],
+        "answers": [
+          "titration",
+          "chromatography",
+          "mass spectometry"
+        ],
+        "formatted_texts": [
+          "This technique is used to analyze the concentration of solutions, and it is performed by adding one solution to another through a burette. It is often used to determine the acidity or basicity of solutions.",
+          "This general technique separates components in a mixture based on their relative polarities. All types of this technique include a mobile and stationary phase, and it comes in column, gas, and thin layer types.",
+          "Samples are converted into gas phase ions that are then sorted by their m/z (\"m to z\") ratios in this analytical technique. The ionization of the sample is done by a laser in the MALDI form of this technique."
+        ],
+        "formatted_answers": [
+          "titration",
+          "chromatography",
+          "mass spectometry"
+        ],
+        "wikipedia_urls": [
+          null,
+          null,
+          null
+        ],
+        "url": "https://www.quizdb.org/api/bonus/2862",
+        "type": "bonus",
+        "tournament": {
+          "id": 4,
+          "year": 2011,
+          "name": "2011 ACF Fall",
+          "address": null,
+          "quality": null,
+          "type": null,
+          "link": null,
+          "created_at": "2017-08-27T18:44:13.250Z",
+          "updated_at": "2017-08-27T18:44:13.250Z",
+          "difficulty": "Easy College",
+          "difficulty_num": 6,
+          "url": "https://www.quizdb.org/api/tournaments/4"
+        },
+        "category": {
+          "id": 17,
+          "name": "Science",
+          "created_at": "2017-08-27T19:30:45.881Z",
+          "updated_at": "2017-08-27T19:30:45.881Z",
+          "url": "https://www.quizdb.org/api/categories/17"
+        },
+        "subcategory": {
+          "id": 5,
+          "name": "Science Chemistry",
+          "created_at": "2017-08-27T19:36:34.995Z",
+          "updated_at": "2017-08-27T19:36:34.995Z",
+          "url": "https://www.quizdb.org/api/subcategories/5"
+        }
+      }
+    ]
+  }
+}

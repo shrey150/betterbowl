@@ -1,0 +1,16 @@
+{
+  "name": "betterbowl",
+  "version": "1.0.0",
+  "description": "It is better than Protobowl",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "author": "Shrey Pandya",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "socket.io": "^2.2.0"
+  }
+}
