@@ -4,6 +4,7 @@ const QuestionBank = require("./QuestionBank");
 class Room {
 
     constructor(name, io) {
+
         this.name = name;
         this.players = [];
         this.question = null;
@@ -42,15 +43,42 @@ class Room {
                 console.log(`Received buzz from ${socket.id}`);
 
                 if (this.buzzed === -1) {
+
                     if (this.question) this.question.stop();
 
                     this.buzzed = this.players.indexOf(socket.id);
                     this.io.emit("playerBuzzed", this.players[this.buzzed]);
+
+                    this.io.to(socket.id).emit("requestAnswer");
+
+                    this.buzzTimer = setInterval(() => this.clearBuzz(), 5000);
+
                 }
                 else {
-                    console.log("Buzz failed!");
+                    console.log(`Invalid buzz from ${socket.id}!`);
                     this.io.to(socket.id).emit("buzzFailed");
                 }
+            });
+
+            socket.on("sendAnswer", data => {
+
+                console.log("Received answer: " + data);
+
+                if (socket.id === this.players[this.buzzed]) {
+
+                    if (data === this.question.answer) {
+                        this.io.emit("answerResponse", true);
+                        console.log("Correct answer!");
+                    }
+                    else {
+                        this.io.emit("answerResponse", false);
+                        console.log("Incorrect answer.");
+                    }
+
+                    this.clearBuzz();
+
+                }
+
             });
 
             socket.on("disconnect", data => {
@@ -58,29 +86,34 @@ class Room {
                 // remove player from array
                 this.players = this.players.filter(x => x !== socket.id);
                 console.log(`${socket.id} disconnected (total ${this.players.length})`);
+
             });
             
-            socket.on("clearBuzz", data => {
-
-                if (this.buzzed !== -1) {
-
-                    if (this.question) {
-                        if (!this.question.reading) {
-                            this.question.start();
-                        }
-                    }
-
-                    this.buzzed = -1;
-                    this.io.emit("clearBuzz");
-
-                    console.log("Clearing buzz...");
-
-                }
-            })
-
+            socket.on("clearBuzz", () => this.clearBuzz());
             socket.on("chat", data => {});
 
         });
+
+    }
+
+    clearBuzz() {
+
+        clearInterval(this.buzzTimer);
+
+        if (this.buzzed !== -1) {
+
+            if (this.question) {
+                if (!this.question.reading) {
+                    this.question.start();
+                }
+            }
+
+            this.buzzed = -1;
+            this.io.emit("clearBuzz");
+
+            console.log("Clearing buzz...");
+
+        }
 
     }
 

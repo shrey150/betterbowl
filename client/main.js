@@ -4,6 +4,7 @@ let socket = io();
 let question = document.querySelector("#question");
 let buzzBtn = document.querySelector("#buzzBtn");
 let nextBtn = document.querySelector("#nextBtn");
+let answerInput = document.querySelector("#answerInput");
 
 socket.on("connect", data => {
 
@@ -22,6 +23,8 @@ socket.on("connect", data => {
     socket.on("clearBuzz", data => {
         console.log("Clearing buzz...");
         buzzBtn.disabled = false;
+        answerInput.setAttribute("hidden", "");
+        answerInput.value = "";
     })
 
     socket.on("playerBuzzed", data => {
@@ -31,6 +34,16 @@ socket.on("connect", data => {
 
     socket.on("buzzFailed", data => {
         console.log("Buzz failed!");
+    });
+
+    socket.on("requestAnswer", data => {
+        console.log("Request answer:");
+        answerInput.removeAttribute("hidden");
+        answerInput.focus();
+    });
+
+    socket.on("answerResponse", data => {
+        console.log("Correct answer: " + data);
     });
 
     socket.on("pong", () => console.log("pong"));
@@ -51,26 +64,3 @@ function clearBuzz() {
     console.log("[DEBUG] clearing buzz");
     socket.emit("clearBuzz");
 }
-
-window.addEventListener("keydown", e => {
-
-    switch (e.key) {
-
-        case " ":
-            buzz();
-            break;
-
-        case "n":
-            nextQuestion();
-            break;
-
-        case "Escape":
-            clearBuzz();
-            break;
-
-        default:
-            break;
-
-    }
-
-});
