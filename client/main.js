@@ -6,6 +6,10 @@ let log = document.querySelector("#log");
 let buzzBtn = document.querySelector("#buzzBtn");
 let nextBtn = document.querySelector("#nextBtn");
 let answerInput = document.querySelector("#answerInput");
+let timerText = document.querySelector("#timer");
+
+let timerInterval;
+let timerValue = 5;
 
 socket.on("connect", data => {
 
@@ -41,6 +45,14 @@ socket.on("connect", data => {
         console.log("Request answer:");
         answerInput.removeAttribute("hidden");
         answerInput.focus();
+
+        timerText.removeAttribute("hidden");
+        timerInterval = setInterval(() => {
+            timerText.innerHTML = timerValue.toFixed(1);
+            timerValue -= 0.1;
+        }, 100);
+
+        setTimeout(sendAnswer, 5100);
     });
 
     socket.on("pong", () => console.log("pong"));
@@ -65,6 +77,15 @@ socket.on("connect", data => {
 function nextQuestion() {
     socket.emit("nextQuestion");
     nextBtn.innerHTML = "Next";
+}
+
+function sendAnswer() {
+
+    socket.emit("sendAnswer", answerInput.value);
+
+    timerText.setAttribute("hidden", "");
+    clearInterval(timerInterval);
+    timerValue = 5;
 }
 
 function buzz() {

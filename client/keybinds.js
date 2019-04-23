@@ -1,10 +1,7 @@
 // submit answer when buzzed in
 answerInput.addEventListener("keydown", e => {
 
-    if (e.key === "Enter") {
-        socket.emit("sendAnswer", answerInput.value);
-        
-    }
+    if (e.key === "Enter") sendAnswer();
 });
 
 // assorted keybinds
