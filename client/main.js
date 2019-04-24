@@ -9,6 +9,7 @@ let answerInput = document.querySelector("#answerInput");
 let timerText = document.querySelector("#timer");
 
 let timerInterval;
+let autoSendTimer;
 let timerValue = 5;
 
 socket.on("connect", data => {
@@ -52,10 +53,8 @@ socket.on("connect", data => {
             timerValue -= 0.1;
         }, 100);
 
-        setTimeout(sendAnswer, 5100);
+        autoSendTimer = setTimeout(sendAnswer, 5100);
     });
-
-    socket.on("pong", () => console.log("pong"));
 
     socket.on("log", data => {
         let msg = document.createElement("p");
@@ -85,6 +84,7 @@ function sendAnswer() {
 
     timerText.setAttribute("hidden", "");
     clearInterval(timerInterval);
+    clearTimeout(autoSendTimer);
     timerValue = 5;
 }
 
