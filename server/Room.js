@@ -6,6 +6,8 @@ class Room {
 
     constructor(name, io) {
 
+        this.changeScore = this.changeScore.bind(this);
+
         this.name = name;
         this.players = [];
         this.scores = [];
@@ -79,26 +81,27 @@ class Room {
 
                     if (this.checker.similarAnswer(data, this.question.answer)) {
 
-                        let score;
-
-                        this.scores.forEach(n => {
-                            if (n.name === socket.id) {
-                                n.score += 10;
-                                score = n.score;
-                            }
-                        });
-                        
+                        const score = this.changeScore(socket.id, 10);
                         this.log(`${socket.id} buzzed correctly! (score ${score})`);
+                        this.question.finishQuestion();
+                        this.question.answered = true;
 
-                    }
-                    else {
+                    } else {
+
                         this.io.emit("answerResponse", false);
-                        this.log(`${socket.id} buzzed incorrectly.`);
+                        
+                        if (!this.question.finished) {
+
+                            const score = this.changeScore(socket.id, -5);
+                            this.log(`${socket.id} negged (score ${score})`);
+                        
+                        } else this.log(`${socket.id} buzzed incorrectly, no penalty.`);
+
                         this.clearBuzz();
+
                     }
 
                 }
-                else this.clearBuzz();
 
             });
 
@@ -118,6 +121,21 @@ class Room {
 
     }
 
+    changeScore(user, num) {
+
+        let score = 0;
+
+        this.scores.forEach(n => {
+            if (n.name === user) {
+                console.log(n);
+                n.score += num;
+                score = n.score;
+            }
+        });
+
+        return score;
+    }
+
     clearBuzz() {
 
         clearInterval(this.buzzTimer);
@@ -125,7 +143,7 @@ class Room {
         if (this.buzzed !== -1) {
 
             if (this.question) {
-                if (!this.question.reading) {
+                if (!this.question.reading && !this.question.finished) {
                     this.question.start();
                 }
             }

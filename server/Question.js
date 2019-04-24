@@ -15,7 +15,8 @@ class Question {
         this.io = io;
         this.index = 0;
         this.reading = false;
-
+        this.finished = false;
+        this.answered = false;
     }
 
     start() {
@@ -28,12 +29,19 @@ class Question {
     read() {
         this.io.emit("questionUpdate", this.arr[this.index] + " ");
         this.index++;
-        if (this.index === this.arr.length) this.stop();
+        if (this.index === this.arr.length) this.finishQuestion();
     }
 
     update(id) {
         const previousWords = this.arr.slice(0, this.index);
         this.io.to(id).emit("questionUpdate", previousWords.join(" ") + " ");
+    }
+
+    finishQuestion() {
+        const remainingWords = this.arr.slice(this.index);
+        this.io.emit("questionUpdate", remainingWords.join(" "));
+        this.stop();
+        this.finished = true;
     }
 
     stop() {

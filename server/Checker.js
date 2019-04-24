@@ -4,8 +4,8 @@ class Checker {
 
         let regex = /[\[\]\(\)\.\,\"\']+/g;
 
-        user = user.replace(regex, "");
-        real = real.replace(regex, "");
+        user = user.replace(regex, "").toLowerCase();
+        real = real.replace(regex, "").toLowerCase();
 
         let userRaw = user.split(" ").filter(this.removeMetaWords);
         let realRaw = real.split(" ").filter(this.removeMetaWords);
@@ -14,7 +14,7 @@ class Checker {
     }
 
     removeMetaWords(s) {
-        let metaWords = ["do", "not", "accept", "or", "prompt", "on", "except", "before", "is", "read", "stated", "mentioned", "at", "any", "time", "don't", "more", "specific", "etc", "eg", "answers"];
+        let metaWords = ["do", "not", "accept", "or", "prompt", "on", "except", "before", "after", "is", "read", "stated", "mentioned", "at", "any", "time", "don't", "more", "specific", "etc", "eg", "answers", "word", "forms"];
         return (metaWords.indexOf(s) === -1);
     }
 
