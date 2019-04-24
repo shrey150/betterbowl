@@ -97,9 +97,9 @@ class Room {
                         
                         } else this.log(`${socket.id} buzzed incorrectly, no penalty.`);
 
-                        this.clearBuzz();
-
                     }
+
+                    this.clearBuzz();
 
                 }
 

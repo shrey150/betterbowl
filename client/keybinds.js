@@ -10,6 +10,7 @@ window.addEventListener("keydown", e => {
     switch (e.key) {
 
         case " ":
+            if (e.target !== answerInput) e.preventDefault();
             if (answerInput.hasAttribute("hidden")) buzz();
             break;
 
