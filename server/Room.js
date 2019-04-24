@@ -1,5 +1,6 @@
 const Question = require("./Question");
 const QuestionBank = require("./QuestionBank");
+const Checker = require("./Checker");
 
 class Room {
 
@@ -19,6 +20,8 @@ class Room {
         this.fetchQuestionBank();
 
         this.logHistory = [];
+
+        this.checker = new Checker();
 
     }
 
@@ -74,7 +77,7 @@ class Room {
 
                 if (socket.id === this.players[this.buzzed] && this.question) {
 
-                    if (data === this.question.answer) {
+                    if (this.checker.similarAnswer(data, this.question.answer)) {
 
                         let score;
 
