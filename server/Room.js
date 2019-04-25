@@ -188,7 +188,7 @@ class Room {
 
         console.log(q);
 
-        this.question = new Question(q.text, q.answer, 100, this.io);
+        this.question = new Question(q.text, q.formatted_answer, 100, this.io);
     }
 
     log(msg) {

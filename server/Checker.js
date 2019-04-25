@@ -60,8 +60,8 @@ class Checker {
         console.log(bestMatch);
 
         // 2 = correct, 1 = prompt, 0 = incorrect
-        if (bestMatch >= 0.75) return 2;
-        else if (bestMatch >= 0.5) return 1;
+        if (bestMatch >= 0.5) return 2;
+        else if (bestMatch >= 0.25) return 1;
         else return 0;
 
     }
