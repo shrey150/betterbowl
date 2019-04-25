@@ -21,9 +21,10 @@ class Checker {
         let bold = s.match(/[^{]+(?=})/g);
         let under = s.match(/[^<]+(?=>)/g);
 
-        if (!bold || !under) return null;
+        if (!bold && !under) return null;
 
-        return bold.concat(under);
+        // return all keywords (filter out nulls)
+        return bold.concat(under).filter(Boolean);
 
     }
 
@@ -38,11 +39,6 @@ class Checker {
         if (!keywords) keywords = this.trimAnswer(real);
 
         let userWords = this.trimAnswer(user);
-
-        // TODO: add similarity check HERE
-        // use npm package to find value 0-1
-        // return "correct", "incorrect", or "prompt"
-        // temporarily returning true for all cases
 
         let matches = [];
 
@@ -60,8 +56,8 @@ class Checker {
         console.log(bestMatch);
 
         // 2 = correct, 1 = prompt, 0 = incorrect
-        if (bestMatch >= 0.5) return 2;
-        else if (bestMatch >= 0.25) return 1;
+        if (bestMatch >= 0.6) return 2;
+        else if (bestMatch >= 0.4) return 1;
         else return 0;
 
     }
@@ -69,7 +65,7 @@ class Checker {
     markImportant(s) {
         s = s.replace("<strong>", "{").replace("</strong>", "}");
         s = s.replace("<u>", "<").replace("</u>", ">");
-        return s;
+        return s.toLowerCase();
     }
 
     removeMetaWords(s) {
