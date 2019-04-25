@@ -10,11 +10,11 @@ class Room {
 
         this.name = name;
         this.players = [];
-        this.scores = [];
         this.question = null;
 
         // index of "this.players"
         this.buzzed = -1;
+        this.prompted = false;
 
         this.io = io.of("/" + name);
         this.listen();
@@ -30,20 +30,19 @@ class Room {
 
         this.io.on("connection", socket => {
 
-            this.players.push(socket.id);
-            this.scores.push({ name: socket.id, score: 0 });
+            this.players.push({ name: "QB Player", id: socket.id, score: 0 });
 
             // update previous log messages
             this.io.to(socket.id).emit("updateLogHistory", this.logHistory);
 
-            this.log(`${socket.id} connected (total players ${this.scores.length})`);
+            this.log(`${socket.id} connected (total players ${this.players.length})`);
 
             // update players who joined in the middle of a question
             if (this.question) this.question.update(socket.id);
 
             // update buzzer status
             if (this.buzzed !== -1)
-                this.io.to(socket.id).emit("playerBuzzed", this.players[this.buzzed]);
+                this.io.to(socket.id).emit("playerBuzzed", this.players[this.buzzed].name);
 
             socket.on("nextQuestion", () => {
                 if (this.buzzed === -1)
@@ -58,12 +57,12 @@ class Room {
 
                     if (this.question) this.question.stop();
 
-                    this.buzzed = this.players.indexOf(socket.id);
-                    this.io.emit("playerBuzzed", this.players[this.buzzed]);
+                    this.buzzed = this.players.indexOf(this.getUser(socket.id));
+                    this.io.emit("playerBuzzed", this.getName(socket.id));
 
                     this.io.to(socket.id).emit("requestAnswer");
 
-                    this.buzzTimer = setInterval(() => this.clearBuzz(), 5000);
+                    this.buzzTimer = setInterval(() => this.clearBuzz(), 7000);
 
                 }
                 else {
@@ -76,7 +75,7 @@ class Room {
 
                 console.log("Received answer: " + data);
 
-                if (socket.id === this.players[this.buzzed] && this.question) {
+                if (socket.id === this.players[this.buzzed].id && this.question) {
 
                     const verdict = this.checker.smartCheck(data, this.question.answer);
 
@@ -87,9 +86,13 @@ class Room {
                         this.question.finishQuestion();
                         this.question.answered = true;
 
-                    } else if (verdict === 1) {
+                    } else if (verdict === 1 && !this.prompted) {
 
                         this.log(`[TODO] Prompt...`);
+                        this.io.to(socket.id).emit("requestAnswer");
+
+                        clearInterval(this.buzzTimer);
+                        this.buzzTimer = setInterval(() => this.clearBuzz, 7000);
 
                     } else {
 
@@ -113,8 +116,8 @@ class Room {
             socket.on("disconnect", data => {
 
                 // remove player from array
-                this.players = this.players.filter(x => x !== socket.id);
-                this.scores = this.scores.filter(x => x.name !== socket.id);
+                //this.players = this.players.filter(x => x !== socket.id);
+                this.players = this.players.filter(x => x.id !== socket.id);
                 this.log(`${socket.id} disconnected (total players ${this.players.length})`);
 
             });
@@ -126,17 +129,24 @@ class Room {
 
     }
 
-    getScore(user) {
-        const player = this.scores.filter(x => x.name === user);
-        return player.score;
+    getUser(id) {
+        return this.players.find(x => x.id === id);
+    }
+
+    getName(id) {
+        return this.getUser(id).name;
+    }
+
+    getScore(id) {
+        return this.getUser(id).score;
     }
 
     changeScore(user, num) {
 
         let score = 0;
 
-        this.scores.forEach(n => {
-            if (n.name === user) {
+        this.players.forEach(n => {
+            if (n.id === user) {
                 n.score += num;
                 score = n.score;
             }
@@ -180,6 +190,12 @@ class Room {
         });
 
         this.qb.search().then(() => console.log("Questions loaded!"));
+
+    }
+
+    replaceCommonWords(s) {
+
+
 
     }
 

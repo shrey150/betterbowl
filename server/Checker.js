@@ -53,8 +53,6 @@ class Checker {
                 bestMatch = n.rating;
         });
 
-        console.log(bestMatch);
-
         // 2 = correct, 1 = prompt, 0 = incorrect
         if (bestMatch >= 0.6) return 2;
         else if (bestMatch >= 0.4) return 1;
@@ -63,8 +61,8 @@ class Checker {
     }
 
     markImportant(s) {
-        s = s.replace("<strong>", "{").replace("</strong>", "}");
-        s = s.replace("<u>", "<").replace("</u>", ">");
+        s = s.replace(/<strong>/g, "{").replace(/<\/strong>/g, "}");
+        s = s.replace(/<u>/g, "<").replace(/<\/u>/g, ">");
         return s.toLowerCase();
     }
 

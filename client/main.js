@@ -55,7 +55,7 @@ socket.on("connect", data => {
             timerValue -= 0.1;
         }, 100);
 
-        autoSendTimer = setTimeout(sendAnswer, 5100);
+        autoSendTimer = setTimeout(sendAnswer, 7100);
     });
 
     socket.on("log", data => {
@@ -85,7 +85,7 @@ function sendAnswer() {
     timerText.setAttribute("hidden", "");
     clearInterval(timerInterval);
     clearTimeout(autoSendTimer);
-    timerValue = 5;
+    timerValue = 7;
 }
 
 function buzz() {
