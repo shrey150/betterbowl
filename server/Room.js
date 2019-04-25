@@ -24,6 +24,7 @@ class Room {
         this.logHistory = [];
 
         this.checker = new Checker();
+        this.checker.smartCheck("", "Washington {<Irving>}; accept {blacko}");
 
     }
 
@@ -37,7 +38,7 @@ class Room {
             // update previous log messages
             this.io.to(socket.id).emit("updateLogHistory", this.logHistory);
 
-            this.log(`${socket.id} connected (total players ${this.players.length})`);
+            this.log(`${socket.id} connected (total players ${this.scores.length})`);
 
             // update players who joined in the middle of a question
             if (this.question) this.question.update(socket.id);
@@ -79,7 +80,7 @@ class Room {
 
                 if (socket.id === this.players[this.buzzed] && this.question) {
 
-                    if (this.checker.similarAnswer(data, this.question.answer)) {
+                    if (this.checker.smartCheck(data, this.question.answer)) {
 
                         const score = this.changeScore(socket.id, 10);
                         this.log(`${socket.id} buzzed correctly! (score ${score})`);
@@ -121,13 +122,17 @@ class Room {
 
     }
 
+    getScore(user) {
+        const player = this.scores.filter(x => x.name === user);
+        return player.score;
+    }
+
     changeScore(user, num) {
 
         let score = 0;
 
         this.scores.forEach(n => {
             if (n.name === user) {
-                console.log(n);
                 n.score += num;
                 score = n.score;
             }

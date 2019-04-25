@@ -14,6 +14,8 @@ let timerValue = 5;
 
 socket.on("connect", data => {
 
+    //sendName();
+
     console.log("Connected to server!");
 
     socket.on("questionUpdate", data => {
@@ -64,11 +66,9 @@ socket.on("connect", data => {
     });
 
     socket.on("updateLogHistory", data => {
-
         let msgs = "";
         data.forEach(n => msgs += `<p>${n}</p>`);
         log.innerHTML += msgs;
-
     });
 
 });
@@ -96,4 +96,17 @@ function buzz() {
 function clearBuzz() {
     console.log("[DEBUG] clearing buzz");
     socket.emit("clearBuzz");
+}
+
+function sendName() {
+
+    const name = Cookies.get("name");
+
+    if (!name) {
+        Cookies.set("name", "QB Player");
+        name = Cookies.get("name");
+    }
+
+    socket.emit("sendName", "")
+
 }

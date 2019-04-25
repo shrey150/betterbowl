@@ -9,7 +9,7 @@ class QuestionBank {
     fetchQuestion() {
 
         const qData = this.questions[Math.floor(Math.random() * this.questions.length)];
-        return { text: qData.text, answer: qData.answer };
+        return { text: qData.text, answer: qData.answer, formatted_answer: qData.formatted_answer };
 
     }
 
