@@ -22,9 +22,7 @@ class Room {
         this.fetchQuestionBank();
 
         this.logHistory = [];
-
         this.checker = new Checker();
-        this.checker.smartCheck("", "Washington {<Irving>}; accept {blacko}");
 
     }
 
@@ -80,7 +78,7 @@ class Room {
 
                 if (socket.id === this.players[this.buzzed] && this.question) {
 
-                    if (this.checker.smartCheck(data, this.question.answer)) {
+                    if (this.checker.smartCheck(data, this.question.answer) > 0) {
 
                         const score = this.changeScore(socket.id, 10);
                         this.log(`${socket.id} buzzed correctly! (score ${score})`);

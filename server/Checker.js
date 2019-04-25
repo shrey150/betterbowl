@@ -1,3 +1,5 @@
+const str = require("string-similarity");
+
 class Checker {
 
     trimAnswer(s) {
@@ -25,6 +27,7 @@ class Checker {
 
     }
 
+
     smartCheck(user, real) {
 
         // search formatted answer for bold/underline
@@ -34,11 +37,32 @@ class Checker {
         // just trim down the answer line
         if (!keywords) keywords = this.trimAnswer(real);
 
+        let userWords = this.trimAnswer(user);
+
         // TODO: add similarity check HERE
         // use npm package to find value 0-1
         // return "correct", "incorrect", or "prompt"
         // temporarily returning true for all cases
-        return true;
+
+        let matches = [];
+
+        userWords.forEach(n => matches.push(str.findBestMatch(n, keywords).bestMatch));
+
+        console.log(matches);
+
+        let bestMatch = 0;
+
+        matches.forEach(n => {
+            if (n.rating > bestMatch)
+                bestMatch = n.rating;
+        });
+
+        console.log(bestMatch);
+
+        // 2 = correct, 1 = prompt, 0 = incorrect
+        if (bestMatch >= 0.75) return 2;
+        else if (bestMatch >= 0.5) return 1;
+        else return 0;
 
     }
 
