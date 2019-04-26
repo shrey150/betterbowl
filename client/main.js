@@ -10,7 +10,7 @@ let timerText = document.querySelector("#timer");
 
 let timerInterval;
 let autoSendTimer;
-let timerValue = 5;
+let timerValue = 7;
 
 socket.on("connect", data => {
 
@@ -96,17 +96,4 @@ function buzz() {
 function clearBuzz() {
     console.log("[DEBUG] clearing buzz");
     socket.emit("clearBuzz");
-}
-
-function sendName() {
-
-    const name = Cookies.get("name");
-
-    if (!name) {
-        Cookies.set("name", "QB Player");
-        name = Cookies.get("name");
-    }
-
-    socket.emit("sendName", "")
-
 }
