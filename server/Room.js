@@ -131,6 +131,8 @@ class Room {
                 this.players = this.players.filter(x => x.id !== socket.id && x.ip !== "guest");
                 this.log(`${name} disconnected (total players ${this.players.length})`);
 
+                console.log(this.players);
+
             });
             
             socket.on("clearBuzz", () => this.clearBuzz());
