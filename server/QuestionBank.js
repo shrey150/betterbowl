@@ -4,6 +4,7 @@ class QuestionBank {
 
     constructor(args) {
         this.args = args;
+        this.questions = null;
     }
 
     fetchQuestion() {
@@ -30,6 +31,7 @@ class QuestionBank {
 
                 this.questions = rs.data.data.tossups;
                 resolve();
+
             });
     
         });

@@ -7,6 +7,7 @@ let buzzBtn = document.querySelector("#buzzBtn");
 let nextBtn = document.querySelector("#nextBtn");
 let answerInput = document.querySelector("#answerInput");
 let timerText = document.querySelector("#timer");
+let scores = document.querySelector("#scores");
 
 let timerInterval;
 let autoSendTimer;
@@ -71,6 +72,13 @@ socket.on("connect", data => {
         log.innerHTML += msgs;
     });
 
+    socket.on("sendScoreboard", data => {
+        console.log("Updating scoreboard");
+        let elements = "";
+        data.forEach(n => elements += `<p>${n}</p>`);
+        scores.innerHTML = elements;
+    });
+
 });
 
 function nextQuestion() {
@@ -79,6 +87,8 @@ function nextQuestion() {
 }
 
 function sendAnswer() {
+
+    console.log("Sending answer...");
 
     socket.emit("sendAnswer", answerInput.value);
 

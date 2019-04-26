@@ -68,7 +68,7 @@ class Room {
 
                     this.io.to(socket.id).emit("requestAnswer");
 
-                    this.buzzTimer = setInterval(() => this.clearBuzz(), 7000);
+                    this.buzzTimer = setInterval(() => this.clearBuzz(), 7200);
 
                 }
                 else {
@@ -98,7 +98,7 @@ class Room {
                         this.io.to(socket.name).emit("requestAnswer");
 
                         clearInterval(this.buzzTimer);
-                        this.buzzTimer = setInterval(() => this.clearBuzz, 7000);
+                        this.buzzTimer = setInterval(() => this.clearBuzz, 7200);
 
                     } else {
 
@@ -121,8 +121,15 @@ class Room {
 
             socket.on("disconnect", data => {
 
-                this.log(`${this.getName(socket.id)} disconnected (total players ${this.players.length})`);
-                //this.players = this.players.filter(x => x.id !== socket.id);
+                const name = this.getName(socket.id);
+
+                this.players.forEach(n => {
+                    if (n.id === socket.id)
+                        n.connected = false;
+                });
+
+                this.players = this.players.filter(x => x.id !== socket.id && x.ip !== "guest");
+                this.log(`${name} disconnected (total players ${this.players.length})`);
 
             });
             
@@ -138,10 +145,18 @@ class Room {
         let merged = false;
 
         this.players.forEach(n => {
-            console.log(n);
+            
             if (n.ip === ip) {
-                n.id = id;
-                merged = true;
+
+                if (!n.connected) {
+                    n.id = id;
+                    n.connected = true;
+                    merged = true;
+                }
+                else {
+                    name = "Doppelganger" + new Date().getMilliseconds();
+                    ip = "guest";
+                }
             }
         });
 
@@ -150,9 +165,12 @@ class Room {
                 name: name,
                 id: id,
                 ip: ip,
+                connected: true,
                 score: 0
             });
         }
+
+        this.sendScoreboard();
     }
 
     getUser(id) {
@@ -178,7 +196,20 @@ class Room {
             }
         });
 
+        this.sendScoreboard();
         return score;
+    }
+
+    sendScoreboard() {
+
+        let users = [];
+
+        this.players.forEach(n => {
+            users.push(n.name + ": " + n.score);
+        });
+
+        this.io.emit("sendScoreboard", users);
+
     }
 
     clearBuzz() {
@@ -219,14 +250,8 @@ class Room {
 
     }
 
-    replaceCommonWords(s) {
-
-
-
-    }
-
     fetchQuestion() {
-     
+
         if (this.question) this.question.stop();
         this.buzzed = -1;
 

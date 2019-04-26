@@ -40,6 +40,7 @@ class Question {
     finishQuestion() {
         const remainingWords = this.arr.slice(this.index);
         this.io.emit("questionUpdate", remainingWords.join(" "));
+        this.index = this.arr.length;
         this.stop();
         this.finished = true;
     }
