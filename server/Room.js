@@ -128,10 +128,10 @@ class Room {
                         n.connected = false;
                 });
 
-                this.players = this.players.filter(x => x.id !== socket.id && x.ip !== "guest");
+                this.players = this.players.filter(x => x.id !== socket.id || x.ip !== "guest");
                 this.log(`${name} disconnected (total players ${this.players.length})`);
 
-                console.log(this.players);
+                this.sendScoreboard();
 
             });
             
@@ -204,14 +204,15 @@ class Room {
 
     sendScoreboard() {
 
-        let users = [];
-
-        this.players.forEach(n => {
-            users.push(n.name + ": " + n.score);
+        // send user array w/o IP information
+        const users = this.players.map(n => {
+            const obj = {...n};
+            delete obj.ip;
+            return obj;
         });
 
+        console.log(this.players, users);
         this.io.emit("sendScoreboard", users);
-
     }
 
     clearBuzz() {

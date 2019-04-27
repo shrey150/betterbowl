@@ -75,7 +75,11 @@ socket.on("connect", data => {
     socket.on("sendScoreboard", data => {
         console.log("Updating scoreboard");
         let elements = "";
-        data.forEach(n => elements += `<p>${n}</p>`);
+        data.forEach(n => {
+            console.log(n);
+            const gray = !n.connected ? "color: gray" : "";
+            elements += `<p style='${gray}'>${n.name}: ${n.score}</p>`;
+        });
         scores.innerHTML = elements;
     });
 
