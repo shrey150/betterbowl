@@ -34,7 +34,10 @@ class Room {
         this.io.on("connection", socket => {
 
             const name = socket.handshake.query.name;
-            const ip = socket.handshake.address;
+
+            // get IP, whether running locally or on Heroku
+            const ip =  socket.handshake.headers["x-forwarded-for"] ||
+                        socket.handshake.address;
 
             this.addUser(name, socket.id, ip);
 
