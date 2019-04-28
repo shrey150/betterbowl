@@ -42,4 +42,4 @@ class Namer {
 
 }
 
-module.exports = Namer;
+module.exports = new Namer();

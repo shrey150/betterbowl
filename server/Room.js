@@ -1,14 +1,11 @@
 const Question = require("./Question");
 const QuestionBank = require("./QuestionBank");
 const Checker = require("./Checker");
-
-const Namer = require("./Namer");
+const Users = require("./Users");
 
 class Room {
 
     constructor(name, io) {
-
-        this.changeScore = this.changeScore.bind(this);
 
         this.name = name;
         this.players = [];
@@ -25,7 +22,7 @@ class Room {
 
         this.logHistory = [];
         this.checker = new Checker();
-        this.namer = new Namer();
+        this.users = new Users(this.io);
 
     }
 
@@ -39,19 +36,19 @@ class Room {
             const ip =  socket.handshake.headers["x-forwarded-for"] ||
                         socket.handshake.address;
 
-            this.addUser(name, socket.id, ip);
+            this.users.addUser(name, socket.id, ip);
 
             // update previous log messages
             this.io.to(socket.id).emit("updateLogHistory", this.logHistory);
 
-            this.log(`${this.getName(socket.id)} connected (total players ${this.players.length})`);
+            this.log(`${this.users.getName(socket.id)} connected (total players ${this.users.players.length})`);
 
             // update players who joined in the middle of a question
             if (this.question) this.question.update(socket.id);
 
             // update buzzer status
             if (this.buzzed !== -1)
-                this.io.to(socket.id).emit("playerBuzzed", this.players[this.buzzed].name);
+                this.io.to(socket.id).emit("playerBuzzed", this.users.getUserByIndex(this.buzzed));
 
             socket.on("nextQuestion", () => {
                 if (this.buzzed === -1)
@@ -60,14 +57,14 @@ class Room {
 
             socket.on("buzz", data => {
 
-                console.log(`Received buzz from ${this.getName(socket.id)}`);
+                console.log(`Received buzz from ${this.users.getName(socket.id)}`);
 
                 if (this.buzzed === -1) {
 
                     if (this.question) this.question.stop();
 
-                    this.buzzed = this.players.indexOf(this.getUser(socket.id));
-                    this.io.emit("playerBuzzed", this.getName(socket.id));
+                    this.buzzed = this.users.getIndex(this.users.getUser(socket.id));
+                    this.io.emit("playerBuzzed", this.users.getName(socket.id));
 
                     this.io.to(socket.id).emit("requestAnswer");
 
@@ -75,7 +72,7 @@ class Room {
 
                 }
                 else {
-                    console.log(`Invalid buzz from ${this.getName(socket.id)}!`);
+                    console.log(`Invalid buzz from ${this.users.getName(socket.id)}!`);
                     this.io.to(socket.id).emit("buzzFailed");
                 }
             });
@@ -84,21 +81,21 @@ class Room {
 
                 console.log("Received answer: " + data);
 
-                if (socket.id === this.players[this.buzzed].id && this.question) {
+                if (socket.id === this.users.getUserByIndex(this.buzzed).id && this.question) {
 
                     const verdict = this.checker.smartCheck(data, this.question.answer);
 
                     if (verdict === 2) {
 
-                        const score = this.changeScore(socket.id, 10);
-                        this.log(`${this.getName(socket.id)} buzzed correctly! (score ${score})`);
+                        const score = this.users.changeScore(socket.id, 10);
+                        this.log(`${this.users.getName(socket.id)} buzzed correctly! (score ${score})`);
                         this.question.finishQuestion();
                         this.question.answered = true;
 
                     } else if (verdict === 1 && !this.prompted) {
 
                         this.log(`[TODO] Prompt...`);
-                        this.io.to(socket.name).emit("requestAnswer");
+                        this.io.to(socket.id).emit("requestAnswer");
 
                         clearInterval(this.buzzTimer);
                         this.buzzTimer = setInterval(() => this.clearBuzz, 7200);
@@ -109,10 +106,10 @@ class Room {
                         
                         if (!this.question.finished) {
 
-                            const score = this.changeScore(socket.id, -5);
-                            this.log(`${this.getName(socket.id)} negged (score ${score})`);
+                            const score = this.users.changeScore(socket.id, -5);
+                            this.log(`${this.users.getName(socket.id)} negged (score ${score})`);
                         
-                        } else this.log(`${this.getName(socket.id)} buzzed incorrectly, no penalty.`);
+                        } else this.log(`${this.users.getName(socket.id)} buzzed incorrectly, no penalty.`);
 
                     }
 
@@ -123,19 +120,9 @@ class Room {
             });
 
             socket.on("disconnect", data => {
-
-                const name = this.getName(socket.id);
-
-                this.players.forEach(n => {
-                    if (n.id === socket.id)
-                        n.connected = false;
-                });
-
-                this.players = this.players.filter(x => x.id !== socket.id || x.ip !== "guest");
+                const name = this.users.getName(socket.id);
+                this.users.disconnect(socket.id);
                 this.log(`${name} disconnected (total players ${this.players.length})`);
-
-                this.sendScoreboard();
-
             });
             
             socket.on("clearBuzz", () => this.clearBuzz());
@@ -143,79 +130,6 @@ class Room {
 
         });
 
-    }
-
-    addUser(name=this.namer.random(), id, ip) {
-
-        let merged = false;
-
-        this.players.forEach(n => {
-            
-            if (n.ip === ip) {
-
-                if (!n.connected) {
-                    n.id = id;
-                    n.connected = true;
-                    merged = true;
-                }
-                else {
-                    name = "Doppelganger" + new Date().getMilliseconds();
-                    ip = "guest";
-                }
-            }
-        });
-
-        if (!merged) {
-            this.players.push({
-                name: name,
-                id: id,
-                ip: ip,
-                connected: true,
-                score: 0
-            });
-        }
-
-        this.sendScoreboard();
-    }
-
-    getUser(id) {
-        return this.players.find(x => x.id === id);
-    }
-
-    getName(id) {
-        return this.getUser(id).name;
-    }
-
-    getScore(id) {
-        return this.getUser(id).score;
-    }
-
-    changeScore(user, num) {
-
-        let score = 0;
-
-        this.players.forEach(n => {
-            if (n.id === user) {
-                n.score += num;
-                score = n.score;
-            }
-        });
-
-        this.sendScoreboard();
-        return score;
-    }
-
-    sendScoreboard() {
-
-        // send user array w/o IP information
-        const users = this.players.map(n => {
-            const obj = {...n};
-            delete obj.ip;
-            return obj;
-        });
-
-        console.log(this.players, users);
-        this.io.emit("sendScoreboard", users);
     }
 
     clearBuzz() {
