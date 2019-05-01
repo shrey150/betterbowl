@@ -2,6 +2,7 @@ const Question = require("./Question");
 const QuestionBank = require("./QuestionBank");
 const Checker = require("./Checker");
 const Users = require("./Users");
+const Timer = require("./Timer");
 
 class Room {
 
@@ -23,6 +24,9 @@ class Room {
         this.logHistory = [];
         this.checker = new Checker();
         this.users = new Users(this.io);
+        this.timer = new Timer(this.io);
+
+        this.timerCount = 7;
 
     }
 
@@ -68,7 +72,8 @@ class Room {
 
                     this.io.to(socket.id).emit("requestAnswer");
 
-                    this.buzzTimer = setInterval(() => this.clearBuzz(), 7200);
+                    this.timer.countdown(this.timerCount);
+                    this.buzzTimer = setTimeout(() => this.clearBuzz(), 7200);
 
                 }
                 else {
@@ -97,8 +102,10 @@ class Room {
                         this.log(`[TODO] Prompt...`);
                         this.io.to(socket.id).emit("requestAnswer");
 
+                        this.prompted = true;
+
                         clearInterval(this.buzzTimer);
-                        this.buzzTimer = setInterval(() => this.clearBuzz, 7200);
+                        this.buzzTimer = setInterval(() => this.clearBuzz(), this.timerCount + 200);
 
                     } else {
 
@@ -113,6 +120,7 @@ class Room {
 
                     }
 
+                    this.timer.clearTimer();
                     this.clearBuzz();
 
                 }

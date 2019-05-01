@@ -34,11 +34,13 @@ socket.on("connect", data => {
         buzzBtn.disabled = false;
         answerInput.setAttribute("hidden", "");
         answerInput.value = "";
+        timerText.setAttribute("hidden", "");
     })
 
     socket.on("playerBuzzed", data => {
         console.log("Player buzzed!");
         buzzBtn.disabled = true;
+        timerText.removeAttribute("hidden");
     });
 
     socket.on("buzzFailed", data => {
@@ -50,13 +52,8 @@ socket.on("connect", data => {
         answerInput.removeAttribute("hidden");
         answerInput.focus();
 
-        timerText.removeAttribute("hidden");
-        timerInterval = setInterval(() => {
-            timerText.innerHTML = timerValue.toFixed(1);
-            timerValue -= 0.1;
-        }, 100);
+        autoSendTimer = setTimeout(sendAnswer, 7000);
 
-        autoSendTimer = setTimeout(sendAnswer, 7100);
     });
 
     socket.on("log", data => {
@@ -83,6 +80,8 @@ socket.on("connect", data => {
         scores.innerHTML = elements;
     });
 
+    socket.on("tick", data => timerText.innerHTML = data.toFixed(1));
+
 });
 
 function nextQuestion() {
@@ -91,15 +90,9 @@ function nextQuestion() {
 }
 
 function sendAnswer() {
-
     console.log("Sending answer...");
-
     socket.emit("sendAnswer", answerInput.value);
-
-    timerText.setAttribute("hidden", "");
-    clearInterval(timerInterval);
     clearTimeout(autoSendTimer);
-    timerValue = 7;
 }
 
 function buzz() {
