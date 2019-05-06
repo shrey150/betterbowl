@@ -54,7 +54,10 @@ class Users {
     }
 
     getIdByIndex(index) {
-        console.log(index);
+        if (index === -1) {
+            console.log("this.buzzed -1");
+            return null;
+        }
         return this.players.find(x => x === this.players[index]).id;
     }
 
