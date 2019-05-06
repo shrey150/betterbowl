@@ -53,6 +53,11 @@ class Users {
         return this.players.find(x => x.id === id);
     }
 
+    getIdByIndex(index) {
+        console.log(index);
+        return this.players.find(x => x === this.players[index]).id;
+    }
+
     getUserByIndex(index) {
         return this.players[index];
     }

@@ -55,7 +55,7 @@ class Room {
                 this.io.to(socket.id).emit("playerBuzzed", this.users.getUserByIndex(this.buzzed));
 
             socket.on("nextQuestion", () => {
-                if (this.buzzed === -1)
+                if (this.buzzed === -1 && this.qb.questions)
                     this.fetchQuestion();
             })
 
@@ -86,7 +86,7 @@ class Room {
 
                 console.log("Received answer: " + data);
 
-                if (socket.id === this.users.getUserByIndex(this.buzzed).id && this.question) {
+                if (socket.id === this.users.getIdByIndex(this.buzzed) && this.question) {
 
                     const verdict = this.checker.smartCheck(data, this.question.answer);
 

@@ -28,10 +28,8 @@ class QuestionBank {
             ;
 
             axios.get(url).then(rs => {
-
                 this.questions = rs.data.data.tossups;
                 resolve();
-
             });
     
         });
