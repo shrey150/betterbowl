@@ -5,16 +5,20 @@
     </head>
     <body>
         <h1>Betterbowl (WORK IN PROGRESS)</h1>
-        <button id="nextBtn" onclick="nextQuestion()">Start</butt>
-        <button id="buzzBtn" onclick="buzz()">Buzz</button>
-        <button id="clearBtn" onclick="clearBuzz()">[DEBUG] Clear</button>
-        <input type="text" id="answerInput" placeholder="Answer here" hidden />
+        <div id="controls">
+            <button id="nextBtn" onclick="nextQuestion()">Start</butt>
+            <button id="buzzBtn" onclick="buzz()">Buzz</button>
+            <button id="clearBtn" onclick="clearBuzz()">[DEBUG] Clear</button>
+            <input type="text" id="answerInput" placeholder="Answer here" hidden />
+        </div>
+        <br>
         <div id="stats" class="stats">
             <input type="text" id="username" placeholder="Username" />
             <div id="scores"></div>
         </div>
         <div id="main" class="main">
             <h2 id="timer" hidden></h2>
+            <b id="answer" hidden></b>
             <div id="question"></div>
             <div id="log" style="color: gray"></div>
         </div>

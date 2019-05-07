@@ -88,6 +88,8 @@ class Room {
 
                 if (socket.id === this.users.getIdByIndex(this.buzzed) && this.question) {
 
+                    this.io.emit("updateAnswerLine", data);
+
                     const verdict = this.checker.smartCheck(data, this.question.answer);
 
                     if (verdict === 2) {
@@ -96,6 +98,7 @@ class Room {
                         this.log(`${this.users.getName(socket.id)} buzzed correctly! (score ${score})`);
                         this.question.finishQuestion();
                         this.question.answered = true;
+                        this.io.emit("revealAnswer", this.question.answer);
 
                     } else if (verdict === 1 && !this.prompted) {
 
@@ -108,8 +111,6 @@ class Room {
                         this.buzzTimer = setInterval(() => this.clearBuzz(), this.timerCount + 200);
 
                     } else {
-
-                        this.io.emit("answerResponse", false);
                         
                         if (!this.question.finished) {
 

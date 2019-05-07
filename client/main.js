@@ -8,6 +8,7 @@ let nextBtn = document.querySelector("#nextBtn");
 let answerInput = document.querySelector("#answerInput");
 let timerText = document.querySelector("#timer");
 let scores = document.querySelector("#scores");
+let answer = document.querySelector("#answer");
 
 let timerInterval;
 let autoSendTimer;
@@ -35,12 +36,20 @@ socket.on("connect", data => {
         answerInput.setAttribute("hidden", "");
         answerInput.value = "";
         timerText.setAttribute("hidden", "");
+        document.querySelector("#answerLine").removeAttribute("id");
     })
 
     socket.on("playerBuzzed", data => {
         console.log("Player buzzed!");
         buzzBtn.disabled = true;
         timerText.removeAttribute("hidden");
+    });
+
+    socket.on("updateAnswerLine", updateAnswerLine);
+    socket.on("revealAnswer", data => {
+        answer.removeAttribute("hidden");
+        answer.innerHTML = data;
+        console.log("revealing answer");
     });
 
     socket.on("buzzFailed", data => {
@@ -53,14 +62,12 @@ socket.on("connect", data => {
         answerInput.focus();
 
         autoSendTimer = setTimeout(sendAnswer, 7000);
-
     });
 
     socket.on("log", data => {
         let msg = document.createElement("p");
         msg.innerHTML = data;
         log.insertBefore(msg, log.firstChild);
-
     });
 
     socket.on("updateLogHistory", data => {
@@ -87,6 +94,8 @@ socket.on("connect", data => {
 function nextQuestion() {
     socket.emit("nextQuestion");
     nextBtn.innerHTML = "Next";
+    answer.innerHTML = "";
+    answer.setAttribute("hidden", "");
 }
 
 function sendAnswer() {
@@ -103,4 +112,20 @@ function buzz() {
 function clearBuzz() {
     console.log("[DEBUG] clearing buzz");
     socket.emit("clearBuzz");
+}
+
+function updateAnswerLine(data) {
+
+    const liveAnswer = document.querySelector("#answerLine");
+
+    if (!liveAnswer) {
+        let msg = document.createElement("i");
+        msg.innerHTML = data;
+        msg.setAttribute("id", "answerLine");
+        msg.setAttribute("class", "buzz");
+        log.insertBefore(msg, log.firstChild);
+    }
+    else {
+        liveAnswer.innerHTML = data;
+    }
 }
