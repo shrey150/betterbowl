@@ -7,6 +7,8 @@ answerInput.addEventListener("keydown", e => {
 // assorted keybinds
 window.addEventListener("keydown", e => {
 
+    console.log("ping");
+
     switch (e.key) {
 
         case " ":
@@ -16,6 +18,10 @@ window.addEventListener("keydown", e => {
 
         case "n":
             nextQuestion();
+            break;
+
+        case "p":
+            pause();
             break;
 
         case "Escape":

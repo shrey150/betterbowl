@@ -9,14 +9,14 @@ let answerInput = document.querySelector("#answerInput");
 let timerText = document.querySelector("#timer");
 let scores = document.querySelector("#scores");
 let answer = document.querySelector("#answer");
+let q_info = document.querySelector("#q_info");
+let username = document.querySelector("#username");
 
 let timerInterval;
 let autoSendTimer;
 let timerValue = 7;
 
 socket.on("connect", data => {
-
-    //sendName();
 
     console.log("Connected to server!");
 
@@ -28,6 +28,10 @@ socket.on("connect", data => {
     socket.on("clearQuestion", data => {
         console.log("Clearing question...");
         question.innerHTML = "";
+        answer.innerHTML = "";
+        q_info.innerHTML = "";
+        answer.setAttribute("hidden", "");
+        q_info.setAttribute("hidden", "");
     });
 
     socket.on("clearBuzz", data => {
@@ -48,8 +52,9 @@ socket.on("connect", data => {
     socket.on("updateAnswerLine", updateAnswerLine);
     socket.on("revealAnswer", data => {
         answer.removeAttribute("hidden");
-        answer.innerHTML = data;
-        console.log("revealing answer");
+        q_info.removeAttribute("hidden");
+        answer.innerHTML = data.answer;
+        q_info.innerHTML = data.info;
     });
 
     socket.on("buzzFailed", data => {
@@ -93,9 +98,6 @@ socket.on("connect", data => {
 
 function nextQuestion() {
     socket.emit("nextQuestion");
-    nextBtn.innerHTML = "Next";
-    answer.innerHTML = "";
-    answer.setAttribute("hidden", "");
 }
 
 function sendAnswer() {
@@ -107,6 +109,15 @@ function sendAnswer() {
 function buzz() {
     console.log("Trying to buzz...");
     socket.emit("buzz");
+}
+
+function pause() {
+    console.log("Pausing...");
+    socket.emit("pause");
+}
+
+function changeName() {
+    socket.emit("changeName", username.value);
 }
 
 function clearBuzz() {

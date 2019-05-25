@@ -6,9 +6,10 @@
     <body>
         <h1>Betterbowl (WORK IN PROGRESS)</h1>
         <div id="controls">
-            <button id="nextBtn" onclick="nextQuestion()">Start</butt>
+            <button id="nextBtn" onclick="nextQuestion()">Start</button>
             <button id="buzzBtn" onclick="buzz()">Buzz</button>
-            <button id="clearBtn" onclick="clearBuzz()">[DEBUG] Clear</button>
+            <button id="pauseBtn" onclick="pause()">Pause</button>
+            <!--button id="clearBtn" onclick="clearBuzz()">[DEBUG] Clear</button-->
             <input type="text" id="answerInput" placeholder="Answer here" hidden />
         </div>
         <br>
@@ -18,6 +19,7 @@
         </div>
         <div id="main" class="main">
             <h2 id="timer" hidden></h2>
+            <i id="q_info" hidden></i><br>
             <b id="answer" hidden></b>
             <div id="question"></div>
             <div id="log" style="color: gray"></div>

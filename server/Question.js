@@ -1,6 +1,6 @@
 class Question {
 
-    constructor(question, answer, speed, io) {
+    constructor(question, answer, info, speed, io) {
 
         //this.read = this.read.bind(this);
         this.update = this.update.bind(this);
@@ -9,14 +9,16 @@ class Question {
 
         this.question = question;
         this.answer = answer;
+        this.info = info;
         this.speed = speed;
-        this.timer = setInterval(() => this.read(), this.speed);
         this.arr = question.split(" ");
         this.io = io;
         this.index = 0;
         this.reading = false;
         this.finished = false;
         this.answered = false;
+
+        this.start();
     }
 
     start() {

@@ -82,6 +82,8 @@ class Room {
                 }
             });
 
+            socket.on("pause", data => this.toggleRead());
+
             socket.on("sendAnswer", data => {
 
                 console.log("Received answer: " + data);
@@ -98,7 +100,10 @@ class Room {
                         this.log(`${this.users.getName(socket.id)} buzzed correctly! (score ${score})`);
                         this.question.finishQuestion();
                         this.question.answered = true;
-                        this.io.emit("revealAnswer", this.question.answer);
+                        this.io.emit("revealAnswer", {
+                            answer: this.question.answer,
+                            info: this.question.info
+                        });
 
                     } else if (verdict === 1 && !this.prompted) {
 
@@ -134,6 +139,10 @@ class Room {
                 this.log(`${name} disconnected (total players ${this.players.length})`);
             });
             
+            socket.on("changeName", data => {
+                this.users.changeName(socket.id, data);
+            });
+
             socket.on("clearBuzz", () => this.clearBuzz());
             socket.on("chat", data => {});
 
@@ -162,13 +171,22 @@ class Room {
 
     }
 
+    toggleRead() {
+
+        if (this.question && !this.question.reading) {
+            this.question.start();
+        }
+        else this.question.stop();
+    }
+
     fetchQuestionBank() {
 
         this.qb = new QuestionBank({
 
             "query"			: "",
             "search_type"	: "",
-            "difficulty"	: "middle_school",
+            "difficulty"	: "national_high_school",
+            "category"      : 17,
             "question_type"	: "Tossup",
             "limit"			: "true",
             "download"		: "json"
@@ -189,7 +207,7 @@ class Room {
 
         console.log(q);
 
-        this.question = new Question(q.text, q.formatted_answer, 100, this.io);
+        this.question = new Question(q.text, q.formatted_answer, q.info, 125, this.io, q);
     }
 
     log(msg) {

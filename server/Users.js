@@ -92,6 +92,16 @@ class Users {
         return score;
     }
 
+    changeName(id, name) {
+
+        this.players.forEach(n => {
+            if (n.id === id)
+                n.name = name;
+        });
+
+        this.sendScoreboard();
+    }
+
     sendScoreboard() {
 
         // send user array w/o IP information
