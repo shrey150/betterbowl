@@ -11,7 +11,6 @@ class QuestionBank {
     fetchQuestion() {
 
         const qData = this.questions[Math.floor(Math.random() * this.questions.length)];
-        console.log(qData);
         return { 
             text: qData.text,
             answer: qData.answer,
