@@ -47,6 +47,7 @@ socket.on("connect", data => {
         console.log("Player buzzed!");
         buzzBtn.disabled = true;
         timerText.removeAttribute("hidden");
+        timerText.removeAttribute("style");
     });
 
     socket.on("updateAnswerLine", updateAnswerLine);
@@ -92,7 +93,14 @@ socket.on("connect", data => {
         scores.innerHTML = elements;
     });
 
-    socket.on("tick", data => timerText.innerHTML = data.toFixed(1));
+    socket.on("deadTimer", data => {
+        timerText.removeAttribute("hidden");
+        timerText.setAttribute("style", "color: red");
+    });
+
+    socket.on("tick", data => {
+        timerText.innerHTML = data.toFixed(1);
+    });
 
 });
 

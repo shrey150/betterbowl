@@ -1,8 +1,11 @@
+const Timer = require("./Timer");
+
 class Question {
 
     constructor(question, answer, info, speed, io) {
 
-        //this.read = this.read.bind(this);
+        this.endTimer = new Timer(io);
+
         this.update = this.update.bind(this);
         this.start = this.start.bind(this);
         this.stop = this.stop.bind(this);
@@ -23,7 +26,7 @@ class Question {
 
     start() {
         if (this.index < this.arr.length) {
-            this.timer = setInterval(() => this.read(), this.speed);
+            this.buzzTimer = setInterval(() => this.read(), this.speed);
             this.reading = true;
         }
     }
@@ -45,11 +48,23 @@ class Question {
         this.index = this.arr.length;
         this.stop();
         this.finished = true;
+
+        if (!this.answered) {
+            this.endTimer.countdown(7);
+            this.io.emit("deadTimer");
+        }
     }
 
     stop() {
-        clearInterval(this.timer);
+        clearInterval(this.buzzTimer);
         this.reading = false;
+    }
+
+    revealAnswer() {
+        this.io.emit("revealAnswer", {
+            answer: this.answer,
+            info:   this.info
+        });
     }
 
 }

@@ -21,12 +21,12 @@ class Room {
 
         this.fetchQuestionBank();
 
+        this.timerCount = 7;
+
         this.logHistory = [];
         this.checker = new Checker();
         this.users = new Users(this.io);
-        this.timer = new Timer(this.io);
-
-        this.timerCount = 7;
+        this.timer = new Timer(this.io, () => this.clearBuzz());
 
     }
 
@@ -66,14 +66,14 @@ class Room {
                 if (this.buzzed === -1) {
 
                     if (this.question) this.question.stop();
+                    if (this.question.finished) this.question.endTimer.clearTimer();
 
                     this.buzzed = this.users.getIndex(this.users.getUser(socket.id));
                     this.io.emit("playerBuzzed", this.users.getName(socket.id));
 
                     this.io.to(socket.id).emit("requestAnswer");
 
-                    this.timer.countdown(this.timerCount);
-                    this.buzzTimer = setTimeout(() => this.clearBuzz(), 7200);
+                    this.timer.countdown(7);
 
                 }
                 else {
@@ -82,7 +82,7 @@ class Room {
                 }
             });
 
-            socket.on("pause", data => this.toggleRead());
+            socket.on("pause", () => this.toggleRead());
 
             socket.on("sendAnswer", data => {
 
@@ -98,22 +98,13 @@ class Room {
 
                         const score = this.users.changeScore(socket.id, 10);
                         this.log(`${this.users.getName(socket.id)} buzzed correctly! (score ${score})`);
-                        this.question.finishQuestion();
                         this.question.answered = true;
-                        this.io.emit("revealAnswer", {
-                            answer: this.question.answer,
-                            info: this.question.info
-                        });
+                        this.question.finishQuestion();
+                        this.question.revealAnswer();
 
                     } else if (verdict === 1 && !this.prompted) {
 
                         this.log(`[TODO] Prompt...`);
-                        this.io.to(socket.id).emit("requestAnswer");
-
-                        this.prompted = true;
-
-                        clearInterval(this.buzzTimer);
-                        this.buzzTimer = setInterval(() => this.clearBuzz(), this.timerCount + 200);
 
                     } else {
                         
@@ -122,7 +113,11 @@ class Room {
                             const score = this.users.changeScore(socket.id, -5);
                             this.log(`${this.users.getName(socket.id)} negged (score ${score})`);
                         
-                        } else this.log(`${this.users.getName(socket.id)} buzzed incorrectly, no penalty.`);
+                        } else {
+                            this.log(`${this.users.getName(socket.id)} buzzed incorrectly, no penalty.`);
+                            this.question.endTimer.countdown(this.question.endTimer.timer);
+                            this.io.emit("deadTimer");
+                        }
 
                     }
 
@@ -133,7 +128,7 @@ class Room {
 
             });
 
-            socket.on("disconnect", data => {
+            socket.on("disconnect", () => {
                 const name = this.users.getName(socket.id);
                 this.users.disconnect(socket.id);
                 this.log(`${name} disconnected (total players ${this.players.length})`);
