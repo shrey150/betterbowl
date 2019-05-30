@@ -2,17 +2,19 @@
 answerInput.addEventListener("keydown", e => {
 
     if (e.key === "Enter") sendAnswer();
+
 });
 
 // assorted keybinds
 window.addEventListener("keydown", e => {
 
-    console.log("ping");
+    // disregard keypresses in text boxes
+    if (e.target === answerInput || e.target === username) return;
 
     switch (e.key) {
 
         case " ":
-            if (e.target !== answerInput) e.preventDefault();
+            e.preventDefault();
             if (answerInput.hasAttribute("hidden")) buzz();
             break;
 
@@ -22,10 +24,6 @@ window.addEventListener("keydown", e => {
 
         case "p":
             pause();
-            break;
-
-        case "Escape":
-            clearBuzz();
             break;
 
         default:
