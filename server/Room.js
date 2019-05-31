@@ -26,7 +26,7 @@ class Room {
         this.logHistory = [];
         this.checker = new Checker();
         this.users = new Users(this.io);
-        this.timer = new Timer(this.io, () => this.clearBuzz());
+        this.timer = new Timer(this.io, () => this.clearBuzz(), "buzz");
 
     }
 
@@ -115,8 +115,8 @@ class Room {
                         
                         } else {
                             this.log(`${this.users.getName(socket.id)} buzzed incorrectly, no penalty.`);
-                            this.question.endTimer.countdown(this.question.endTimer.timer);
                             this.io.emit("deadTimer");
+                            this.question.endTimer.countdown(this.question.endTimer.timer);
                         }
 
                     }

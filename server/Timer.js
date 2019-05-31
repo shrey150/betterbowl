@@ -1,28 +1,37 @@
 class Timer {
 
-    constructor(io, callback) {
+    constructor(io, callback, type) {
         this.io = io;
         this.callback = callback;
+        this.type = type;
     }
 
     clearTimer() {
         clearInterval(this.ticker);
-        clearTimeout(this.timeout);
+    }
+
+    resume() {
+        this.countdown(this.timer);
     }
 
     countdown(n) {
-
         this.timer = n;
         this.tick();
         this.ticker = setInterval(() => this.tick(), 100);
-        this.timeout = setTimeout(() => clearInterval(this.ticker), n*1000+200);
-        this.callbackTimer = setTimeout(this.callback, n*1000+200);
     }
 
     tick() {
-        console.log(this.timer);
-        this.io.emit("tick", this.timer);
-        this.timer -= 0.1;
+        if (this.timer > 0.00001) {
+            this.io.emit("tick", {
+                time: this.timer,
+                type: this.type
+            });
+            this.timer -= 0.1;
+        }
+        else {
+            this.clearTimer();
+            this.callback();
+        }
     }
 
 }

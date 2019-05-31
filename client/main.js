@@ -93,13 +93,18 @@ socket.on("connect", data => {
         scores.innerHTML = elements;
     });
 
-    socket.on("deadTimer", data => {
-        timerText.removeAttribute("hidden");
-        timerText.setAttribute("style", "color: red");
-    });
-
     socket.on("tick", data => {
-        timerText.innerHTML = data.toFixed(1);
+
+        timerText.removeAttribute("hidden");
+
+        if (data.type === "dead") {
+            timerText.setAttribute("style", "color: red");
+        }
+        else {
+            timerText.setAttribute("style", "");
+        }
+        
+        timerText.innerHTML = data.time.toFixed(1);
     });
 
 });

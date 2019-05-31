@@ -4,7 +4,7 @@ class Question {
 
     constructor(question, answer, info, speed, io) {
 
-        this.endTimer = new Timer(io);
+        this.endTimer = new Timer(io, () => this.revealAnswer(), "dead");
 
         this.update = this.update.bind(this);
         this.start = this.start.bind(this);
@@ -65,6 +65,8 @@ class Question {
             answer: this.answer,
             info:   this.info
         });
+
+        this.io.emit("clearBuzz");
     }
 
 }
