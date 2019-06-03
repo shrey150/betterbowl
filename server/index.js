@@ -7,12 +7,37 @@ const path = require("path");
 
 const Room = require("./Room");
 
-const main = new Room("", io);
+const rooms = [];
 
-app.use(express.static("client"));
+app.use("/game", express.static("client/game"));
+app.use("/home", express.static("client/home"));
 
-app.get("/socket.io.js", (req, res) => {
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/home.html"));
+});
+
+app.get("/game/socket.io.js", (req, res) => {
     res.sendFile(path.join(__dirname, "../node_modules/socket.io-client/dist/socket.io.js"));
 });
+
+app.get("/*", (req, res) => {
+
+    if (!roomExists(req.path))
+        rooms.push(new Room(req.path, io));
+
+    res.sendFile(path.join(__dirname, "../client/game.html"));
+});
+
+function roomExists(name) {
+
+    let exists = false;
+
+    rooms.forEach(n => {
+        if (n.getName() === name)
+            exists = true;
+    });
+
+    return exists;
+}
 
 server.listen(port, () => console.log(`server running on port ${port}`));

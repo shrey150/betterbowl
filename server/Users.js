@@ -111,7 +111,6 @@ class Users {
             return obj;
         });
 
-        console.log(this.players, users);
         this.io.emit("sendScoreboard", users);
     }
 

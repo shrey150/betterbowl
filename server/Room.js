@@ -8,6 +8,8 @@ class Room {
 
     constructor(name, io) {
 
+        console.log(`Room '${name}' created!`);
+
         this.name = name;
         this.players = [];
         this.question = null;
@@ -16,7 +18,7 @@ class Room {
         this.buzzed = -1;
         this.prompted = false;
 
-        this.io = io.of("/" + name);
+        this.io = io.of(name);
         this.listen();
 
         this.fetchQuestionBank();
@@ -212,6 +214,8 @@ class Room {
         this.logHistory.unshift(msg);
 
     }
+
+    getName() { return this.name; }
 
 }
 

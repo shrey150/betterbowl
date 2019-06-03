@@ -1,6 +1,6 @@
 console.log("script.js loaded");
 
-let socket = io();
+let socket = io(`${window.location.pathname}`);
 let question = document.querySelector("#question");
 let log = document.querySelector("#log");
 let buzzBtn = document.querySelector("#buzzBtn");

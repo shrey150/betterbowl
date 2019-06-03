@@ -44,8 +44,6 @@ class Checker {
 
         userWords.forEach(n => matches.push(str.findBestMatch(n, keywords).bestMatch));
 
-        console.log(matches);
-
         let bestMatch = 0;
 
         matches.forEach(n => {
