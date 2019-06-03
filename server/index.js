@@ -12,6 +12,10 @@ const rooms = [];
 app.use("/game", express.static("client/game"));
 app.use("/home", express.static("client/home"));
 
+app.get("/api/fetchRooms", (req, res) => {
+    res.json(rooms.map(roomInfo));
+});
+
 app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/home.html"));
 });
@@ -38,6 +42,14 @@ function roomExists(name) {
     });
 
     return exists;
+}
+
+function roomInfo(n) {
+    return {
+        name: n.getName(),
+        players: n.users.players.length,
+        categories: "Science Nats"
+    }
 }
 
 server.listen(port, () => console.log(`server running on port ${port}`));
