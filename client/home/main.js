@@ -6,11 +6,11 @@ function listRooms() {
         roomList.innerHTML = "";
         console.log(res.data);
         res.data.forEach(n => {
-            roomList.innerHTML += `
+            roomList.innerHTML += `<p>
                 Playing ${n.categories}
                 in <a href='${n.name}'>${n.name}</a>
-                (${n.players} players)\n
-            `;
+                (${n.players} players)
+            </p>`;
         });
     })
     .catch(err => console.error("Error fetching room list: " + err));
