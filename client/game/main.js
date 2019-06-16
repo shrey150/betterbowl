@@ -1,61 +1,53 @@
 console.log("script.js loaded");
 
 let socket = io(`${window.location.pathname}`);
-let question = document.querySelector("#question");
-let log = document.querySelector("#log");
-let buzzBtn = document.querySelector("#buzzBtn");
-let nextBtn = document.querySelector("#nextBtn");
-let answerInput = document.querySelector("#answerInput");
-let timerText = document.querySelector("#timer");
-let scores = document.querySelector("#scores");
-let answer = document.querySelector("#answer");
-let q_info = document.querySelector("#q_info");
-let username = document.querySelector("#username");
 
 let timerInterval;
 let autoSendTimer;
 let timerValue = 7;
+
+const $ = document.querySelector.bind(document);
 
 socket.on("connect", data => {
 
     console.log("Connected to server!");
 
     socket.on("questionUpdate", data => {
-        question.append(data);
-        nextBtn.innerHTML = "Next";
+        $("#question").append(data);
+        $("#nextBtn").innerHTML = "Next";
     });
 
     socket.on("clearQuestion", data => {
         console.log("Clearing question...");
-        question.innerHTML = "";
-        answer.innerHTML = "";
-        q_info.innerHTML = "";
-        answer.setAttribute("hidden", "");
-        q_info.setAttribute("hidden", "");
+        $("#question").innerHTML = "";
+        $("#answer").innerHTML = "";
+        $("#q_info").innerHTML = "";
+        $("#answer").setAttribute("hidden", "");
+        $("#q_info").setAttribute("hidden", "");
     });
 
     socket.on("clearBuzz", data => {
         console.log("Clearing buzz...");
-        buzzBtn.disabled = false;
-        answerInput.setAttribute("hidden", "");
-        answerInput.value = "";
-        timerText.setAttribute("hidden", "");
+        $("#buzzBtn").disabled = false;
+        $("#answerInput").setAttribute("hidden", "");
+        $("#answerInput").value = "";
+        $("#timer").setAttribute("hidden", "");
         document.querySelector("#answerLine").removeAttribute("id");
     })
 
     socket.on("playerBuzzed", data => {
         console.log("Player buzzed!");
-        buzzBtn.disabled = true;
-        timerText.removeAttribute("hidden");
-        timerText.removeAttribute("style");
+        $("#buzzBtn").disabled = true;
+        $("#timer").removeAttribute("hidden");
+        $("#timer").removeAttribute("style");
     });
 
     socket.on("updateAnswerLine", updateAnswerLine);
     socket.on("revealAnswer", data => {
-        answer.removeAttribute("hidden");
-        q_info.removeAttribute("hidden");
-        answer.innerHTML = data.answer;
-        q_info.innerHTML = data.info;
+        $("#answer").removeAttribute("hidden");
+        $("#q_info").removeAttribute("hidden");
+        $("#answer").innerHTML = data.answer;
+        $("#q_info").innerHTML = data.info;
     });
 
     socket.on("buzzFailed", data => {
@@ -64,8 +56,8 @@ socket.on("connect", data => {
 
     socket.on("requestAnswer", data => {
         console.log("Request answer:");
-        answerInput.removeAttribute("hidden");
-        answerInput.focus();
+        $("#answerInput").removeAttribute("hidden");
+        $("#answerInput").focus();
 
         autoSendTimer = setTimeout(sendAnswer, 7000);
     });
@@ -73,13 +65,13 @@ socket.on("connect", data => {
     socket.on("log", data => {
         let msg = document.createElement("p");
         msg.innerHTML = data;
-        log.insertBefore(msg, log.firstChild);
+        $("#log").insertBefore(msg, $("#log").firstChild);
     });
 
     socket.on("updateLogHistory", data => {
         let msgs = "";
         data.forEach(n => msgs += `<p>${n}</p>`);
-        log.innerHTML += msgs;
+        $("#log").innerHTML += msgs;
     });
 
     socket.on("sendScoreboard", data => {
@@ -90,21 +82,21 @@ socket.on("connect", data => {
             const gray = !n.connected ? "color: gray" : "";
             elements += `<p style='${gray}'>${n.name}: ${n.score}</p>`;
         });
-        scores.innerHTML = elements;
+        $("#scores").innerHTML = elements;
     });
 
     socket.on("tick", data => {
 
-        timerText.removeAttribute("hidden");
+        $("#timer").removeAttribute("hidden");
 
         if (data.type === "dead") {
-            timerText.setAttribute("style", "color: red");
+            $("#timer").setAttribute("style", "color: red");
         }
         else {
-            timerText.setAttribute("style", "");
+            $("#timer").setAttribute("style", "");
         }
         
-        timerText.innerHTML = data.time.toFixed(1);
+        $("#timer").innerHTML = data.time.toFixed(1);
     });
 
 });
@@ -115,7 +107,7 @@ function nextQuestion() {
 
 function sendAnswer() {
     console.log("Sending answer...");
-    socket.emit("sendAnswer", answerInput.value);
+    socket.emit("sendAnswer", $("#answerInput").value);
     clearTimeout(autoSendTimer);
 }
 
@@ -130,7 +122,7 @@ function pause() {
 }
 
 function changeName() {
-    socket.emit("changeName", username.value);
+    socket.emit("changeName", $("#username").value);
 }
 
 function clearBuzz() {
@@ -147,9 +139,26 @@ function updateAnswerLine(data) {
         msg.innerHTML = data;
         msg.setAttribute("id", "answerLine");
         msg.setAttribute("class", "buzz");
-        log.insertBefore(msg, log.firstChild);
+        $("#log").insertBefore(msg, $("#log").firstChild);
     }
     else {
         liveAnswer.innerHTML = data;
     }
+}
+
+function toggleSettings() {
+
+    console.log($("#settings").style.display);
+
+    if ($("#settings").style.display === "") {
+        $("#settings").style.display = "block";
+    }
+    else $("#settings").style.display = "";
+}
+
+window.onclick = e => {
+
+    if (e.target === $("#settings"))
+        $("#settings").style.display = "";
+
 }
