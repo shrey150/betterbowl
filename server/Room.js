@@ -10,6 +10,8 @@ class Room {
 
         console.log(`Room '${name}' created!`);
 
+        this.loading = true;
+
         this.name = name;
         this.players = [];
         this.question = null;
@@ -21,7 +23,17 @@ class Room {
         this.io = io.of(name);
         this.listen();
 
-        this.fetchQuestionBank();
+        this.fetchQuestionBank({
+
+            "query"			: "",
+            "search_type"	: "",
+            "difficulty"	: ["national_high_school"],
+            "category"      : [17],
+            "question_type"	: "Tossup",
+            "limit"			: "true",
+            "download"		: "json"
+
+        });
 
         this.timerCount = 7;
 
@@ -49,6 +61,9 @@ class Room {
 
             this.log(`${this.users.getName(socket.id)} connected (total players ${this.users.players.length})`);
 
+            if (this.loading)           this.io.to(socket.id).emit("loading");
+            else if (!this.question)    this.io.to(socket.id).emit("loaded");
+
             // update players who joined in the middle of a question
             if (this.question) this.question.update(socket.id);
 
@@ -68,7 +83,7 @@ class Room {
                 if (this.buzzed === -1) {
 
                     if (this.question) this.question.stop();
-                    if (this.question.finished) this.question.endTimer.clearTimer();
+                    if (this.question && this.question.finished) this.question.endTimer.clearTimer();
 
                     this.buzzed = this.users.getIndex(this.users.getUser(socket.id));
                     this.io.emit("playerBuzzed", this.users.getName(socket.id));
@@ -140,6 +155,17 @@ class Room {
                 this.users.changeName(socket.id, data);
             });
 
+            socket.on("updateSettings", data => {
+
+                this.fetchQuestionBank({
+                    "query"			: "",
+                    "search_type"	: "",
+                    "difficulty"	: data.difficulty.map(n => n.toLowerCase().replace(/ /g, "_")),
+                    "category"      : data.category.map(n => parseInt(n)),
+                });
+
+            });
+
             socket.on("clearBuzz", () => this.clearBuzz());
             socket.on("chat", data => {});
 
@@ -176,21 +202,16 @@ class Room {
         else this.question.stop();
     }
 
-    fetchQuestionBank() {
+    fetchQuestionBank(args) {
 
-        this.qb = new QuestionBank({
+        console.log(args);
 
-            "query"			: "",
-            "search_type"	: "",
-            "difficulty"	: "national_high_school",
-            "category"      : 17,
-            "question_type"	: "Tossup",
-            "limit"			: "true",
-            "download"		: "json"
-
+        this.qb = new QuestionBank(args);
+        this.qb.search().then(() => {
+            this.loading = false;
+            this.io.emit("loaded");
+            console.log("Questions loaded!");
         });
-
-        this.qb.search().then(() => console.log("Questions loaded!"));
 
     }
 

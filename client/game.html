@@ -1,59 +1,115 @@
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Betterbowl</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
         <link rel="stylesheet" href="game/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+
+        <title>Betterbowl</title>
     </head>
     <body>
-        <h1>Betterbowl (WORK IN PROGRESS)</h1>
-        <div id="controls">
-            <button id="nextBtn" onclick="nextQuestion()">Start</button>
-            <button id="buzzBtn" onclick="buzz()">Buzz</button>
-            <button id="pauseBtn" onclick="pause()">Pause</button>
-            <input type="text" id="answerInput" placeholder="Answer here" hidden />
-        </div>
-        <br>
-        <div id="main">
-            <h2 id="timer" hidden></h2>
-            <i id="q_info" hidden></i><br>
-            <b id="answer" hidden></b>
-            <div id="question"></div>
-            <div id="log" style="color: gray"></div>
-        </div>
-        <div id="stats">
-            <input type="text" id="username" placeholder="Username" />
-            <button onclick="changeName()">Change Name</button><br><br>
-            <button onclick="toggleSettings()">Room settings (WIP)</button>
-            <div id="scores"></div>
+        <div class="container-fluid">
+            <h1>Betterbowl (WORK IN PROGRESS)</h1>
+            <div class="row">
+                <div class="col-9">
+                    <div id="controls">
+                        <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Start</button>
+                        <button type="button" class="btn btn-primary"id="buzzBtn" onclick="buzz()">Buzz</button>
+                        <button type="button" class="btn btn-primary" id="pauseBtn" onclick="pause()">Pause</button>
+                        <input type="text" class="form-control" id="answerInput" placeholder="Answer here" hidden />
+                    </div>
+                    <br>
+                    <div id="main">
+                        <h2 id="timer" hidden></h2>
+                        <ol id="q_info" class="breadcrumb" hidden></ol>
+                        <p id="answer" class="alert alert-secondary" hidden></p>
+                        <div id="question" class="alert alert-secondary"></div>
+                        <ul class="list-group" id="log"></ul>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div id="stats">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="username" placeholder="Username" />
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" onclick="changeName()">Change Name</button>
+                            </div>
+                        </div><br>
+                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#settings">Room settings (WIP)</button>
+                        <br><br><br>
+                        <ul class="list-group" id="scores"></ul>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div id="settings" class="modal">
-            <div class="modal-content">
-                <label>Question Search</label>
-                <input type="text" placeholder="Leave blank to search for all questions" /><br />
-                <label>Categories</label>
-                <select multiple>
-                    <option value="sci">Science</option>
-                    <option value="hist">History</option>
-                    <option value="lit">Literature</option>
-                </select><br />
-                <label>Search Type</label>
-                <select>
-                    <option value="q">Question</option>
-                    <option value="a">Answer</option>
-                    <option value="q+a">Question + Answer</option>
-                </select><br />
-                <label>Difficulty</label>
-                <select multiple>
-                    <option value="1">Middle School</option>
-                    <option value="2">Easy High School</option>
-                    <option value="3">Regular High School</option>
-                    <option value="4">Hard High School</option>
-                    <option value="5">National High School</option>
-                    <option value="6">Easy College</option>
-                    <option value="7">Regular College</option>
-                    <option value="8">Hard College</option>
-                    <option value="9">Open</option>
-                </select>
+        <div id="settings" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Room settings</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <!--
+                            <div class="form-group">
+                                <label for="qSearch">Question Search</label>
+                                <input type="text" class="form-control" id="qSearch" aria-describedby="qHelp" placeholder="Enter search terms here">
+                                <small id="qHelp" class="form-text text-muted">(Leave this blank to search for all questions)</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="searchType">Search Type</label>
+                                <select class="selectpicker form-control" id="searchType" aria-describedby="typeHelp">
+                                    <option value="q">Question</option>
+                                    <option value="a">Answer</option>
+                                    <option value="qa">Question & Answer</option>
+                                </select>
+                                <small id="typeHelp" class="form-text text-muted">(This is where QuizDB will search for your keywords)</small>
+                            </div>
+                            -->
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <select class="selectpicker form-control" id="category" multiple data-live-search="true">
+                                    <option value="26">Current Events</option>
+                                    <option value="21">Fine Arts</option>
+                                    <option value="20">Geography</option>
+                                    <option value="18">History</option>
+                                    <option value="15">Literature</option>
+                                    <option value="14">Mythology</option>
+                                    <option value="25">Philosophy</option>
+                                    <option value="19">Religion</option>
+                                    <option value="17">Science</option>
+                                    <option value="22">Social Science</option>
+                                    <option value="16">Trash</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="difficulty">Difficulty</label>
+                                <select class="selectpicker form-control" id="difficulty" multiple data-live-search="true">
+                                    <option>Middle School</option>
+                                    <option>Easy High School</option>
+                                    <option>Regular High School</option>
+                                    <option>Hard High School</option>
+                                    <option>National High School</option>
+                                    <option>Easy College</option>
+                                    <option>Regular College</option>
+                                    <option>Hard College</option>
+                                    <option>Open</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="saveSettings()">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -61,5 +117,10 @@
         <script src="game/socket.io.js"></script>
         <script src="game/main.js"></script>
         <script src="game/keybinds.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
     </body>
 </html>

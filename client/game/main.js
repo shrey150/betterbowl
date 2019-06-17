@@ -47,7 +47,10 @@ socket.on("connect", data => {
         $("#answer").removeAttribute("hidden");
         $("#q_info").removeAttribute("hidden");
         $("#answer").innerHTML = data.answer;
-        $("#q_info").innerHTML = data.info;
+
+        const breadcrumb = data.info.reduce((str, n) => str += `<li class="breadcrumb-item">${n}</li>`, "");
+
+        $("#q_info").innerHTML = breadcrumb;
     });
 
     socket.on("buzzFailed", data => {
@@ -62,15 +65,24 @@ socket.on("connect", data => {
         autoSendTimer = setTimeout(sendAnswer, 7000);
     });
 
+    socket.on("loading", () => {
+        $("#question").innerHTML = `Loading questions... (This may take a while as questions are being requested from QuizDB. This will be considerably faster in a later update.)`;
+    });
+
+    socket.on("loaded", () => {
+        $("#question").innerHTML = "Questions loaded! Press <code>n</code> to start reading questions.";
+    });
+
     socket.on("log", data => {
-        let msg = document.createElement("p");
+        let msg = document.createElement("li");
+        msg.setAttribute("class", "list-group-item");
         msg.innerHTML = data;
         $("#log").insertBefore(msg, $("#log").firstChild);
     });
 
     socket.on("updateLogHistory", data => {
         let msgs = "";
-        data.forEach(n => msgs += `<p>${n}</p>`);
+        data.forEach(n => msgs += `<li class="list-group-item">${n}</li>`);
         $("#log").innerHTML += msgs;
     });
 
@@ -78,9 +90,11 @@ socket.on("connect", data => {
         console.log("Updating scoreboard");
         let elements = "";
         data.forEach(n => {
-            console.log(n);
             const gray = !n.connected ? "color: gray" : "";
-            elements += `<p style='${gray}'>${n.name}: ${n.score}</p>`;
+            elements += `<li class="list-group-item d-flex justify-content-between align-items-center">
+                            ${n.name}
+                            <span class="badge badge-secondary badge-pill">${n.score}</span>
+                        </li>`;
         });
         $("#scores").innerHTML = elements;
     });
@@ -135,10 +149,9 @@ function updateAnswerLine(data) {
     const liveAnswer = document.querySelector("#answerLine");
 
     if (!liveAnswer) {
-        let msg = document.createElement("i");
+        let msg = document.createElement("li");
+        msg.setAttribute("class", "list-group-item list-group-item-primary");
         msg.innerHTML = data;
-        msg.setAttribute("id", "answerLine");
-        msg.setAttribute("class", "buzz");
         $("#log").insertBefore(msg, $("#log").firstChild);
     }
     else {
@@ -146,14 +159,14 @@ function updateAnswerLine(data) {
     }
 }
 
-function toggleSettings() {
+function saveSettings() {
 
-    console.log($("#settings").style.display);
+    //const search        = jQuery("#qSearch").val();
+    //const type          = jQuery("#searchType").val();
+    const category      = jQuery("#category").val();
+    const difficulty    = jQuery("#difficulty").val();
 
-    if ($("#settings").style.display === "") {
-        $("#settings").style.display = "block";
-    }
-    else $("#settings").style.display = "";
+    socket.emit("updateSettings", { category, difficulty });
 }
 
 window.onclick = e => {
