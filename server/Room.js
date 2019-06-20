@@ -72,6 +72,12 @@ class Room {
                 this.io.to(socket.id).emit("playerBuzzed", this.users.getUserByIndex(this.buzzed));
 
             socket.on("nextQuestion", () => {
+
+                this.io.emit("clearBuzz");
+
+                if (this.question)
+                    this.question.endTimer.clearTimer();
+
                 if (this.buzzed === -1 && this.qb.questions)
                     this.fetchQuestion();
             })
