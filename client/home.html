@@ -1,16 +1,35 @@
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
         <title>Betterbowl</title>
     </head>
-    <body>
-        <h1>Welcome to Betterbowl</h1>
-        <p>Choose a room:</p>
-        <input type="text" id="roomName" placeholder="hsquizbowl" />
-        <button onclick="goToRoom()">Go</button>
+    <body style="background: whitesmoke">
+        <div class="container">
+            <div id="jumbotron" class="text-center">
+                <h1>Welcome to Betterbowl</h1>
+                <p class="lead">Protobowl, but better</p>
+            </div>
+            <div class="container">
+                <div class="form-group">
+                    <label for="roomName">Join/create a room:</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="roomName" placeholder="hsquizbowl" />
+                        <div class="input-group-append">
+                            <button type="button" class="btn btn-primary" onclick="goToRoom()">Go</button>
+                        </div>
+                    </div>
+                </div>
 
-        <hr>
+                <hr>
 
-        <div id="roomList"></div>
+                <p>Public Rooms:</p>
+
+                <ul class="list-group" id="roomList"></ul>
+            </div>
+        </div>
 
         <!--Scripts at the end-->
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

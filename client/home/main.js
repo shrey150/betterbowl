@@ -4,14 +4,18 @@ function listRooms() {
     axios.get("/api/fetchRooms")
     .then(res => {
         roomList.innerHTML = "";
-        console.log(res.data);
         res.data.forEach(n => {
-            roomList.innerHTML += `<p>
-                Playing ${n.categories}
-                in <a href='${n.name}'>${n.name}</a>
-                (${n.players} players)
-            </p>`;
+            roomList.innerHTML += `<li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <span>
+                                            Playing ${n.categories}
+                                            in <a href='${n.name}'>${n.name}</a>
+                                        </span>
+                                        <span class="badge badge-primary badge-pill">${n.players}</span>
+                                    </li>`;
         });
+
+        if (res.data.length === 0)
+            roomList.innerHTML = "<li class='list-group-item list-group-item-light'>No public rooms right now :(</li>"
     })
     .catch(err => console.error("Error fetching room list: " + err));
 }

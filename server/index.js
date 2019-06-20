@@ -24,6 +24,14 @@ app.get("/game/socket.io.js", (req, res) => {
     res.sendFile(path.join(__dirname, "../node_modules/socket.io-client/dist/socket.io.js"));
 });
 
+app.get("/game/socket.io.js.map", (req, res) => {
+    res.send("Source maps not enabled");
+});
+
+app.get("/favicon.ico", (req, res) => {
+    res.sendFile(path.join(__dirname, "../node_modules/socket.io-client/dist/socket.io.js"));
+});
+
 app.get("/*", (req, res) => {
 
     if (!roomExists(req.path))
@@ -48,7 +56,7 @@ function roomInfo(n) {
     return {
         name: n.getName(),
         players: n.users.players.length,
-        categories: "Science Nats"
+        categories: "Good Quizbowl"
     }
 }
 
