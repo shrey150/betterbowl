@@ -29,7 +29,7 @@ app.get("/game/socket.io.js.map", (req, res) => {
 });
 
 app.get("/favicon.ico", (req, res) => {
-    res.sendFile(path.join(__dirname, "../node_modules/socket.io-client/dist/socket.io.js"));
+    res.send("Favicon not enabled");
 });
 
 app.get("/*", (req, res) => {
