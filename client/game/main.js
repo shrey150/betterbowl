@@ -164,9 +164,31 @@ function saveSettings() {
     //const search        = jQuery("#qSearch").val();
     //const type          = jQuery("#searchType").val();
     const category      = jQuery("#category").val();
+    const subcategory   = jQuery("#subcategory").val();
     const difficulty    = jQuery("#difficulty").val();
 
-    socket.emit("updateSettings", { category, difficulty });
+    console.log(category, subcategory, difficulty);
+
+    socket.emit("updateSettings", { category, subcategory, difficulty });
+}
+
+function updateSubcats() {
+
+    const category = jQuery("#category").val();
+    $("#subcategory").innerHTML = "";
+
+    category.forEach(n => {
+
+        let options = "";
+
+        subcats[n].forEach(m => {
+            options += `<option value="${subIds[m]}">${m}</option>`;
+        });
+
+        $("#subcategory").innerHTML += options;
+        jQuery("#subcategory").selectpicker("refresh");
+
+    });
 }
 
 window.onclick = e => {

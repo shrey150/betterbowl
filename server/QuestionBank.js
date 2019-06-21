@@ -49,10 +49,9 @@ class QuestionBank {
                 `download=json`
             ;
 
-            console.log(this.args);
-
-            url += this.args.category.reduce((a, n) => `&search[filters][category][]=${n}`, "");
-            url += this.args.difficulty.reduce((a, n) => `&search[filters][difficulty][]=${n}`, "");
+            url += this.args.category.reduce((a, n) => a += `&search[filters][category][]=${n}`, "");
+            url += this.args.subcategory.reduce((a, n) => a += `&search[filters][subcategory][]=${n}`, "");
+            url += this.args.difficulty.reduce((a, n) => a += `&search[filters][difficulty][]=${n}`, "");
 
             console.log(url);
 
@@ -60,8 +59,7 @@ class QuestionBank {
 
             axios.get(url).then(rs => {
                 this.questions = rs.data.data.tossups;
-                console.log(this.questions.length);
-                resolve();
+                resolve(this.questions.length);
             })
             .catch(() => {
                 console.log("Connection to QuizDB failed!");

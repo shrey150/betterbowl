@@ -75,7 +75,7 @@
                             -->
                             <div class="form-group">
                                 <label for="category">Category</label>
-                                <select class="selectpicker form-control" id="category" multiple data-live-search="true">
+                                <select class="selectpicker form-control" id="category" multiple data-live-search="true" onchange="updateSubcats()">
                                     <option value="26">Current Events</option>
                                     <option value="21">Fine Arts</option>
                                     <option value="20">Geography</option>
@@ -88,6 +88,10 @@
                                     <option value="22">Social Science</option>
                                     <option value="16">Trash</option>
                                 </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="subcategory">Subcategory</label>
+                                <select class="selectpicker form-control" id="subcategory" multiple data-live-search="true"></select>
                             </div>
                             <div class="form-group">
                                 <label for="difficulty">Difficulty</label>
@@ -123,6 +127,7 @@
         <script src="game/socket.io.js"></script>
         <script src="game/main.js"></script>
         <script src="game/keybinds.js"></script>
+        <script src="game/subcats.js"></script>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>

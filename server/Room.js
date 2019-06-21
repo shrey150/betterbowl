@@ -29,6 +29,7 @@ class Room {
             "search_type"	: "",
             "difficulty"	: ["national_high_school"],
             "category"      : [17],
+            "subcategory"   : [],
             "question_type"	: "Tossup",
             "limit"			: "true",
             "download"		: "json"
@@ -168,6 +169,7 @@ class Room {
                     "search_type"	: "",
                     "difficulty"	: data.difficulty.map(n => n.toLowerCase().replace(/ /g, "_")),
                     "category"      : data.category.map(n => parseInt(n)),
+                    "subcategory"   : data.subcategory.map(n => parseInt(n))
                 });
 
             });
@@ -210,13 +212,11 @@ class Room {
 
     fetchQuestionBank(args) {
 
-        console.log(args);
-
         this.qb = new QuestionBank(args);
-        this.qb.search().then(() => {
+        this.qb.search().then(n => {
             this.loading = false;
             this.io.emit("loaded");
-            console.log("Questions loaded!");
+            console.log(`Loaded ${n} questions!`);
         });
 
     }
