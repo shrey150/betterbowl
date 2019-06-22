@@ -197,41 +197,56 @@ class Room {
 
     clearBuzz() {
 
-        clearInterval(this.buzzTimer);
+        if (this.timer)
+            this.timer.clearTimer();
 
-        if (this.buzzed !== -1) {
-
-            if (this.question) {
-                if (!this.question.reading && !this.question.finished) {
-                    this.question.start();
-                }
+        if (this.question) {
+            if (!this.question.reading && !this.question.finished) {
+                this.question.start();
             }
-
-            this.buzzed = -1;
-            this.io.emit("clearBuzz");
-
-            console.log("Clearing buzz...");
-
         }
+
+        this.buzzed = -1;
+        this.io.emit("clearBuzz");
+
+        console.log("Clearing buzz...");
 
     }
 
     toggleRead() {
 
-        if (this.question && !this.question.reading) {
-            this.question.start();
+        if (this.question) {
+            if (!this.question.reading) this.question.start();
+            else                        this.question.stop();
         }
-        else this.question.stop();
     }
 
     fetchQuestionBank(args) {
 
+        this.clearQuestion();
+
         this.qb = new QuestionBank(args);
+
+        this.loading = true;
+        this.io.emit("loading");
+
+        this.question = null;
+
         this.qb.search().then(n => {
             this.loading = false;
             this.io.emit("loaded");
             console.log(`Loaded ${n} questions!`);
         });
+
+    }
+
+    clearQuestion() {
+
+        this.clearBuzz();
+
+        if (this.question) this.question.stop();
+
+        this.io.emit("clearQuestion");
 
     }
 
