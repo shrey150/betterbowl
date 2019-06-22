@@ -16,6 +16,13 @@ class Room {
         this.players = [];
         this.question = null;
 
+        /*
+        * Public = 2
+        * Unlisted = 1
+        * Private = 0
+        */
+        this.privacy = 2;
+
         // index of "this.players"
         this.buzzed = -1;
         this.prompted = false;
@@ -164,13 +171,20 @@ class Room {
 
             socket.on("updateSettings", data => {
 
+                const search = data.search;
+
                 this.fetchQuestionBank({
                     "query"			: "",
                     "search_type"	: "",
-                    "difficulty"	: data.difficulty.map(n => n.toLowerCase().replace(/ /g, "_")),
-                    "category"      : data.category.map(n => parseInt(n)),
-                    "subcategory"   : data.subcategory.map(n => parseInt(n))
+                    "difficulty"	: search.difficulty.map(n => n.toLowerCase().replace(/ /g, "_")),
+                    "category"      : search.category.map(n => parseInt(n)),
+                    "subcategory"   : search.subcategory.map(n => parseInt(n))
                 });
+
+                this.privacy = parseInt(data.security.privacy);
+
+                // TODO: hash password?
+                this.password = data.security.password;
 
             });
 
@@ -242,7 +256,9 @@ class Room {
 
     }
 
-    getName() { return this.name; }
+    getName()       { return this.name; }
+    getPrivacy()    { return this.privacy; }
+    getPassword()   { return this.password; }
 
 }
 

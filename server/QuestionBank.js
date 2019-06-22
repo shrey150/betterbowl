@@ -53,8 +53,6 @@ class QuestionBank {
             url += this.args.subcategory.reduce((a, n) => a += `&search[filters][subcategory][]=${n}`, "");
             url += this.args.difficulty.reduce((a, n) => a += `&search[filters][difficulty][]=${n}`, "");
 
-            console.log(url);
-
             console.log("Loading questions...");
 
             axios.get(url).then(rs => {
@@ -66,7 +64,7 @@ class QuestionBank {
                 console.log("Loading local question set...");
 
                 this.questions = q_set.data.tossups;
-                resolve();
+                resolve(this.questions.length);
             });
     
         });

@@ -91,7 +91,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="subcategory">Subcategory</label>
-                                <select class="selectpicker form-control" id="subcategory" multiple data-live-search="true"></select>
+                                <select class="selectpicker form-control" id="subcategory" multiple data-live-search="true" aria-describedby="subHelp"></select>
+                                <small id="subHelp" class="form-text text-muted">Note: not all questions are marked by subcategory. Question distribution could be smaller than expected.</small>
                             </div>
                             <div class="form-group">
                                 <label for="difficulty">Difficulty</label>
@@ -106,6 +107,20 @@
                                     <option>Hard College</option>
                                     <option>Open</option>
                                 </select>
+                            </div>
+                            <hr>
+                            <div class="form-group">
+                                <label for="privacy">Privacy</label>
+                                <select class="selectpicker form-control" id="privacy" onchange="privacyInfo()" aria-describedby="privacyHelp">
+                                    <option value="2">Public</option>
+                                    <option value="1">Private</option>
+                                    <!--option value="0">Private</option-->
+                                </select>
+                                <small id="privacyHelp" class="form-text text-muted">Anyone can join your room and it is publicly advertised on the rooms list.</small>
+                            </div>
+                            <div class="form-group" id="passGroup" hidden>
+                                <label for="password">Password</label>
+                                <input type="text" class="form-control" id="password" placeholder="Something secure">
                             </div>
                         </form>
                     </div>

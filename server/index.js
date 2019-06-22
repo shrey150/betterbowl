@@ -13,7 +13,7 @@ app.use("/game", express.static("client/game"));
 app.use("/home", express.static("client/home"));
 
 app.get("/api/fetchRooms", (req, res) => {
-    res.json(rooms.map(roomInfo));
+    res.json(rooms.map(roomInfo).filter(n => n));
 });
 
 app.get("/", (req, res) => {
@@ -34,25 +34,34 @@ app.get("/favicon.ico", (req, res) => {
 
 app.get("/*", (req, res) => {
 
-    if (!roomExists(req.path))
+    if (getRoomIndex(req.path) === -1) {
         rooms.push(new Room(req.path, io));
+    }
+    else if (rooms[getRoomIndex(req.path)].privacy === 0) {
+        res.sendFile(path.join(__dirname, "../client/auth.html"));
+        return;
+    }
 
     res.sendFile(path.join(__dirname, "../client/game.html"));
+        
 });
 
-function roomExists(name) {
+function getRoomIndex(name) {
 
-    let exists = false;
+    let index = -1;
 
-    rooms.forEach(n => {
-        if (n.getName() === name)
-            exists = true;
-    });
+    for (i = 0; i < rooms.length; i++) {
+        if (rooms[i].name === name)
+            index = i;
+    }
 
-    return exists;
+    return index;
 }
 
 function roomInfo(n) {
+
+    if (n.privacy < 2) return null;
+
     return {
         name: n.getName(),
         players: n.users.players.length,

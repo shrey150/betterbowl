@@ -167,9 +167,20 @@ function saveSettings() {
     const subcategory   = jQuery("#subcategory").val();
     const difficulty    = jQuery("#difficulty").val();
 
+    const privacy       = jQuery("#privacy").val();
+    const password      = jQuery("#password").val();
+
+    if (privacy === "0" && !password.trim()) {
+        alert("Please enter a password.");
+        return;
+    }
+
     console.log(category, subcategory, difficulty);
 
-    socket.emit("updateSettings", { category, subcategory, difficulty });
+    socket.emit("updateSettings", {
+        "search":     { category, subcategory, difficulty },
+        "security":    { privacy, password }
+    });
 }
 
 function updateSubcats() {
@@ -189,6 +200,30 @@ function updateSubcats() {
         jQuery("#subcategory").selectpicker("refresh");
 
     });
+}
+
+function privacyInfo() {
+
+    switch ($("#privacy").value) {
+
+        case "2":
+            $("#privacyHelp").innerHTML = "Anyone can join your room and it is publicly advertised on the rooms list.";
+            $("#passGroup").setAttribute("hidden", "");
+            break;
+
+        case "1":
+            $("#privacyHelp").innerHTML = "People can join your room with a link, but it is NOT advertised on the rooms list.";
+            $("#passGroup").setAttribute("hidden", "");
+            break;
+
+        // TO BE IMPLEMENTED LATER
+        case "0":
+            $("#privacyHelp").innerHTML = "No one can join your room without a password.";
+            $("#passGroup").removeAttribute("hidden");
+            break;
+
+    }
+
 }
 
 window.onclick = e => {

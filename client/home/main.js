@@ -5,6 +5,9 @@ function listRooms() {
     .then(res => {
         roomList.innerHTML = "";
         res.data.forEach(n => {
+
+            if (n === null) return;
+
             roomList.innerHTML += `<li class="list-group-item d-flex justify-content-between align-items-center">
                                         <span>
                                             Playing ${n.categories}
@@ -15,7 +18,8 @@ function listRooms() {
         });
 
         if (res.data.length === 0)
-            roomList.innerHTML = "<li class='list-group-item list-group-item-light'>No public rooms right now :(</li>"
+            roomList.innerHTML = "<li class='list-group-item list-group-item-light'>No public rooms right now :(</li>";
+
     })
     .catch(err => console.error("Error fetching room list: " + err));
 }
