@@ -11,11 +11,18 @@ class QuestionBank {
     fetchQuestion() {
 
         const qData = this.questions[Math.floor(Math.random() * this.questions.length)];
+        let qInfo = [qData.tournament.difficulty, qData.tournament.name, qData.category.name, qData.subcategory.name];
+
+        qInfo = qInfo.map(n => {
+            if (!n)     return "Not specified";
+            else        return n;
+        });
+
         return { 
             text: qData.text,
             answer: qData.answer,
             formatted_answer: qData.formatted_answer,
-            info: [qData.tournament.difficulty, qData.tournament.name, qData.category.name, qData.subcategory.name]
+            info: qInfo
         };
 
     }
