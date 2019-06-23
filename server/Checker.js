@@ -15,16 +15,16 @@ class Checker {
     findKeywords(s) {
 
         // replace <strong></strong> with {}
-        // replace <u></u> with <>
+        // replace <u></u> with ~~
+        // replace <em></em> with ^^
         s = this.markImportant(s);
 
-        let bold = s.match(/[^{]+(?=})/g);
-        let under = s.match(/[^<]+(?=>)/g);
-
-        if (!bold && !under) return null;
+        let bold    = s.match(/[^{]+(?=})/g);
+        let under   = s.match(/[^~]+(?=~)/g);
+        let em      = s.match(/[^\^]+(?=\^)/g);
 
         // return all keywords (filter out nulls)
-        return bold.concat(under).filter(Boolean);
+        return [].concat(bold, under, em).filter(Boolean);
 
     }
 
@@ -36,7 +36,7 @@ class Checker {
 
         // if there's no bolded/underlined,
         // just trim down the answer line
-        if (!keywords) keywords = this.trimAnswer(real);
+        if (keywords.length === 0) keywords = this.trimAnswer(real);
 
         let userWords = this.trimAnswer(user);
 
@@ -60,7 +60,9 @@ class Checker {
 
     markImportant(s) {
         s = s.replace(/<strong>/g, "{").replace(/<\/strong>/g, "}");
-        s = s.replace(/<u>/g, "<").replace(/<\/u>/g, ">");
+        s = s.replace(/<u>/g, "~").replace(/<\/u>/g, "~");
+        s = s.replace(/<em>/g, "^").replace(/<\/em>/g, "^");
+        
         return s.toLowerCase();
     }
 
