@@ -32,7 +32,6 @@ socket.on("connect", data => {
         $("#answerInput").setAttribute("hidden", "");
         $("#answerInput").value = "";
         $("#timer").setAttribute("hidden", "");
-        document.querySelector("#answerLine").removeAttribute("id");
     })
 
     socket.on("playerBuzzed", data => {
@@ -170,16 +169,22 @@ function saveSettings() {
     const privacy       = jQuery("#privacy").val();
     const password      = jQuery("#password").val();
 
+    const canSkip       = $("#canSkip").checked;
+    const canPause      = $("#canPause").checked;
+    const canMultiBuzz  = $("#canMultiBuzz").checked;
+
     if (privacy === "0" && !password.trim()) {
         alert("Please enter a password.");
         return;
     }
 
     console.log(category, subcategory, difficulty);
+    console.log(canSkip, canPause, canMultiBuzz);
 
     socket.emit("updateSettings", {
-        "search":     { category, subcategory, difficulty },
-        "security":    { privacy, password }
+        "search"    : { category, subcategory, difficulty },
+        "security"  : { privacy, password },
+        "rules"     : { canSkip, canPause, canMultiBuzz }               
     });
 }
 

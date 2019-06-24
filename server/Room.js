@@ -16,6 +16,12 @@ class Room {
         this.players = [];
         this.question = null;
 
+        this.rules = {
+            canSkip     : true,
+            canPause    : true,
+            canMultiBuzz: true
+        }
+
         /*
         * Public = 2
         * Unlisted = 1
@@ -49,6 +55,8 @@ class Room {
         this.checker = new Checker();
         this.users = new Users(this.io);
         this.timer = new Timer(this.io, () => this.clearBuzz(), "buzz");
+
+        this.buzzedOut = [];
 
     }
 
@@ -94,7 +102,9 @@ class Room {
 
                 console.log(`Received buzz from ${this.users.getName(socket.id)}`);
 
-                if (this.buzzed === -1) {
+                if (this.buzzed === -1 && !this.isBuzzedOut(socket.id)) {
+
+                    this.buzzedOut.push(socket.id);
 
                     if (this.question) this.question.stop();
                     if (this.question && this.question.finished) this.question.endTimer.clearTimer();
@@ -182,9 +192,13 @@ class Room {
                 });
 
                 this.privacy = parseInt(data.security.privacy);
+                this.rules = data.rules;
 
                 // TODO: hash password?
                 this.password = data.security.password;
+
+                this.log("Room settings updated.");
+
 
             });
 
@@ -211,6 +225,11 @@ class Room {
 
         console.log("Clearing buzz...");
 
+    }
+
+    isBuzzedOut(id) {
+        if (this.rules.canMultiBuzz) return false;
+        else return this.buzzedOut.includes(id);
     }
 
     toggleRead() {
@@ -254,6 +273,7 @@ class Room {
 
         if (this.question) this.question.stop();
         this.buzzed = -1;
+        this.buzzedOut = [];
 
         this.io.emit("clearQuestion");
         const q = this.qb.fetchQuestion();
