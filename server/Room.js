@@ -22,10 +22,16 @@ class Room {
             canMultiBuzz: true
         }
 
+        this.query = {
+            category    : [],
+            subcategory : [],
+            difficulty  : []
+        }
+
         /*
         * Public = 2
         * Unlisted = 1
-        * Private = 0
+        * (TODO) Private = 0
         */
         this.privacy = 2;
 
@@ -40,9 +46,9 @@ class Room {
 
             "query"			: "",
             "search_type"	: "",
-            "difficulty"	: ["national_high_school"],
-            "category"      : [17],
-            "subcategory"   : [],
+            "difficulty"	: this.query.difficulty,
+            "category"      : this.query.category,
+            "subcategory"   : this.query.subcategory,
             "question_type"	: "Tossup",
             "limit"			: "true",
             "download"		: "json"
@@ -75,8 +81,16 @@ class Room {
             // update previous log messages
             this.io.to(socket.id).emit("updateLogHistory", this.logHistory);
 
+            // update room settings menu locally
+            this.io.to(socket.id).emit("syncSettings", {
+                search  : this.query,
+                privacy : this.privacy,
+                rules   : this.rules
+            });
+
             this.log(`${this.users.getName(socket.id)} connected (total players ${this.users.players.length})`);
 
+            // display loading message if necessary
             if (this.loading)           this.io.to(socket.id).emit("loading");
             else if (!this.question)    this.io.to(socket.id).emit("loaded");
 
@@ -186,14 +200,14 @@ class Room {
 
             socket.on("updateSettings", data => {
 
-                const search = data.search;
+                this.query = data.search;
 
                 this.fetchQuestionBank({
                     "query"			: "",
                     "search_type"	: "",
-                    "difficulty"	: search.difficulty.map(n => n.toLowerCase().replace(/ /g, "_")),
-                    "category"      : search.category.map(n => parseInt(n)),
-                    "subcategory"   : search.subcategory.map(n => parseInt(n))
+                    "difficulty"	: this.query.difficulty.map(n => n.toLowerCase().replace(/ /g, "_")),
+                    "category"      : this.query.category.map(n => parseInt(n)),
+                    "subcategory"   : this.query.subcategory.map(n => parseInt(n))
                 });
 
                 this.privacy = parseInt(data.security.privacy);
@@ -201,6 +215,12 @@ class Room {
 
                 // TODO: hash password?
                 this.password = data.security.password;
+
+                this.io.emit("syncSettings", {
+                    search  : this.query,
+                    privacy : this.privacy,
+                    rules   : this.rules
+                });
 
                 this.log("Room settings updated.");
 
