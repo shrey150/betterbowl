@@ -89,14 +89,19 @@ class Room {
 
             socket.on("nextQuestion", () => {
 
-                this.io.emit("clearBuzz");
+                if (!this.question || this.question.answered || this.rules.canSkip) {
 
-                if (this.question)
-                    this.question.endTimer.clearTimer();
+                    this.io.emit("clearBuzz");
 
-                if (this.buzzed === -1 && this.qb.questions)
-                    this.fetchQuestion();
-            })
+                    if (this.question)
+                        this.question.endTimer.clearTimer();
+
+                    if (this.buzzed === -1 && this.qb.questions)
+                        this.fetchQuestion();
+
+                }
+
+            });
 
             socket.on("buzz", data => {
 
@@ -123,7 +128,7 @@ class Room {
                 }
             });
 
-            socket.on("pause", () => this.toggleRead());
+            socket.on("pause", () => { if (this.rules.canPause) this.toggleRead() });
 
             socket.on("sendAnswer", data => {
 

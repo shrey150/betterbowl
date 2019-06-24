@@ -61,6 +61,9 @@ class Question {
     }
 
     revealAnswer() {
+
+        this.answered = true;
+
         this.io.emit("revealAnswer", {
             answer: this.answer,
             info:   this.info
