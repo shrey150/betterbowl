@@ -6,6 +6,10 @@
   "scripts": {
     "start": "node server/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shrey150/betterbowl.git"
+  },
   "author": "Shrey Pandya",
   "license": "MIT",
   "dependencies": {
