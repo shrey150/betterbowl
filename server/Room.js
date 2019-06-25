@@ -3,6 +3,7 @@ const QuestionBank = require("./QuestionBank");
 const Checker = require("./Checker");
 const Users = require("./Users");
 const Timer = require("./Timer");
+const _     = require("lodash/core");
 
 class Room {
 
@@ -200,15 +201,19 @@ class Room {
 
             socket.on("updateSettings", data => {
 
-                this.query = data.search;
+                if (!_.isEqual(data.search, this.query)) {
 
-                this.fetchQuestionBank({
-                    "query"			: "",
-                    "search_type"	: "",
-                    "difficulty"	: this.query.difficulty.map(n => n.toLowerCase().replace(/ /g, "_")),
-                    "category"      : this.query.category.map(n => parseInt(n)),
-                    "subcategory"   : this.query.subcategory.map(n => parseInt(n))
-                });
+                    this.query = data.search;
+
+                    this.fetchQuestionBank({
+                        "query"			: "",
+                        "search_type"	: "",
+                        "difficulty"	: this.query.difficulty.map(n => n.toLowerCase().replace(/ /g, "_")),
+                        "category"      : this.query.category.map(n => parseInt(n)),
+                        "subcategory"   : this.query.subcategory.map(n => parseInt(n))
+                    });
+
+                }
 
                 this.privacy = parseInt(data.security.privacy);
                 this.rules = data.rules;
@@ -289,7 +294,7 @@ class Room {
         this.clearBuzz();
 
         if (this.question) this.question.stop();
-
+   
         this.io.emit("clearQuestion");
 
     }
