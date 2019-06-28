@@ -1,10 +1,12 @@
-console.log("script.js loaded");
+console.log("Client loaded!");
 
 let socket = io(`${window.location.pathname}`);
 
 let timerInterval;
 let autoSendTimer;
 let timerValue = 7;
+
+let pings = [];
 
 const $ = document.querySelector.bind(document);
 
@@ -110,6 +112,18 @@ socket.on("connect", data => {
         }
         
         $("#timer").innerHTML = data.time.toFixed(1);
+    });
+
+    socket.on("latency", ms => {
+        
+        console.log(ms);
+
+        pings.push(ms);
+        if (pings.length >= 5) pings.shift();
+        const avgPing = pings.reduce((s,n) => s+n) / pings.length;
+
+        if (avgPing >= 250) console.warn("High latency detected.");
+
     });
 
 });
@@ -231,9 +245,12 @@ function privacyInfo() {
 
 }
 
-window.onclick = e => {
+setInterval(() => {
+    console.log("ping");
+    socket.emit("netCheck");
+}, 2000);
 
+window.onclick = e => {
     if (e.target === $("#settings"))
         $("#settings").style.display = "";
-
 }

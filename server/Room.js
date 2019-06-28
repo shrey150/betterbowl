@@ -64,6 +64,8 @@ class Room {
 
         this.io.on("connection", socket => {
 
+            let latency = Date.now();
+
             const name = socket.handshake.query.name;
 
             // get IP, whether running locally or on Heroku
@@ -204,6 +206,12 @@ class Room {
 
             socket.on("clearBuzz", () => this.clearBuzz());
             socket.on("chat", data => {});
+
+            socket.on("netCheck", () => {
+                const ms = Math.abs(Date.now() - latency - 2000);
+                latency = Date.now();
+                socket.emit("latency", ms);
+            });
 
         });
 
