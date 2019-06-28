@@ -66,6 +66,24 @@ socket.on("connect", data => {
         autoSendTimer = setTimeout(sendAnswer, 7000);
     });
 
+    socket.on("syncSettings", data => {
+
+        const difficulty    = data.search.difficulty.map(n => _.startCase(n));
+        const category      = data.search.category.map(n => n.toString());
+        const subcategory   = data.search.subcategory.map(n => n.toString());
+        const privacy       = data.privacy.toString();
+
+        jQuery("#difficulty").selectpicker("val", difficulty);
+        jQuery("#category").selectpicker("val", category);
+        jQuery("#subcategory").selectpicker("val", subcategory);
+        jQuery("#privacy").selectpicker("val", privacy);
+
+        $("#canMultiBuzz").checked  = data.rules.canMultiBuzz;
+        $("#canSkip").checked       = data.rules.canSkip;
+        $("#canPause").checked      = data.rules.canPause;
+
+    });
+
     socket.on("loading", () => {
         $("#question").innerHTML = `Loading questions... (This may take a while as questions are being requested from QuizDB. This will be considerably faster in a later update.)`;
     });

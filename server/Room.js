@@ -3,6 +3,7 @@ const QuestionBank = require("./QuestionBank");
 const Checker = require("./Checker");
 const Users = require("./Users");
 const Timer = require("./Timer");
+const _     = require("lodash/core");
 
 class Room {
 
@@ -22,10 +23,16 @@ class Room {
             canMultiBuzz: true
         }
 
+        this.query = {
+            category    : [],
+            subcategory : [],
+            difficulty  : []
+        }
+
         /*
         * Public = 2
         * Unlisted = 1
-        * Private = 0
+        * (TODO) Private = 0
         */
         this.privacy = 2;
 
@@ -40,9 +47,9 @@ class Room {
 
             "query"			: "",
             "search_type"	: "",
-            "difficulty"	: ["national_high_school"],
-            "category"      : [17],
-            "subcategory"   : [],
+            "difficulty"	: this.query.difficulty,
+            "category"      : this.query.category,
+            "subcategory"   : this.query.subcategory,
             "question_type"	: "Tossup",
             "limit"			: "true",
             "download"		: "json"
@@ -77,8 +84,16 @@ class Room {
             // update previous log messages
             this.io.to(socket.id).emit("updateLogHistory", this.logHistory);
 
+            // update room settings menu locally
+            this.io.to(socket.id).emit("syncSettings", {
+                search  : this.query,
+                privacy : this.privacy,
+                rules   : this.rules
+            });
+
             this.log(`${this.users.getName(socket.id)} connected (total players ${this.users.players.length})`);
 
+            // display loading message if necessary
             if (this.loading)           this.io.to(socket.id).emit("loading");
             else if (!this.question)    this.io.to(socket.id).emit("loaded");
 
@@ -91,14 +106,19 @@ class Room {
 
             socket.on("nextQuestion", () => {
 
-                this.io.emit("clearBuzz");
+                if (!this.question || this.question.answered || this.rules.canSkip) {
 
-                if (this.question)
-                    this.question.endTimer.clearTimer();
+                    this.io.emit("clearBuzz");
 
-                if (this.buzzed === -1 && this.qb.questions)
-                    this.fetchQuestion();
-            })
+                    if (this.question)
+                        this.question.endTimer.clearTimer();
+
+                    if (this.buzzed === -1 && this.qb.questions)
+                        this.fetchQuestion();
+
+                }
+
+            });
 
             socket.on("buzz", data => {
 
@@ -125,7 +145,7 @@ class Room {
                 }
             });
 
-            socket.on("pause", () => this.toggleRead());
+            socket.on("pause", () => { if (this.rules.canPause) this.toggleRead() });
 
             socket.on("sendAnswer", data => {
 
@@ -183,21 +203,31 @@ class Room {
 
             socket.on("updateSettings", data => {
 
-                const search = data.search;
+                if (!_.isEqual(data.search, this.query)) {
 
-                this.fetchQuestionBank({
-                    "query"			: "",
-                    "search_type"	: "",
-                    "difficulty"	: search.difficulty.map(n => n.toLowerCase().replace(/ /g, "_")),
-                    "category"      : search.category.map(n => parseInt(n)),
-                    "subcategory"   : search.subcategory.map(n => parseInt(n))
-                });
+                    this.query = data.search;
+
+                    this.fetchQuestionBank({
+                        "query"			: "",
+                        "search_type"	: "",
+                        "difficulty"	: this.query.difficulty.map(n => n.toLowerCase().replace(/ /g, "_")),
+                        "category"      : this.query.category.map(n => parseInt(n)),
+                        "subcategory"   : this.query.subcategory.map(n => parseInt(n))
+                    });
+
+                }
 
                 this.privacy = parseInt(data.security.privacy);
                 this.rules = data.rules;
 
                 // TODO: hash password?
                 this.password = data.security.password;
+
+                this.io.emit("syncSettings", {
+                    search  : this.query,
+                    privacy : this.privacy,
+                    rules   : this.rules
+                });
 
                 this.log("Room settings updated.");
 
@@ -272,7 +302,7 @@ class Room {
         this.clearBuzz();
 
         if (this.question) this.question.stop();
-
+   
         this.io.emit("clearQuestion");
 
     }
