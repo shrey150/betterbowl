@@ -238,9 +238,7 @@ class Room {
             socket.on("chat", data => {});
 
             socket.on("netCheck", () => {
-                const ms = Math.abs(Date.now() - latency - 2000);
-                latency = Date.now();
-                socket.emit("latency", ms);
+                socket.emit("netRes");
             });
 
         });

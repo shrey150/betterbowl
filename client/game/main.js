@@ -8,6 +8,8 @@ let timerValue = 7;
 
 let pings = [];
 
+let lastPing = Date.now();
+
 const $ = document.querySelector.bind(document);
 
 socket.on("connect", data => {
@@ -132,15 +134,23 @@ socket.on("connect", data => {
         $("#timer").innerHTML = data.time.toFixed(1);
     });
 
-    socket.on("latency", ms => {
-        
-        console.log(ms);
+    socket.on("netRes", () => {
+
+        const ms = Date.now() - lastPing;
+        console.log(`Latency: ${ms}`);
 
         pings.push(ms);
         if (pings.length >= 5) pings.shift();
         const avgPing = pings.reduce((s,n) => s+n) / pings.length;
 
-        if (avgPing >= 250) console.warn("High latency detected.");
+        if (avgPing >= 250) {
+            console.warn("High latency detected.");
+            $("#warnPing").innerHTML = `High latency detected (${ms}ms). Try refreshing the page or connecting to a faster network.`;
+            $("#warnPing").removeAttribute("hidden");
+        }
+        else {
+            $("#warnPing").setAttribute("hidden", "");
+        }
 
     });
 
@@ -264,7 +274,7 @@ function privacyInfo() {
 }
 
 setInterval(() => {
-    console.log("ping");
+    lastPing = Date.now();
     socket.emit("netCheck");
 }, 2000);
 
