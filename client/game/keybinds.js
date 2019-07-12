@@ -1,21 +1,28 @@
 // submit answer when buzzed in
-answerInput.addEventListener("keydown", e => {
-
+$("#answerInput").keydown(e => {
     if (e.key === "Enter") sendAnswer();
+});
 
+$("#chatInput").keydown(e => {
+    if (e.key === "Enter") sendChat();
 });
 
 // assorted keybinds
 window.addEventListener("keydown", e => {
 
     // disregard keypresses in text boxes
-    if (e.target === answerInput || e.target === username) return;
+    if ($(e.target).is("input")) return;
 
     switch (e.key) {
 
         case " ":
             e.preventDefault();
-            if (answerInput.hasAttribute("hidden")) buzz();
+            if (!$("#answerInput").is(":visible")) buzz();
+            break;
+
+        case "Enter":
+            e.preventDefault();
+            if (!$("#answerInput").is(":visible")) openChat();
             break;
 
         case "n":

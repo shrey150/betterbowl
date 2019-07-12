@@ -69,4 +69,4 @@ function roomInfo(n) {
     }
 }
 
-server.listen(port, () => console.log(`server running on port ${port}`));
+server.listen(port, () => console.log(`Server running - http://localhost:${port}`));   

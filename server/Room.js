@@ -2,6 +2,7 @@ const Question = require("./Question");
 const QuestionBank = require("./QuestionBank");
 const Checker = require("./Checker");
 const Users = require("./Users");
+const Chat = require("./Chat");
 const Timer = require("./Timer");
 const _     = require("lodash/core");
 
@@ -60,6 +61,7 @@ class Room {
 
         this.logHistory = [];
         this.checker = new Checker();
+        this.chat = new Chat(this.io);
         this.users = new Users(this.io);
         this.timer = new Timer(this.io, () => this.clearBuzz(), "buzz");
 
@@ -98,7 +100,17 @@ class Room {
             else if (!this.question)    this.io.to(socket.id).emit("loaded");
 
             // update players who joined in the middle of a question
-            if (this.question) this.question.update(socket.id);
+            if (this.question) {
+
+                if (this.question.answered) {
+                    this.io.to(socket.id).emit("revealAnswer", {
+                        answer: this.question.answer,
+                        info:   this.question.info
+                    });
+                }
+
+                this.question.update(socket.id);
+            }
 
             // update buzzer status
             if (this.buzzed !== -1)
@@ -235,11 +247,13 @@ class Room {
             });
 
             socket.on("clearBuzz", () => this.clearBuzz());
-            socket.on("chat", data => {});
-
-            socket.on("netCheck", () => {
-                socket.emit("netRes");
+            socket.on("chat", data => {
+                const author = this.users.getName(socket.id);
+                const msg = this.chat.clean(data.msg);
+                this.log(msg, author);
             });
+
+            socket.on("netCheck", () => socket.emit("netRes"));
 
         });
 
@@ -319,11 +333,13 @@ class Room {
         this.question = new Question(q.text, q.formatted_answer, q.info, 125, this.io, q);
     }
 
-    log(msg) {
+    log(msg, author) {
 
-        console.log(msg);
-        this.io.emit("log", msg + "\n");
-        this.logHistory.unshift(msg);
+        const str = author ? `${author}: ${msg}` : msg;
+        console.log(str);
+
+        this.io.emit("log", { author, msg });
+        this.logHistory.unshift({ author, msg });
 
     }
 

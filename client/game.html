@@ -19,14 +19,16 @@
                         <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Start</button>
                         <button type="button" class="btn btn-primary"id="buzzBtn" onclick="buzz()">Buzz</button>
                         <button type="button" class="btn btn-primary" id="pauseBtn" onclick="pause()">Pause</button>
-                        <input type="text" class="form-control" id="answerInput" placeholder="Answer here" hidden />
+                        <button type="button" class="btn btn-primary" id="chatBtn" onclick="openChat()">Chat</button>
+                        <input type="text" class="form-control" id="answerInput" placeholder="Answer here" style="display:none" />
+                        <input type="text" class="form-control" id="chatInput" placeholder="Keep it clean" style="display:none" />
                     </div>
                     <br>
                     <div id="main">
-                        <h2 id="timer" hidden></h2>
-                        <p id="warnPing" class="alert alert-danger" hidden>High latency detected. Try refreshing the page or connecting to a faster network.</p>
-                        <ol id="q_info" class="breadcrumb" hidden></ol>
-                        <p id="answer" class="alert alert-secondary" hidden></p>
+                        <h2 id="timer" style="display:none"></h2>
+                        <p id="warnPing" class="alert alert-danger" style="display:none">High latency detected. Try refreshing the page or connecting to a faster network.</p>
+                        <ol id="q_info" class="breadcrumb" style="display:none"></ol>
+                        <p id="answer" class="alert alert-secondary" style="display:none"></p>
                         <div id="question" class="alert alert-secondary"></div>
                         <ul class="list-group" id="log"></ul>
                     </div>
@@ -153,15 +155,15 @@
         </footer>
 
         <!-- Scripts at the end -->
-        <script src="game/socket.io.js"></script>
-        <script src="game/main.js"></script>
-        <script src="game/keybinds.js"></script>
-        <script src="game/subcats.js"></script>
-
         <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
+        <script src="game/socket.io.js"></script>
+        <script src="game/main.js"></script>
+        <script src="game/keybinds.js"></script>
+        <script src="game/subcats.js"></script>
     </body>
 </html>

@@ -10,50 +10,46 @@ let pings = [];
 
 let lastPing = Date.now();
 
-const $ = document.querySelector.bind(document);
-
 socket.on("connect", data => {
 
     console.log("Connected to server!");
 
     socket.on("questionUpdate", data => {
         $("#question").append(data);
-        $("#nextBtn").innerHTML = "Next";
+        $("#nextBtn").text("Next");
     });
 
     socket.on("clearQuestion", data => {
         console.log("Clearing question...");
-        $("#question").innerHTML = "";
-        $("#answer").innerHTML = "";
-        $("#q_info").innerHTML = "";
-        $("#answer").setAttribute("hidden", "");
-        $("#q_info").setAttribute("hidden", "");
+        $("#question").empty();
+        $("#answer").empty();
+        $("#q_info").empty();
+        $("#answer").hide();
+        $("#q_info").hide();
     });
 
     socket.on("clearBuzz", data => {
         console.log("Clearing buzz...");
-        $("#buzzBtn").disabled = false;
-        $("#answerInput").setAttribute("hidden", "");
-        $("#answerInput").value = "";
-        $("#timer").setAttribute("hidden", "");
+        $("#buzzBtn").attr("disabled", false);
+        $("#answerInput").hide();
+        $("#answerInput").val("");
+        $("#timer").hide();
     })
 
     socket.on("playerBuzzed", data => {
         console.log("Player buzzed!");
-        $("#buzzBtn").disabled = true;
-        $("#timer").removeAttribute("hidden");
-        $("#timer").removeAttribute("style");
+        $("#buzzBtn").attr("disabled", true);
+        $("#timer").show();
+        $("#timer").removeAttr("style");
     });
 
     socket.on("updateAnswerLine", updateAnswerLine);
     socket.on("revealAnswer", data => {
-        $("#answer").removeAttribute("hidden");
-        $("#q_info").removeAttribute("hidden");
-        $("#answer").innerHTML = data.answer;
+        $("#answer").show();
+        $("#q_info").show();
+        $("#answer").html(data.answer);
 
-        const breadcrumb = data.info.reduce((str, n) => str += `<li class="breadcrumb-item">${n}</li>`, "");
-
-        $("#q_info").innerHTML = breadcrumb;
+        data.info.forEach(n => $("#q_info").append(`<li class="breadcrumb-item">${n}</li>`));
     });
 
     socket.on("buzzFailed", data => {
@@ -62,7 +58,7 @@ socket.on("connect", data => {
 
     socket.on("requestAnswer", data => {
         console.log("Request answer:");
-        $("#answerInput").removeAttribute("hidden");
+        $("#answerInput").show();
         $("#answerInput").focus();
 
         autoSendTimer = setTimeout(sendAnswer, 7000);
@@ -75,63 +71,64 @@ socket.on("connect", data => {
         const subcategory   = data.search.subcategory.map(n => n.toString());
         const privacy       = data.privacy.toString();
 
-        jQuery("#difficulty").selectpicker("val", difficulty);
-        jQuery("#category").selectpicker("val", category);
-        jQuery("#subcategory").selectpicker("val", subcategory);
-        jQuery("#privacy").selectpicker("val", privacy);
+        $("#difficulty").selectpicker("val", difficulty);
+        $("#category").selectpicker("val", category);
+        $("#subcategory").selectpicker("val", subcategory);
+        $("#privacy").selectpicker("val", privacy);
 
-        $("#canMultiBuzz").checked  = data.rules.canMultiBuzz;
-        $("#canSkip").checked       = data.rules.canSkip;
-        $("#canPause").checked      = data.rules.canPause;
+        $("#canMultiBuzz").prop("checked", data.rules.canMultiBuzz);
+        $("#canSkip").prop("checked", data.rules.canSkip);
+        $("#canPause").prop("checked", data.rules.canPause);
 
     });
 
     socket.on("loading", () => {
-        $("#question").innerHTML = `Loading questions... (This may take a while as questions are being requested from QuizDB. This will be considerably faster in a later update.)`;
+        $("#question").text(`Loading questions... (This may take a while as questions are being requested from QuizDB. This will be considerably faster in a later update.)`);
     });
 
     socket.on("loaded", () => {
-        $("#question").innerHTML = "Questions loaded! Press <code>n</code> to start reading questions.";
+        $("#question").html("Questions loaded! Press <code>n</code> to start reading questions.");
     });
 
     socket.on("log", data => {
-        let msg = document.createElement("li");
-        msg.setAttribute("class", "list-group-item");
-        msg.innerHTML = data;
-        $("#log").insertBefore(msg, $("#log").firstChild);
+        const msg = escapeHTML(data.msg);
+        const el = data.author ? `<b>${data.author}</b> ${msg}` : msg;
+        $("#log").prepend(`<li class="list-group-item">${el}</li>`);
     });
 
     socket.on("updateLogHistory", data => {
-        let msgs = "";
-        data.forEach(n => msgs += `<li class="list-group-item">${n}</li>`);
-        $("#log").innerHTML += msgs;
+        data.forEach(n => {
+            const msg = escapeHTML(n.msg);
+            const el = n.author ? `<b>${n.author}</b> ${msg}` : msg;
+            $("#log").append(`<li class="list-group-item">${el}</li>`);
+        });
     });
 
     socket.on("sendScoreboard", data => {
         console.log("Updating scoreboard");
-        let elements = "";
+        $("#scores").empty();
         data.forEach(n => {
             const gray = !n.connected ? "color: gray" : "";
-            elements += `<li class="list-group-item d-flex justify-content-between align-items-center">
-                            ${n.name}
-                            <span class="badge badge-secondary badge-pill">${n.score}</span>
-                        </li>`;
+            $("#scores").append(`
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                ${n.name}
+                <span class="badge badge-secondary badge-pill">${n.score}</span>
+            </li>`);
         });
-        $("#scores").innerHTML = elements;
     });
 
     socket.on("tick", data => {
 
-        $("#timer").removeAttribute("hidden");
+        $("#timer").show();
 
         if (data.type === "dead") {
-            $("#timer").setAttribute("style", "color: red");
+            $("#timer").prop("style", "color: red");
         }
         else {
-            $("#timer").setAttribute("style", "");
+            $("#timer").prop("style", "");
         }
         
-        $("#timer").innerHTML = data.time.toFixed(1);
+        $("#timer").text(data.time.toFixed(1));
     });
 
     socket.on("netRes", () => {
@@ -145,11 +142,11 @@ socket.on("connect", data => {
 
         if (avgPing >= 250) {
             console.warn("High latency detected.");
-            $("#warnPing").innerHTML = `High latency detected (${ms}ms). Try refreshing the page or connecting to a faster network.`;
-            $("#warnPing").removeAttribute("hidden");
+            $("#warnPing").text(`High latency detected (${ms}ms). Try refreshing the page or connecting to a faster network.`);
+            $("#warnPing").show();
         }
         else {
-            $("#warnPing").setAttribute("hidden", "");
+            $("#warnPing").hide();
         }
 
     });
@@ -162,7 +159,7 @@ function nextQuestion() {
 
 function sendAnswer() {
     console.log("Sending answer...");
-    socket.emit("sendAnswer", $("#answerInput").value);
+    socket.emit("sendAnswer", $("#answerInput").val());
     clearTimeout(autoSendTimer);
 }
 
@@ -177,12 +174,26 @@ function pause() {
 }
 
 function changeName() {
-    socket.emit("changeName", $("#username").value);
+    socket.emit("changeName", $("#username").val());
 }
 
 function clearBuzz() {
     console.log("[DEBUG] clearing buzz");
     socket.emit("clearBuzz");
+}
+
+function openChat() {
+    $("#chatInput").show();
+    $("#chatInput").focus();
+}
+
+function sendChat() {
+    socket.emit("chat", {
+        msg: escapeHTML($("#chatInput").val())
+    });
+
+    $("#chatInput").hide();
+    $("#chatInput").val("");
 }
 
 function updateAnswerLine(data) {
@@ -193,7 +204,7 @@ function updateAnswerLine(data) {
         let msg = document.createElement("li");
         msg.setAttribute("class", "list-group-item list-group-item-primary");
         msg.innerHTML = data;
-        $("#log").insertBefore(msg, $("#log").firstChild);
+        $("#log").prepend(msg);
     }
     else {
         liveAnswer.innerHTML = data;
@@ -202,18 +213,18 @@ function updateAnswerLine(data) {
 
 function saveSettings() {
 
-    //const search        = jQuery("#qSearch").val();
-    //const type          = jQuery("#searchType").val();
-    const category      = jQuery("#category").val();
-    const subcategory   = jQuery("#subcategory").val();
-    const difficulty    = jQuery("#difficulty").val();
+    //const search        = $("#qSearch").val();
+    //const type          = $("#searchType").val();
+    const category      = $("#category").val();
+    const subcategory   = $("#subcategory").val();
+    const difficulty    = $("#difficulty").val();
 
-    const privacy       = jQuery("#privacy").val();
-    const password      = jQuery("#password").val();
+    const privacy       = $("#privacy").val();
+    const password      = $("#password").val();
 
-    const canSkip       = $("#canSkip").checked;
-    const canPause      = $("#canPause").checked;
-    const canMultiBuzz  = $("#canMultiBuzz").checked;
+    const canSkip       = $("#canSkip").is(":checked");
+    const canPause      = $("#canPause").is(":checked");
+    const canMultiBuzz  = $("#canMultiBuzz").is(":checked");
 
     if (privacy === "0" && !password.trim()) {
         alert("Please enter a password.");
@@ -232,41 +243,44 @@ function saveSettings() {
 
 function updateSubcats() {
 
-    const category = jQuery("#category").val();
-    $("#subcategory").innerHTML = "";
+    const category = $("#category").val();
+    $("#subcategory").empty();
 
     category.forEach(n => {
 
-        let options = "";
-
         subcats[n].forEach(m => {
-            options += `<option value="${subIds[m]}">${m}</option>`;
+            $("#subcategory").append(`<option value="${subIds[m]}">${m}</option>`);
         });
 
-        $("#subcategory").innerHTML += options;
-        jQuery("#subcategory").selectpicker("refresh");
-
     });
+
+    $("#subcategory").selectpicker("refresh");
+}
+
+function escapeHTML(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
 }
 
 function privacyInfo() {
 
-    switch ($("#privacy").value) {
+    switch ($("#privacy").val()) {
 
         case "2":
-            $("#privacyHelp").innerHTML = "Anyone can join your room and it is publicly advertised on the rooms list.";
-            $("#passGroup").setAttribute("hidden", "");
+            $("#privacyHelp").text("Anyone can join your room and it is publicly advertised on the rooms list.");
+            $("#passGroup").hide();
             break;
 
         case "1":
-            $("#privacyHelp").innerHTML = "People can join your room with a link, but it is NOT advertised on the rooms list.";
-            $("#passGroup").setAttribute("hidden", "");
+            $("#privacyHelp").text("People can join your room with a link, but it is NOT advertised on the rooms list.");
+            $("#passGroup").hide();
             break;
 
         // TO BE IMPLEMENTED LATER
         case "0":
-            $("#privacyHelp").innerHTML = "No one can join your room without a password.";
-            $("#passGroup").removeAttribute("hidden");
+            $("#privacyHelp").text("No one can join your room without a password.");
+            $("#passGroup").show();
             break;
 
     }
@@ -279,6 +293,6 @@ setInterval(() => {
 }, 2000);
 
 window.onclick = e => {
-    if (e.target === $("#settings"))
+    if (e.target === $("#settings")[0])
         $("#settings").style.display = "";
 }
