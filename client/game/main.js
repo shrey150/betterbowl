@@ -1,6 +1,8 @@
 console.log("Client loaded!");
 
-let socket = io(`${window.location.pathname}`);
+let socket = io(`${window.location.pathname}`, {
+    reconnect: false
+});
 
 let timerInterval;
 let autoSendTimer;
@@ -10,146 +12,146 @@ let pings = [];
 
 let lastPing = Date.now();
 
-socket.on("connect", data => {
+socket.on("connect", () => console.log("Connected to server!"));
+socket.on("disconnect", () => {
+    $("#question").text("Lost connection to Betterbowl servers, reloading in 5 seconds...");
+    setTimeout(() => window.location.reload(), 5000);
+});
 
-    console.log("Connected to server!");
+socket.on("questionUpdate", data => {
+    $("#question").append(data);
+    $("#nextBtn").text("Next");
+});
 
-    socket.on("questionUpdate", data => {
-        $("#question").append(data);
-        $("#nextBtn").text("Next");
+socket.on("clearQuestion", data => {
+    console.log("Clearing question...");
+    $("#question").empty();
+    $("#answer").empty();
+    $("#q_info").empty();
+    $("#answer").hide();
+    $("#q_info").hide();
+});
+
+socket.on("clearBuzz", data => {
+    console.log("Clearing buzz...");
+    $("#buzzBtn").attr("disabled", false);
+    $("#answerInput").hide();
+    $("#answerInput").val("");
+    $("#timer").hide();
+})
+
+socket.on("playerBuzzed", data => {
+    console.log("Player buzzed!");
+    $("#buzzBtn").attr("disabled", true);
+    $("#timer").show();
+    $("#timer").removeAttr("style");
+});
+
+socket.on("updateAnswerLine", updateAnswerLine);
+socket.on("revealAnswer", data => {
+    $("#answer").show();
+    $("#q_info").show();
+    $("#answer").html(data.answer);
+
+    data.info.forEach(n => $("#q_info").append(`<li class="breadcrumb-item">${n}</li>`));
+});
+
+socket.on("buzzFailed", data => {
+    console.log("Buzz failed!");
+});
+
+socket.on("requestAnswer", data => {
+    console.log("Request answer:");
+    $("#answerInput").show();
+    $("#answerInput").focus();
+
+    autoSendTimer = setTimeout(sendAnswer, 7000);
+});
+
+socket.on("syncSettings", data => {
+
+    const difficulty    = data.search.difficulty.map(n => _.startCase(n));
+    const category      = data.search.category.map(n => n.toString());
+    const subcategory   = data.search.subcategory.map(n => n.toString());
+    const privacy       = data.privacy.toString();
+
+    $("#difficulty").selectpicker("val", difficulty);
+    $("#category").selectpicker("val", category);
+    $("#subcategory").selectpicker("val", subcategory);
+    $("#privacy").selectpicker("val", privacy);
+
+    $("#canMultiBuzz").prop("checked", data.rules.canMultiBuzz);
+    $("#canSkip").prop("checked", data.rules.canSkip);
+    $("#canPause").prop("checked", data.rules.canPause);
+
+});
+
+socket.on("loading", () => {
+    $("#question").text(`Loading questions... (This may take a while as questions are being requested from QuizDB. This will be considerably faster in a later update.)`);
+});
+
+socket.on("loaded", () => {
+    $("#question").html("Questions loaded! Press <code>n</code> to start reading questions.");
+});
+
+socket.on("log", data => {
+    const msg = escapeHTML(data.msg);
+    const el = data.author ? `<b>${data.author}</b> ${msg}` : msg;
+    $("#log").prepend(`<li class="list-group-item">${el}</li>`);
+});
+
+socket.on("updateLogHistory", data => {
+    data.forEach(n => {
+        const msg = escapeHTML(n.msg);
+        const el = n.author ? `<b>${n.author}</b> ${msg}` : msg;
+        $("#log").append(`<li class="list-group-item">${el}</li>`);
     });
+});
 
-    socket.on("clearQuestion", data => {
-        console.log("Clearing question...");
-        $("#question").empty();
-        $("#answer").empty();
-        $("#q_info").empty();
-        $("#answer").hide();
-        $("#q_info").hide();
+socket.on("sendScoreboard", data => {
+    console.log("Updating scoreboard");
+    $("#scores").empty();
+    data.forEach(n => {
+        const gray = !n.connected ? "color: gray" : "";
+        $("#scores").append(`
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            ${n.name}
+            <span class="badge badge-secondary badge-pill">${n.score}</span>
+        </li>`);
     });
+});
 
-    socket.on("clearBuzz", data => {
-        console.log("Clearing buzz...");
-        $("#buzzBtn").attr("disabled", false);
-        $("#answerInput").hide();
-        $("#answerInput").val("");
-        $("#timer").hide();
-    })
+socket.on("tick", data => {
 
-    socket.on("playerBuzzed", data => {
-        console.log("Player buzzed!");
-        $("#buzzBtn").attr("disabled", true);
-        $("#timer").show();
-        $("#timer").removeAttr("style");
-    });
+    $("#timer").show();
 
-    socket.on("updateAnswerLine", updateAnswerLine);
-    socket.on("revealAnswer", data => {
-        $("#answer").show();
-        $("#q_info").show();
-        $("#answer").html(data.answer);
+    if (data.type === "dead") {
+        $("#timer").prop("style", "color: red");
+    }
+    else {
+        $("#timer").prop("style", "");
+    }
+    
+    $("#timer").text(data.time.toFixed(1));
+});
 
-        data.info.forEach(n => $("#q_info").append(`<li class="breadcrumb-item">${n}</li>`));
-    });
+socket.on("netRes", () => {
 
-    socket.on("buzzFailed", data => {
-        console.log("Buzz failed!");
-    });
+    const ms = Date.now() - lastPing;
+    console.log(`Latency: ${ms}`);
 
-    socket.on("requestAnswer", data => {
-        console.log("Request answer:");
-        $("#answerInput").show();
-        $("#answerInput").focus();
+    pings.push(ms);
+    if (pings.length >= 5) pings.shift();
+    const avgPing = pings.reduce((s,n) => s+n) / pings.length;
 
-        autoSendTimer = setTimeout(sendAnswer, 7000);
-    });
-
-    socket.on("syncSettings", data => {
-
-        const difficulty    = data.search.difficulty.map(n => _.startCase(n));
-        const category      = data.search.category.map(n => n.toString());
-        const subcategory   = data.search.subcategory.map(n => n.toString());
-        const privacy       = data.privacy.toString();
-
-        $("#difficulty").selectpicker("val", difficulty);
-        $("#category").selectpicker("val", category);
-        $("#subcategory").selectpicker("val", subcategory);
-        $("#privacy").selectpicker("val", privacy);
-
-        $("#canMultiBuzz").prop("checked", data.rules.canMultiBuzz);
-        $("#canSkip").prop("checked", data.rules.canSkip);
-        $("#canPause").prop("checked", data.rules.canPause);
-
-    });
-
-    socket.on("loading", () => {
-        $("#question").text(`Loading questions... (This may take a while as questions are being requested from QuizDB. This will be considerably faster in a later update.)`);
-    });
-
-    socket.on("loaded", () => {
-        $("#question").html("Questions loaded! Press <code>n</code> to start reading questions.");
-    });
-
-    socket.on("log", data => {
-        const msg = escapeHTML(data.msg);
-        const el = data.author ? `<b>${data.author}</b> ${msg}` : msg;
-        $("#log").prepend(`<li class="list-group-item">${el}</li>`);
-    });
-
-    socket.on("updateLogHistory", data => {
-        data.forEach(n => {
-            const msg = escapeHTML(n.msg);
-            const el = n.author ? `<b>${n.author}</b> ${msg}` : msg;
-            $("#log").append(`<li class="list-group-item">${el}</li>`);
-        });
-    });
-
-    socket.on("sendScoreboard", data => {
-        console.log("Updating scoreboard");
-        $("#scores").empty();
-        data.forEach(n => {
-            const gray = !n.connected ? "color: gray" : "";
-            $("#scores").append(`
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                ${n.name}
-                <span class="badge badge-secondary badge-pill">${n.score}</span>
-            </li>`);
-        });
-    });
-
-    socket.on("tick", data => {
-
-        $("#timer").show();
-
-        if (data.type === "dead") {
-            $("#timer").prop("style", "color: red");
-        }
-        else {
-            $("#timer").prop("style", "");
-        }
-        
-        $("#timer").text(data.time.toFixed(1));
-    });
-
-    socket.on("netRes", () => {
-
-        const ms = Date.now() - lastPing;
-        console.log(`Latency: ${ms}`);
-
-        pings.push(ms);
-        if (pings.length >= 5) pings.shift();
-        const avgPing = pings.reduce((s,n) => s+n) / pings.length;
-
-        if (avgPing >= 250) {
-            console.warn("High latency detected.");
-            $("#warnPing").text(`High latency detected (${ms}ms). Try refreshing the page or connecting to a faster network.`);
-            $("#warnPing").show();
-        }
-        else {
-            $("#warnPing").hide();
-        }
-
-    });
+    if (avgPing >= 250) {
+        console.warn("High latency detected.");
+        $("#warnPing").text(`High latency detected (${ms}ms). Try refreshing the page or connecting to a faster network.`);
+        $("#warnPing").show();
+    }
+    else {
+        $("#warnPing").hide();
+    }
 
 });
 
