@@ -19,7 +19,10 @@ socket.on("disconnect", () => {
 });
 
 socket.on("questionUpdate", data => {
-    $("#question").append(data);
+
+    const word = data.replace("(*)", "<span class='icon power-marker'></span>");
+
+    $("#question").append(word);
     $("#nextBtn").text("Next");
 });
 
@@ -42,6 +45,9 @@ socket.on("clearBuzz", data => {
 
 socket.on("playerBuzzed", data => {
     console.log("Player buzzed!");
+
+    $("#question").append(`<span class='icon buzz-marker' data-toggle="popover" data-trigger="hover" data-placement="top" data-content="${data}"></span> `);
+    $(`[data-content="${data}"]`).popover();
     $("#buzzBtn").attr("disabled", true);
     $("#timer").show();
     $("#timer").removeAttr("style");

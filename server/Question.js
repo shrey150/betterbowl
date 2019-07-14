@@ -16,7 +16,12 @@ class Question {
         this.speed = speed;
         this.arr = question.split(" ");
         this.io = io;
+
         this.index = 0;
+        this.powerIndex = this.arr.findIndex(n => n.includes("(*)"));
+
+        console.log(this.powerIndex);
+
         this.reading = false;
         this.finished = false;
         this.answered = false;
@@ -25,7 +30,7 @@ class Question {
     }
 
     start() {
-        if (this.index < this.arr.length) {
+        if (this.index <= this.arr.length) {
             this.buzzTimer = setInterval(() => this.read(), this.speed);
             this.reading = true;
         }

@@ -73,8 +73,6 @@ class Room {
 
         this.io.on("connection", socket => {
 
-            let latency = Date.now();
-
             const name = socket.handshake.query.name;
 
             // get IP, whether running locally or on Heroku
@@ -171,8 +169,15 @@ class Room {
 
                     if (verdict === 2) {
 
-                        const score = this.users.changeScore(socket.id, 10);
-                        this.log(`${this.users.getName(socket.id)} buzzed correctly! (score ${score})`);
+                        if (this.question.index <= this.question.powerIndex) {
+                            const score = this.users.changeScore(socket.id, 15);
+                            this.log(`${this.users.getName(socket.id)} powered! (score ${score})`);
+                        }
+                        else {
+                            const score = this.users.changeScore(socket.id, 10);
+                            this.log(`${this.users.getName(socket.id)} buzzed correctly! (score ${score})`);
+                        }
+
                         this.question.answered = true;
                         this.question.finishQuestion();
                         this.question.revealAnswer();
