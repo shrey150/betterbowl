@@ -211,18 +211,7 @@ function sendChat() {
 }
 
 function updateAnswerLine(data) {
-
-    const liveAnswer = document.querySelector("#answerLine");
-
-    if (!liveAnswer) {
-        let msg = document.createElement("li");
-        msg.setAttribute("class", "list-group-item list-group-item-primary");
-        msg.innerHTML = data;
-        $("#log").prepend(msg);
-    }
-    else {
-        liveAnswer.innerHTML = data;
-    }
+    $("#log").prepend(`<li class="list-group-item list-group-item-primary">${escapeHTML(data)}</li>`);
 }
 
 function saveSettings() {
