@@ -46,8 +46,14 @@ socket.on("clearBuzz", data => {
 socket.on("playerBuzzed", data => {
     console.log("Player buzzed!");
 
-    $("#question").append(`<span class='icon buzz-marker' data-toggle="popover" data-trigger="hover" data-placement="top" data-content="${data}"></span> `);
-    $(`[data-content="${data}"]`).popover();
+    const player = escapeHTML(data);
+    const marker = $(`<span class='icon buzz-marker' data-toggle="popover" data-trigger="hover" data-placement="top" data-content="${player}"></span><span>&nbsp;</span>`);
+
+    console.log(`data-content="${player}"`);
+
+    $("#question").append(marker);
+    marker.popover();
+
     $("#buzzBtn").attr("disabled", true);
     $("#timer").show();
     $("#timer").removeAttr("style");
@@ -102,14 +108,14 @@ socket.on("loaded", () => {
 
 socket.on("log", data => {
     const msg = escapeHTML(data.msg);
-    const el = data.author ? `<b>${data.author}</b> ${msg}` : msg;
+    const el = data.author ? `<b>${escapeHTML(data.author)}</b> ${msg}` : msg;
     $("#log").prepend(`<li class="list-group-item">${el}</li>`);
 });
 
 socket.on("updateLogHistory", data => {
     data.forEach(n => {
         const msg = escapeHTML(n.msg);
-        const el = n.author ? `<b>${n.author}</b> ${msg}` : msg;
+        const el = n.author ? `<b>${escapeHTML(n.author)}</b> ${msg}` : msg;
         $("#log").append(`<li class="list-group-item">${el}</li>`);
     });
 });
@@ -121,7 +127,7 @@ socket.on("sendScoreboard", data => {
         const gray = !n.connected ? "color: gray" : "";
         $("#scores").append(`
         <li class="list-group-item d-flex justify-content-between align-items-center">
-            ${n.name}
+            ${escapeHTML(n.name)}
             <span class="badge badge-secondary badge-pill">${n.score}</span>
         </li>`);
     });
@@ -197,7 +203,7 @@ function openChat() {
 
 function sendChat() {
     socket.emit("chat", {
-        msg: escapeHTML($("#chatInput").val())
+        msg: $("#chatInput").val()
     });
 
     $("#chatInput").hide();
