@@ -182,9 +182,13 @@ class Room {
                         this.question.finishQuestion();
                         this.question.revealAnswer();
 
+                    
+                    // ===============
+                    // IMPLEMENT LATER
+                    // ===============
+                    /*
                     } else if (verdict === 1 && !this.prompted) {
-
-                        this.log(`[TODO] Prompt...`);
+                    */
 
                     } else {
                         

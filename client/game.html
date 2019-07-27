@@ -28,7 +28,11 @@
                         <h2 id="timer" style="display:none"></h2>
                         <p id="warnPing" class="alert alert-danger" style="display:none">High latency detected. Try refreshing the page or connecting to a faster network.</p>
                         <ol id="q_info" class="breadcrumb" style="display:none"></ol>
+                        <div class="progress" style="display:none">
+                            <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width: 0%"></div>
+                        </div>
                         <p id="answer" class="alert alert-secondary" style="display:none"></p>
+                        
                         <div id="question" class="alert alert-secondary"></div>
                         <ul class="list-group" id="log"></ul>
                     </div>
@@ -160,7 +164,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
-        <script src="https://twemoji.maxcdn.com/twemoji.min.js"></script>
 
         <script src="game/socket.io.js"></script>
         <script src="game/main.js"></script>
