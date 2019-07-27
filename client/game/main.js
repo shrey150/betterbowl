@@ -41,6 +41,8 @@ socket.on("clearBuzz", data => {
     $("#answerInput").hide();
     $("#answerInput").val("");
     $("#timer").hide();
+    $(".progress").hide();
+    $(".progress-bar").attr("style", "width: 0%");
 })
 
 socket.on("playerBuzzed", data => {
@@ -135,16 +137,23 @@ socket.on("sendScoreboard", data => {
 
 socket.on("tick", data => {
 
+    console.log(data.time);
+
     $("#timer").show();
+    $(".progress").show();
+    $(".progress-bar").prop("style", `width: ${(7-data.time)/7*100}%`);
 
     if (data.type === "dead") {
         $("#timer").prop("style", "color: red");
+        $(".progress-bar").removeClass("bg-danger");
     }
     else {
         $("#timer").prop("style", "");
+        $(".progress-bar").addClass("bg-danger");
     }
     
     $("#timer").text(data.time.toFixed(1));
+
 });
 
 socket.on("netRes", () => {
