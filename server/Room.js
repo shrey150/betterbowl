@@ -170,12 +170,12 @@ class Room {
                     if (verdict === 2) {
 
                         if (this.question.index <= this.question.powerIndex) {
-                            const score = this.users.changeScore(socket.id, 15);
-                            this.log(`${this.users.getName(socket.id)} powered! (score ${score})`);
+                            this.users.changeScore(socket.id, 15);
+                            this.log(`${this.users.getName(socket.id)} powered!`);
                         }
                         else {
-                            const score = this.users.changeScore(socket.id, 10);
-                            this.log(`${this.users.getName(socket.id)} buzzed correctly! (score ${score})`);
+                            this.users.changeScore(socket.id, 10);
+                            this.log(`${this.users.getName(socket.id)} buzzed correctly!`);
                         }
 
                         this.question.answered = true;
@@ -190,8 +190,8 @@ class Room {
                         
                         if (!this.question.finished) {
 
-                            const score = this.users.changeScore(socket.id, -5);
-                            this.log(`${this.users.getName(socket.id)} negged (score ${score})`);
+                            this.users.changeScore(socket.id, -5);
+                            this.log(`${this.users.getName(socket.id)} negged.`);
                         
                         } else {
                             this.log(`${this.users.getName(socket.id)} buzzed incorrectly, no penalty.`);
