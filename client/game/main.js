@@ -144,11 +144,8 @@ socket.on("tick", data => {
     $(".progress-bar").prop("style", `width: ${(7-data.time)/7*100}%`);
 
     if (data.type === "dead") {
-        $("#timer").prop("style", "color: red");
         $(".progress-bar").removeClass("bg-danger");
-    }
-    else {
-        $("#timer").prop("style", "");
+    } else {
         $(".progress-bar").addClass("bg-danger");
     }
     

@@ -39,7 +39,14 @@ class Question {
     read() {
         this.io.emit("questionUpdate", this.arr[this.index] + " ");
         this.index++;
-        if (this.index === this.arr.length) this.finishQuestion();
+        if (this.index === this.arr.length) {
+
+            this.finishQuestion();
+
+            this.endTimer.countdown(7);
+            this.io.emit("deadTimer");
+
+        }
     }
 
     update(id) {
@@ -53,11 +60,6 @@ class Question {
         this.index = this.arr.length;
         this.stop();
         this.finished = true;
-
-        if (!this.answered) {
-            this.endTimer.countdown(7);
-            this.io.emit("deadTimer");
-        }
     }
 
     stop() {
@@ -67,12 +69,15 @@ class Question {
 
     revealAnswer() {
 
-        this.answered = true;
+        if (!this.answered) {
 
-        this.io.emit("revealAnswer", {
-            answer: this.answer,
-            info:   this.info
-        });
+            this.io.emit("revealAnswer", {
+                answer: this.answer,
+                info:   this.info
+            });
+
+            this.answered = true;
+        }
 
         this.io.emit("clearBuzz");
     }

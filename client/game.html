@@ -27,15 +27,22 @@
                     <div id="main">
                         <h2 id="timer" style="display:none"></h2>
                         <p id="warnPing" class="alert alert-danger" style="display:none">High latency detected. Try refreshing the page or connecting to a faster network.</p>
-                        <ol id="q_info" class="breadcrumb" style="display:none"></ol>
+                        
                         <div class="progress" style="display:none">
                             <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width: 0%"></div>
                         </div>
-                        <p id="answer" class="alert alert-secondary" style="display:none"></p>
-                        
-                        <div id="question" class="alert alert-secondary"></div>
+
+                        <div class="card">
+                            <div id="answer" class="card-header" style="display:none"></div>    
+                            <div class="card-body">
+                                <div id="question" class="card-text"></div>
+                            </div>
+                            <div id="q_info" class="card-footer breadcrumb text-muted" style="display:none"></div>
+                        </div>
+                        <br>
                         <ul class="list-group" id="log"></ul>
                     </div>
+                    <div id="qHistory"></div>
                 </div>
                 <div class="col-3">
                     <div id="stats">

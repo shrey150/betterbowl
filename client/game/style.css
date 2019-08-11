@@ -21,3 +21,11 @@
 .buzz-marker {
     background-image: url("https://twemoji.maxcdn.com/2/svg/1f514.svg");
 }
+
+.card-body { background: #e9ecef; }
+#answer { background: #e9ecef; }
+
+#q_info {
+    background: #e9ecef;
+    margin-bottom: 0;
+}

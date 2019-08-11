@@ -178,7 +178,6 @@ class Room {
                             this.log(`${this.users.getName(socket.id)} buzzed correctly!`);
                         }
 
-                        this.question.answered = true;
                         this.question.finishQuestion();
                         this.question.revealAnswer();
 
@@ -186,9 +185,8 @@ class Room {
                     // ===============
                     // IMPLEMENT LATER
                     // ===============
-                    /*
-                    } else if (verdict === 1 && !this.prompted) {
-                    */
+                    //
+                    // } else if (verdict === 1 && !this.prompted) {
 
                     } else {
                         
