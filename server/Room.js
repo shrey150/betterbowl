@@ -31,9 +31,9 @@ class Room {
         }
 
         /*
-        * Public = 2
-        * Unlisted = 1
-        * (TODO) Private = 0
+        * Public            = 2
+        * Unlisted          = 1
+        * (TODO) Private    = 0
         */
         this.privacy = 2;
 
