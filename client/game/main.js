@@ -64,13 +64,19 @@ socket.on("clearQuestion", data => {
 });
 
 socket.on("clearBuzz", data => {
+
     console.log("Clearing buzz...");
+
     $("#buzzBtn").attr("disabled", false);
+    $("#nextBtn").attr("disabled", false);
+    $("#pauseBtn").attr("disabled", false);
+
     $("#answerInput").hide();
     $("#answerInput").val("");
     $("#timer").hide();
     $(".progress").hide();
     $(".progress-bar").attr("style", "width: 0%");
+    
 })
 
 socket.on("playerBuzzed", data => {
@@ -85,6 +91,9 @@ socket.on("playerBuzzed", data => {
     marker.popover();
 
     $("#buzzBtn").attr("disabled", true);
+    $("#nextBtn").attr("disabled", true);
+    $("#pauseBtn").attr("disabled", true);
+
     $("#timer").show();
     $("#timer").removeAttr("style");
 });

@@ -162,7 +162,7 @@ class Room {
                 }
             });
 
-            socket.on("pause", () => { if (this.rules.canPause) this.toggleRead() });
+            socket.on("pause", () => { if (this.rules.canPause && this.buzzed === -1) this.toggleRead() });
 
             socket.on("sendAnswer", data => {
 
