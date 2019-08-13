@@ -12,6 +12,9 @@ let pings = [];
 
 let lastPing = Date.now();
 
+let histIndex = 0;
+let gameStarted = false;
+
 socket.on("connect", () => console.log("Connected to server!"));
 socket.on("disconnect", () => {
     $("#question").text("Lost connection to Betterbowl servers, reloading in 5 seconds...");
@@ -20,6 +23,8 @@ socket.on("disconnect", () => {
 
 socket.on("questionUpdate", data => {
 
+    gameStarted = true;
+
     const word = data.replace("(*)", "<span class='icon power-marker'></span>");
 
     $("#question").append(word);
@@ -27,12 +32,35 @@ socket.on("questionUpdate", data => {
 });
 
 socket.on("clearQuestion", data => {
+
     console.log("Clearing question...");
+
+    if (gameStarted) {
+
+        $("#noQs").remove();
+
+        $("#qHistory").prepend(`
+        <div class="card qHistory">
+            <div class="card-header">
+                <a class="expander" data-toggle="collapse" href=".q${histIndex}">${$("#answer").html()}</a>  
+            </div>    
+            <div class="card-body collapse q${histIndex}">
+                <div class="card-text">${$("#question").html()}</div>
+            </div>
+            <div class="card-footer breadcrumb collapse q${histIndex} text-muted">${$("#q_info").html()}</div>
+        </div>
+        `);
+
+    }
+
+    histIndex++;
+
     $("#question").empty();
     $("#answer").empty();
     $("#q_info").empty();
     $("#answer").hide();
     $("#q_info").hide();
+
 });
 
 socket.on("clearBuzz", data => {

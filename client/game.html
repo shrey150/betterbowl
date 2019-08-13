@@ -14,7 +14,7 @@
         <div class="container-fluid">
             <h1>Betterbowl (WORK IN PROGRESS)</h1>
             <div class="row">
-                <div class="col-9">
+                <div class="col-8">
                     <div id="controls">
                         <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">Start</button>
                         <button type="button" class="btn btn-primary"id="buzzBtn" onclick="buzz()">Buzz</button>
@@ -39,12 +39,13 @@
                             </div>
                             <div id="q_info" class="card-footer breadcrumb text-muted" style="display:none"></div>
                         </div>
-                        <br>
-                        <ul class="list-group" id="log"></ul>
+                        <hr>
                     </div>
-                    <div id="qHistory"></div>
+                    <div id="qHistory">
+                        <li id="noQs" class='list-group-item list-group-item-light'>No question history yet :(</li>
+                    </div>
                 </div>
-                <div class="col-3">
+                <div class="col-4">
                     <div id="stats">
                         <div class="input-group">
                             <input type="text" class="form-control" id="username" placeholder="Username" />
@@ -53,8 +54,9 @@
                             </div>
                         </div><br>
                         <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#settings">Room settings</button>
-                        <br><br><br>
-                        <ul class="list-group" id="scores"></ul>
+                        <hr>
+                        <ul class="list-group" id="scores"></ul><hr>
+                        <ul class="list-group" id="log"></ul>
                     </div>
                 </div>
             </div>

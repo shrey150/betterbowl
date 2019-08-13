@@ -116,12 +116,19 @@ class Room {
 
             socket.on("nextQuestion", () => {
 
-                if (!this.question || this.question.answered || this.rules.canSkip) {
+                if (!this.question || this.question.answered || (this.rules.canSkip && this.buzzed === -1)) {
 
                     this.io.emit("clearBuzz");
 
-                    if (this.question)
+                    if (this.question) {
+
+                        // reveal answer for question history
+                        this.question.finishQuestion();
+                        this.question.revealAnswer();
+
+                        // clear any timers present
                         this.question.endTimer.clearTimer();
+                    }
 
                     if (this.buzzed === -1 && this.qb.questions)
                         this.fetchQuestion();
