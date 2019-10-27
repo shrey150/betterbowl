@@ -1,6 +1,9 @@
+
 console.log("Client loaded!");
+console.log(`Token: ${Cookies.get("bb_token")}`);
 
 let socket = io(`${window.location.pathname}`, {
+    query: { token: Cookies.get("bb_token") },
     reconnect: false
 });
 
@@ -20,6 +23,8 @@ socket.on("disconnect", () => {
     $("#question").text("Lost connection to Betterbowl servers, reloading in 5 seconds...");
     setTimeout(() => window.location.reload(), 5000);
 });
+
+socket.on("newToken", data => Cookies.set("bb_token", data));
 
 socket.on("questionUpdate", data => {
 

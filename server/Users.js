@@ -1,4 +1,5 @@
 const Namer = require("./Namer");
+const jwt = require("jsonwebtoken");
 
 class Users {
 
@@ -16,34 +17,49 @@ class Users {
         this.players = [];
     }
 
-    addUser(name=Namer.random(), id, ip) {
+    addUser(name=Namer.random(), id, ip, token) {
 
         let merged = false;
+        let doppled = false;
 
         this.players.forEach(n => {
-            
-            if (n.ip === ip) {
+
+            let newToken = token ? jwt.verify(n.token, "temp_secret").data : "";
+            let userToken = jwt.verify(token, "temp_secret").data;
+
+            console.log(`New token:  ${newToken}`);
+            console.log(`User token: ${userToken}`);
+
+            if (newToken === userToken) {
 
                 if (!n.connected) {
                     n.id = id;
                     n.connected = true;
                     merged = true;
-                }
-                else {
-                    name = "Doppelganger" + new Date().getMilliseconds();
+                } else {
+                    name = n.name + "'s Doppelganger";
                     ip = "guest";
+                    doppled = true;
                 }
             }
+
         });
 
         if (!merged) {
+
+            const newToken = jwt.sign({ data: id }, "temp_secret");
+
             this.players.push({
                 name: name,
                 id: id,
                 ip: ip,
+                token: newToken,
                 connected: true,
                 score: 0
             });
+
+            if (!doppled) this.io.to(id).emit("newToken", newToken);
+
         }
 
         this.sendScoreboard();
@@ -54,10 +70,7 @@ class Users {
     }
 
     getIdByIndex(index) {
-        if (index === -1) {
-            console.log("this.buzzed -1");
-            return null;
-        }
+        if (index === -1) return null;
         return this.players.find(x => x === this.players[index]).id;
     }
 
@@ -70,11 +83,16 @@ class Users {
     }
 
     getName(id) {
+        console.log(this.players);
         return this.getUser(id).name;
     }
 
     getScore(id) {
         return this.getUser(id).score;
+    }
+
+    getOnline() {
+        return this.players.filter(x => x.connected).length;
     }
 
     changeScore(user, num) {
@@ -104,10 +122,11 @@ class Users {
 
     sendScoreboard() {
 
-        // send user array w/o IP information
+        // send user array w/o certain information
         const users = this.players.map(n => {
             const obj = {...n};
             delete obj.ip;
+            delete obj.token;
             return obj;
         });
 
@@ -115,7 +134,6 @@ class Users {
     }
 
     disconnect(id) {
-        const name = this.getName(id);
 
         this.players.forEach(n => {
             if (n.id === id)
@@ -123,6 +141,7 @@ class Users {
         });
 
         this.players = this.players.filter(x => x.id !== id || x.ip !== "guest");
+
         this.sendScoreboard();
     }
 

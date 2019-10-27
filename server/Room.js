@@ -74,12 +74,13 @@ class Room {
         this.io.on("connection", socket => {
 
             const name = socket.handshake.query.name;
+            const token = socket.handshake.query.token;
 
             // get IP, whether running locally or on Heroku
             const ip =  socket.handshake.headers["x-forwarded-for"] ||
                         socket.handshake.address;
 
-            this.users.addUser(name, socket.id, ip);
+            this.users.addUser(name, socket.id, ip, token);
 
             // update previous log messages
             this.io.to(socket.id).emit("updateLogHistory", this.logHistory);
@@ -91,7 +92,7 @@ class Room {
                 rules   : this.rules
             });
 
-            this.log(`${this.users.getName(socket.id)} connected (total players ${this.users.players.length})`);
+            this.log(`${this.users.getName(socket.id)} connected (total players ${this.users.getOnline()})`);
 
             // display loading message if necessary
             if (this.loading)           this.io.to(socket.id).emit("loading");
@@ -220,7 +221,7 @@ class Room {
             socket.on("disconnect", () => {
                 const name = this.users.getName(socket.id);
                 this.users.disconnect(socket.id);
-                this.log(`${name} disconnected (total players ${this.players.length})`);
+                this.log(`${name} disconnected (total players ${this.users.getOnline()})`);
             });
             
             socket.on("changeName", data => {
