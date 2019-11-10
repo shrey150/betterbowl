@@ -24,8 +24,8 @@ class Users {
 
         this.players.forEach(n => {
 
-            let newToken = token ? jwt.verify(n.token, "temp_secret").data : "";
-            let userToken = jwt.verify(token, "temp_secret").data;
+            let newToken = this.decodeToken(n.token);
+            let userToken = this.decodeToken(token);
 
             console.log(`New token:  ${newToken}`);
             console.log(`User token: ${userToken}`);
@@ -143,6 +143,13 @@ class Users {
         this.players = this.players.filter(x => x.id !== id || x.ip !== "guest");
 
         this.sendScoreboard();
+    }
+
+    decodeToken(token) {
+
+        try         { return jwt.verify(token, "temp_secret").data; }
+        catch (err) { return ""; }
+
     }
 
 }
