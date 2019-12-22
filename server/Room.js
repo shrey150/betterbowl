@@ -21,9 +21,12 @@ class Room {
         this.rules = {
             canSkip     : true,
             canPause    : true,
-            canMultiBuzz: true
+            canMultiBuzz: true,
+            speed       : 125
         }
 
+        // default question reading speed
+        // 8 words per second
         this.query = {
             category    : [],
             subcategory : [],
@@ -258,7 +261,6 @@ class Room {
 
                 this.log("Room settings updated.");
 
-
             });
 
             socket.on("clearBuzz", () => this.clearBuzz());
@@ -345,7 +347,7 @@ class Room {
 
         console.log(q);
 
-        this.question = new Question(q.text, q.formatted_answer, q.info, 125, this.io, q);
+        this.question = new Question(q.text, q.formatted_answer, q.info, this.rules.speed, this.io, q);
     }
 
     log(msg, author) {

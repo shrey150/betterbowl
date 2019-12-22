@@ -140,6 +140,8 @@ socket.on("syncSettings", data => {
     $("#canSkip").prop("checked", data.rules.canSkip);
     $("#canPause").prop("checked", data.rules.canPause);
 
+    $("#speed").val(data.rules.speed);
+
 });
 
 socket.on("loading", () => {
@@ -273,6 +275,8 @@ function saveSettings() {
     const privacy       = $("#privacy").val();
     const password      = $("#password").val();
 
+    const speed         = $("#speed").val();
+
     const canSkip       = $("#canSkip").is(":checked");
     const canPause      = $("#canPause").is(":checked");
     const canMultiBuzz  = $("#canMultiBuzz").is(":checked");
@@ -283,14 +287,16 @@ function saveSettings() {
     }
 
     console.log(category, subcategory, difficulty);
-    console.log(canSkip, canPause, canMultiBuzz);
+    console.log(canSkip, canPause, canMultiBuzz, speed);
 
     socket.emit("updateSettings", {
         "search"    : { category, subcategory, difficulty },
         "security"  : { privacy, password },
-        "rules"     : { canSkip, canPause, canMultiBuzz }               
+        "rules"     : { canSkip, canPause, canMultiBuzz, speed }        
     });
 }
+
+$("#speed").on("oninput", console.log);
 
 function updateSubcats() {
 
