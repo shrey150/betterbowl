@@ -113,8 +113,10 @@ class Users {
     changeName(id, name) {
 
         this.players.forEach(n => {
-            if (n.id === id)
-                n.name = name;
+            if (n.id === id) {
+                if (name.trim())    n.name = name;
+                else                n.name = Namer.random();    
+            }
         });
 
         this.sendScoreboard();
