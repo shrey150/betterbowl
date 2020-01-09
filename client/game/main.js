@@ -167,16 +167,37 @@ socket.on("updateLogHistory", data => {
 });
 
 socket.on("sendScoreboard", data => {
+
     console.log("Updating scoreboard");
     $("#scores").empty();
+    $("#statsTable").empty();
+
     data.forEach(n => {
-        const gray = !n.connected ? "color: gray" : "";
+        
+        const disabled = !n.connected ? "disabled" : "";
         $("#scores").append(`
-        <li class="list-group-item d-flex justify-content-between align-items-center">
+        <li class="list-group-item d-flex justify-content-between align-items-center ${disabled}">
             ${escapeHTML(n.name)}
-            <span class="badge badge-secondary badge-pill">${n.score}</span>
+            <span class="badge badge-secondary badge-pill">${n.stats.score}</span>
         </li>`);
+
+        $("#statsTable").append(`
+        <tr>
+            <td>${escapeHTML(n.name)}</td>
+            <td>${n.stats.score}</td>
+            <td>${n.stats.powers}</td>
+            <td>${n.stats.gets}</td>
+            <td>${n.stats.negs}</td>
+        </tr>
+        `);
+
     });
+
+    $("#scores").append(`
+        <button class="list-group-item list-group-item-action" data-toggle="modal" data-target="#stats">
+            More stats...
+        </button>
+    `);
 });
 
 socket.on("tick", data => {

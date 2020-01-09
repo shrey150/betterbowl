@@ -55,7 +55,12 @@ class Users {
                 ip: ip,
                 token: newToken,
                 connected: true,
-                score: 0
+                stats: {
+                    score: 0,
+                    powers: 0,
+                    gets: 0,
+                    negs: 0
+                }
             });
 
             if (!doppled) this.io.to(id).emit("newToken", newToken);
@@ -88,7 +93,7 @@ class Users {
     }
 
     getScore(id) {
-        return this.getUser(id).score;
+        return this.getUser(id).stats.score;
     }
 
     getOnline() {
@@ -101,8 +106,12 @@ class Users {
 
         this.players.forEach(n => {
             if (n.id === user) {
-                n.score += num;
-                score = n.score;
+                n.stats.score += num;
+                score = n.stats.score;
+
+                if (num === 15) n.stats.powers++;
+                if (num === 10) n.stats.gets++;
+                if (num === -5)  n.stats.negs++;
             }
         });
 
@@ -113,8 +122,10 @@ class Users {
     changeName(id, name) {
 
         this.players.forEach(n => {
-            if (n.id === id)
-                n.name = name;
+            if (n.id === id) {
+                if (name.trim())    n.name = name;
+                else                n.name = Namer.random();    
+            }
         });
 
         this.sendScoreboard();
