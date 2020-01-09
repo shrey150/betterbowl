@@ -20,6 +20,10 @@ app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "../client/home.html"));
 });
 
+app.get("/robots.txt", (req, res) => {
+    res.sendFile(path.join(__dirname, "../client/robots.txt"));
+});
+
 app.get("/game/socket.io.js", (req, res) => {
     res.sendFile(path.join(__dirname, "../node_modules/socket.io-client/dist/socket.io.js"));
 });
