@@ -23,6 +23,7 @@ function listRooms() {
     })
     .catch(err => console.error("Error fetching room list: " + err));
 }
+
 function goToRoom() {
     const room = document.querySelector("#roomName");
     window.location.href = "/" + room.value;

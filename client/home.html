@@ -13,15 +13,17 @@
                 <p class="lead">Protobowl, but better</p>
             </div>
             <div class="container">
-                <div class="form-group">
-                    <label for="roomName">Join/create a room:</label>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="roomName" placeholder="hsquizbowl" />
-                        <div class="input-group-append">
-                            <button type="button" class="btn btn-primary" onclick="goToRoom()">Go</button>
+                <form onsubmit="goToRoom(); return false">
+                    <div class="form-group">
+                        <label for="roomName">Join/create a room:</label>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="roomName" placeholder="hsquizbowl" />
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-primary" onclick="goToRoom()">Go</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </form>
 
                 <hr>
 
