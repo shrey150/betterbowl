@@ -2,20 +2,24 @@
 console.log("Client loaded!");
 console.log(`Token: ${Cookies.get("bb_token")}`);
 
+// set up socket.io connection to server
 let socket = io(`${window.location.pathname}`, {
     query: { token: Cookies.get("bb_token") },
     reconnect: false
 });
 
-let timerInterval;
+// timer object that sends answer to server after x seconds
 let autoSendTimer;
+
 let timerValue = 7;
 
 let pings = [];
-
 let lastPing = Date.now();
 
+// static variable counting # of questions in history
 let histIndex = 0;
+
+// keeps track of game's state for other functions
 let gameStarted = false;
 
 socket.on("connect", () => console.log("Connected to server!"));
@@ -24,14 +28,18 @@ socket.on("disconnect", () => {
     setTimeout(() => window.location.reload(), 5000);
 });
 
+// fired when a new token is issued to the client
 socket.on("newToken", data => Cookies.set("bb_token", data));
 
+// fired when the server sends a new word of the question
 socket.on("questionUpdate", data => {
 
     gameStarted = true;
 
+    // display emoji for power marker
     const word = data.replace("(*)", "<span class='icon power-marker'></span>");
 
+    // add word to question
     $("#question").append(word);
     $("#nextBtn").text("Next");
 });
@@ -42,12 +50,21 @@ socket.on("clearQuestion", data => {
 
     if (gameStarted) {
 
+        // remove "No question history yet" message
         $("#noQs").remove();
 
+        // add latest question to history
         $("#qHistory").prepend(`
         <div class="card qHistory">
-            <div class="card-header">
-                <a class="expander" data-toggle="collapse" href=".q${histIndex}">${$("#answer").html()}</a>  
+            <div class="card-header container-fluid">
+                <div class="row">
+                    <div class="col-11">
+                        <a class="expander" data-toggle="collapse" href=".q${histIndex}">${$("#answer").html()}</a>
+                    </div>
+                    <div class="col-1">
+                        <img id="search-q${histIndex}" class="search-db float-right" onclick="searchQuizDB(${histIndex})" src="game/db.svg" data-toggle="popover" data-trigger="hover" data-placement="top" data-content="Search answerline on QuizDB" />
+                    </div>
+                </div>
             </div>    
             <div class="card-body collapse q${histIndex}">
                 <div class="card-text">${$("#question").html()}</div>
@@ -56,10 +73,13 @@ socket.on("clearQuestion", data => {
         </div>
         `);
 
+        $(`#search-q${histIndex}`).popover();
+
     }
 
     histIndex++;
 
+    // clean page and hide appropriate elements
     $("#question").empty();
     $("#answer").empty();
     $("#q_info").empty();
@@ -68,6 +88,7 @@ socket.on("clearQuestion", data => {
 
 });
 
+// fired when the server's "buzzer" is cleared
 socket.on("clearBuzz", data => {
 
     console.log("Clearing buzz...");
@@ -84,21 +105,23 @@ socket.on("clearBuzz", data => {
     
 })
 
+// fired when the server recognizes a player has buzzed
 socket.on("playerBuzzed", data => {
+
     console.log("Player buzzed!");
 
+    // escape text to prevent XSS
     const player = escapeHTML(data);
+
+    // add bell icon in question where player buzzed
     const marker = $(`<span class='icon buzz-marker' data-toggle="popover" data-trigger="hover" data-placement="top" data-content="${player}"></span><span>&nbsp;</span>`);
-
-    console.log(`data-content="${player}"`);
-
     $("#question").append(marker);
     marker.popover();
 
+    // show/hide appropriate elements
     $("#buzzBtn").attr("disabled", true);
     $("#nextBtn").attr("disabled", true);
     $("#pauseBtn").attr("disabled", true);
-
     $("#timer").show();
     $("#timer").removeAttr("style");
 });
@@ -112,10 +135,14 @@ socket.on("revealAnswer", data => {
     data.info.forEach(n => $("#q_info").append(`<li class="breadcrumb-item">${n}</li>`));
 });
 
+// fired when server notices a player is buzzing,
+// but there is already another player buzzed in
 socket.on("buzzFailed", data => {
     console.log("Buzz failed!");
 });
 
+// fired when a player successfully buzzes in
+// and to tell the client to display the answer input box
 socket.on("requestAnswer", data => {
     console.log("Request answer:");
     $("#answerInput").show();
@@ -124,6 +151,8 @@ socket.on("requestAnswer", data => {
     autoSendTimer = setTimeout(sendAnswer, 7000);
 });
 
+// fired when a player updates the room's settings
+// in order to sync what is displayed in "Room settings"
 socket.on("syncSettings", data => {
 
     const difficulty    = data.search.difficulty.map(n => _.startCase(n));
@@ -152,12 +181,22 @@ socket.on("loaded", () => {
     $("#question").html("Questions loaded! Press <code>n</code> to start reading questions.");
 });
 
+/*
+Fired when a message is received from the server
+to be displayed in the "log" on the right side.
+This includes connect/disconnect, chat, and buzz messages.
+*/
 socket.on("log", data => {
     const msg = escapeHTML(data.msg);
     const el = data.author ? `<b>${escapeHTML(data.author)}</b> ${msg}` : msg;
     $("#log").prepend(`<li class="list-group-item">${el}</li>`);
 });
 
+/*
+Fired when a client joins a room with previous
+log history that must be displayed (since they
+were not there to receive the individual messages)
+*/
 socket.on("updateLogHistory", data => {
     data.forEach(n => {
         const msg = escapeHTML(n.msg);
@@ -166,15 +205,21 @@ socket.on("updateLogHistory", data => {
     });
 });
 
+// fired when there is an update to the scoreboard
 socket.on("sendScoreboard", data => {
 
     console.log("Updating scoreboard");
+
+    // clear the scoreboard
     $("#scores").empty();
     $("#statsTable").empty();
 
+    // dynamically add each player's score display
     data.forEach(n => {
-        
+
+        // changes player's color to gray if they are disconnected
         const disabled = !n.connected ? "disabled" : "";
+
         $("#scores").append(`
         <li class="list-group-item d-flex justify-content-between align-items-center ${disabled}">
             ${escapeHTML(n.name)}
@@ -193,6 +238,7 @@ socket.on("sendScoreboard", data => {
 
     });
 
+    // add "more stats" button
     $("#scores").append(`
         <button class="list-group-item list-group-item-action" data-toggle="modal" data-target="#stats">
             More stats...
@@ -200,33 +246,46 @@ socket.on("sendScoreboard", data => {
     `);
 });
 
+/*
+Fired when the server's buzzer timer "ticks";
+a message is sent out to clients to update their
+timer progress bar to show how much time is left.
+This is done every 0.1 seconds (10-tick server).
+*/
 socket.on("tick", data => {
 
     console.log(data.time);
 
+    // update the progress bar's length
     $("#timer").show();
     $(".progress").show();
     $(".progress-bar").prop("style", `width: ${(7-data.time)/7*100}%`);
 
+    // change timer color to blue if question is "dead"
     if (data.type === "dead") {
         $(".progress-bar").removeClass("bg-danger");
     } else {
         $(".progress-bar").addClass("bg-danger");
     }
     
+    // display time to the nearest 1/10 of a second
     $("#timer").text(data.time.toFixed(1));
 
 });
 
+// utility callback for the server to check client ping
 socket.on("netRes", () => {
 
     const ms = Date.now() - lastPing;
     console.log(`Latency: ${ms}`);
 
+    // calculate and update average ping
     pings.push(ms);
     if (pings.length >= 5) pings.shift();
     const avgPing = pings.reduce((s,n) => s+n) / pings.length;
 
+    // if ping to server is greater than 250ms,
+    // warn the user that their connection is poor
     if (avgPing >= 250) {
         console.warn("High latency detected.");
         $("#warnPing").text(`High latency detected (${ms}ms). Try refreshing the page or connecting to a faster network.`);
@@ -238,6 +297,9 @@ socket.on("netRes", () => {
 
 });
 
+/*
+BUTTON CALLBACKS / LOGIC FUNCTIONS
+*/
 function nextQuestion() {
     socket.emit("nextQuestion");
 }
@@ -262,9 +324,29 @@ function changeName() {
     socket.emit("changeName", $("#username").val());
 }
 
-function clearBuzz() {
-    console.log("[DEBUG] clearing buzz");
-    socket.emit("clearBuzz");
+function searchQuizDB(qIndex) {
+
+    //let boldedEls = $(`a[href='.q${qIndex}'] > strong`);
+    let query = "";
+
+    //if (boldedEls === 0) {
+
+        query = $(`a[href='.q${qIndex}']`).text();
+
+        // remove text between <>, [], and ()
+        query = query.replace(/<.*?>/g, "");
+        query = query.replace(/\[.*?\]/g, "");
+        query = query.replace(/\(.*?\)/g, "");
+
+    /*
+    } else {
+
+        query = bolded.textContent;
+
+    }
+    */
+
+    window.open(`https://www.quizdb.org/?query=${query}`);
 }
 
 function openChat() {
@@ -319,11 +401,14 @@ function saveSettings() {
 
 $("#speed").on("oninput", console.log);
 
+// update subcategory list from subcats.js
 function updateSubcats() {
 
+    // empty list
     const category = $("#category").val();
     $("#subcategory").empty();
 
+    // fill the list from subcats.js's array
     category.forEach(n => {
 
         subcats[n].forEach(m => {
@@ -332,9 +417,14 @@ function updateSubcats() {
 
     });
 
+    // refresh the dropdown menu
     $("#subcategory").selectpicker("refresh");
 }
 
+/*
+Utility function that converts strings containing
+potentially malicious HTML code into safe text (XSS).
+*/
 function escapeHTML(str) {
     var div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
@@ -365,11 +455,14 @@ function privacyInfo() {
 
 }
 
+// set up timer to send pings to server
+// done every 2 seconds
 setInterval(() => {
     lastPing = Date.now();
     socket.emit("netCheck");
 }, 2000);
 
+// close room settings by clicking outside the window
 window.onclick = e => {
     if (e.target === $("#settings")[0])
         $("#settings").style.display = "";

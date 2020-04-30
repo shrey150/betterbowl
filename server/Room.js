@@ -263,7 +263,6 @@ class Room {
 
             });
 
-            socket.on("clearBuzz", () => this.clearBuzz());
             socket.on("chat", data => {
                 const author = this.users.getName(socket.id);
                 const msg = this.chat.clean(data.msg);

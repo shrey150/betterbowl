@@ -22,6 +22,15 @@
     background-image: url("https://twemoji.maxcdn.com/2/svg/1f514.svg");
 }
 
+.search-db {
+    filter: invert(15%) sepia(43%) saturate(11%) hue-rotate(327deg) brightness(113%) contrast(94%);
+    height: 24px;
+}
+
+.search-db:hover {
+    filter: opacity(50%);
+}
+
 .expander {
     display: block;
     color: black;

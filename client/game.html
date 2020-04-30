@@ -103,22 +103,6 @@
                     </div>
                     <div class="modal-body">
                         <form>
-                            <!--
-                            <div class="form-group">
-                                <label for="qSearch">Question Search</label>
-                                <input type="text" class="form-control" id="qSearch" aria-describedby="qHelp" placeholder="Enter search terms here">
-                                <small id="qHelp" class="form-text text-muted">(Leave this blank to search for all questions)</small>
-                            </div>
-                            <div class="form-group">
-                                <label for="searchType">Search Type</label>
-                                <select class="selectpicker form-control" id="searchType" aria-describedby="typeHelp">
-                                    <option value="q">Question</option>
-                                    <option value="a">Answer</option>
-                                    <option value="qa">Question & Answer</option>
-                                </select>
-                                <small id="typeHelp" class="form-text text-muted">(This is where QuizDB will search for your keywords)</small>
-                            </div>
-                            -->
                             <div class="form-group">
                                 <label for="category">Category</label>
                                 <select class="selectpicker form-control" id="category" multiple data-live-search="true" onchange="updateSubcats()">
@@ -172,6 +156,7 @@
                             <div class="form-group">
                                 <label for="speed">Reading speed</label>
                                 <input type="range" class="form-control-range" id="speed" min="10" max="1000" value="125" step="25">
+                                <small id="speedHelp" class="form-text text-muted">Note: the question speed will not update until the next question is read.</small>
                             </div>
                             <div class="form-group form-check">
                                 <input type="checkbox" class="form-check-input" id="canMultiBuzz">
