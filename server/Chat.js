@@ -7,6 +7,7 @@ class Chat {
         this.filter = new Filter();
     }
 
+    // filter message for potential profanity
     parse(msg, name) {
         const censored = this.filter.clean(msg);
         const formatted = `<b>${name}</b> ${censored}`;

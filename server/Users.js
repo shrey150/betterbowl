@@ -19,7 +19,11 @@ class Users {
 
     addUser(name=Namer.random(), id, ip, token) {
 
+        // signifies if player is rejoining room
         let merged = false;
+
+        // signifies if player is joining from the same browser
+        // using multiple tabs; thus, they are a "doppelganger"
         let doppled = false;
 
         this.players.forEach(n => {
@@ -30,12 +34,19 @@ class Users {
             console.log(`New token:  ${newToken}`);
             console.log(`User token: ${userToken}`);
 
+            // if "token" exists in players list
             if (newToken === userToken) {
 
+                // if they are marked disconnected,
+                // they must be rejoining and "merged"
                 if (!n.connected) {
                     n.id = id;
                     n.connected = true;
                     merged = true;
+
+                // otherwise, they are joining twice from the same browser;
+                // they are a doppelganger of another player and therefore
+                // will not be saved as a player (stats will be deleted on disconnect)
                 } else {
                     name = n.name + "'s Doppelganger";
                     ip = "guest";
@@ -45,6 +56,8 @@ class Users {
 
         });
 
+        // if player was rejoining the room,
+        // update their old token with new socket id
         if (!merged) {
 
             const newToken = jwt.sign({ data: id }, "temp_secret");
@@ -67,8 +80,12 @@ class Users {
 
         }
 
+        // update scoreboard for clients
         this.sendScoreboard();
     }
+
+    //==============================================================
+    // GETTER METHODS
 
     getUser(id) {
         return this.players.find(x => x.id === id);
@@ -99,7 +116,9 @@ class Users {
     getOnline() {
         return this.players.filter(x => x.connected).length;
     }
+    //==============================================================
 
+    // update a player's score
     changeScore(user, num) {
 
         let score = 0;
@@ -109,12 +128,14 @@ class Users {
                 n.stats.score += num;
                 score = n.stats.score;
 
+                // update player stats (P/G/N)
                 if (num === 15) n.stats.powers++;
                 if (num === 10) n.stats.gets++;
                 if (num === -5)  n.stats.negs++;
             }
         });
 
+        // update scoreboard for clients
         this.sendScoreboard();
         return score;
     }
@@ -123,17 +144,21 @@ class Users {
 
         this.players.forEach(n => {
             if (n.id === id) {
+                
+                // if "name" was empty, give them a random name
                 if (name.trim())    n.name = name;
                 else                n.name = Namer.random();    
             }
         });
 
+        // update scoreboard for clients
         this.sendScoreboard();
     }
 
     sendScoreboard() {
 
-        // send user array w/o certain information
+        // send user array w/o certain information:
+        // IP address and client token are private info
         const users = this.players.map(n => {
             const obj = {...n};
             delete obj.ip;
@@ -151,11 +176,15 @@ class Users {
                 n.connected = false;
         });
 
+        // if player was marked as a guest ("doppelganger"), remove them from list
         this.players = this.players.filter(x => x.id !== id || x.ip !== "guest");
 
+        // update scoreboard for clients
         this.sendScoreboard();
     }
 
+    // helper method used to verify client web token;
+    // this is used to see if player has joined room before
     decodeToken(token) {
 
         try         { return jwt.verify(token, "temp_secret").data; }

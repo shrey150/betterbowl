@@ -1,6 +1,9 @@
 class Namer {
 
     constructor() {
+
+        // first names of US presidents
+        // TODO: customize this by category
         this.names = [
             "George",
             "John",

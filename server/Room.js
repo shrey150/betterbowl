@@ -18,6 +18,7 @@ class Room {
         this.players = [];
         this.question = null;
 
+        // room rules object
         this.rules = {
             canSkip     : true,
             canPause    : true,
@@ -25,8 +26,8 @@ class Room {
             speed       : 125
         }
 
-        // default question reading speed
-        // 8 words per second
+        // QuizDB query object
+        // used to fetch question bank
         this.query = {
             category    : [],
             subcategory : [],
@@ -40,10 +41,13 @@ class Room {
         */
         this.privacy = 2;
 
-        // index of "this.players"
+        // indicates current buzzed-in player
+        // index of "this.players" (-1 is cleared buzzer)
         this.buzzed = -1;
+
         this.prompted = false;
 
+        // open socket.io connection
         this.io = io.of(name);
         this.listen();
 
@@ -68,6 +72,7 @@ class Room {
         this.users = new Users(this.io);
         this.timer = new Timer(this.io, () => this.clearBuzz(), "buzz");
 
+        // tracks players who have already buzzed
         this.buzzedOut = [];
 
     }
@@ -85,10 +90,10 @@ class Room {
 
             this.users.addUser(name, socket.id, ip, token);
 
-            // update previous log messages
+            // send client previous log messages
             this.io.to(socket.id).emit("updateLogHistory", this.logHistory);
 
-            // update room settings menu locally
+            // send client current room settings
             this.io.to(socket.id).emit("syncSettings", {
                 search  : this.query,
                 privacy : this.privacy,
@@ -101,7 +106,7 @@ class Room {
             if (this.loading)           this.io.to(socket.id).emit("loading");
             else if (!this.question)    this.io.to(socket.id).emit("loaded");
 
-            // update players who joined in the middle of a question
+            // send client current question (if in the middle of one)
             if (this.question) {
 
                 if (this.question.answered) {
@@ -114,12 +119,14 @@ class Room {
                 this.question.update(socket.id);
             }
 
-            // update buzzer status
+            // send client the current buzzer status
             if (this.buzzed !== -1)
                 this.io.to(socket.id).emit("playerBuzzed", this.users.getUserByIndex(this.buzzed));
 
+            // fired when client requests next question
             socket.on("nextQuestion", () => {
 
+                // if client is allowed to ask for next question
                 if (!this.question || this.question.answered || (this.rules.canSkip && this.buzzed === -1)) {
 
                     this.io.emit("clearBuzz");
@@ -134,6 +141,7 @@ class Room {
                         this.question.endTimer.clearTimer();
                     }
 
+                    // if no one's buzzed in, fetch a new question
                     if (this.buzzed === -1 && this.qb.questions)
                         this.fetchQuestion();
 
@@ -141,20 +149,29 @@ class Room {
 
             });
 
+            // fired when a player buzzes in
             socket.on("buzz", data => {
 
                 console.log(`Received buzz from ${this.users.getName(socket.id)}`);
 
+                // if no one's currently buzzed in and the player hasn't already buzzed
+                // (if multi buzzing is enabled in room settings, the latter is true regardless)
                 if (this.buzzed === -1 && !this.isBuzzedOut(socket.id)) {
 
+                    // add player to list of players who have buzzed
                     this.buzzedOut.push(socket.id);
 
+                    // pause the question
                     if (this.question) this.question.stop();
+
+                    // if question has finished being read, clear the "dead question" timer
                     if (this.question && this.question.finished) this.question.endTimer.clearTimer();
 
+                    // get the player who buzzed and tell the clients
                     this.buzzed = this.users.getIndex(this.users.getUser(socket.id));
                     this.io.emit("playerBuzzed", this.users.getName(socket.id));
 
+                    // ask the player who buzzed for an answer
                     this.io.to(socket.id).emit("requestAnswer");
 
                     this.timer.countdown(7);
@@ -168,16 +185,20 @@ class Room {
 
             socket.on("pause", () => { if (this.rules.canPause && this.buzzed === -1) this.toggleRead() });
 
+            // fired when client sends their guess
             socket.on("sendAnswer", data => {
 
                 console.log("Received answer: " + data);
 
+                // if player who sent answer was the one who was buzzed in
                 if (socket.id === this.users.getIdByIndex(this.buzzed) && this.question) {
 
+                    // send all clients the guess
                     this.io.emit("updateAnswerLine", data);
 
                     const verdict = this.checker.smartCheck(data, this.question.answer);
 
+                    // CORRECT answer
                     if (verdict === 2) {
 
                         if (this.question.index <= this.question.powerIndex) {
@@ -193,12 +214,12 @@ class Room {
                         this.question.revealAnswer();
 
                     
-                    // ===============
-                    // IMPLEMENT LATER
-                    // ===============
+                    // TODO: implement a successful prompting solution
                     //
                     // } else if (verdict === 1 && !this.prompted) {
 
+
+                    // INCORRECT answer
                     } else {
                         
                         if (!this.question.finished) {
@@ -231,8 +252,11 @@ class Room {
                 this.users.changeName(socket.id, data);
             });
 
+            // fired when a client changes the room's settings
             socket.on("updateSettings", data => {
 
+                // if the QuizDB query parameters were changed,
+                // fetch a new question bank using the new settings
                 if (!_.isEqual(data.search, this.query)) {
 
                     this.query = data.search;
@@ -250,9 +274,12 @@ class Room {
                 this.privacy = parseInt(data.security.privacy);
                 this.rules = data.rules;
 
-                // TODO: hash password?
+                // TODO: unimplemented feature
+                // password is used for private rooms
+                // perhaps hash this password if implemented?
                 this.password = data.security.password;
 
+                // send new settings to all clients
                 this.io.emit("syncSettings", {
                     search  : this.query,
                     privacy : this.privacy,
@@ -269,6 +296,8 @@ class Room {
                 this.log(msg, author);
             });
 
+            // used to calculate client latency to server
+            // this calculation and warning is displayed client-side
             socket.on("netCheck", () => socket.emit("netRes"));
 
         });
@@ -277,15 +306,18 @@ class Room {
 
     clearBuzz() {
 
+        // reset the timer
         if (this.timer)
             this.timer.clearTimer();
 
+        // unpause the question
         if (this.question) {
             if (!this.question.reading && !this.question.finished) {
                 this.question.start();
             }
         }
 
+        // clear buzzer state
         this.buzzed = -1;
         this.io.emit("clearBuzz");
 
@@ -293,11 +325,15 @@ class Room {
 
     }
 
+    // helper method used to find if a player has buzzed before
+    // this only applies for the current question;
+    // it also returns false if multi buzzing is enabled
     isBuzzedOut(id) {
         if (this.rules.canMultiBuzz) return false;
         else return this.buzzedOut.includes(id);
     }
 
+    // pauses/unpauses question reading
     toggleRead() {
 
         if (this.question) {
@@ -312,11 +348,13 @@ class Room {
 
         this.qb = new QuestionBank(args);
 
+        // send "question loading" message to clients
         this.loading = true;
         this.io.emit("loading");
 
         this.question = null;
 
+        // search QuizDB for new questions
         this.qb.search().then(n => {
             this.loading = false;
             this.io.emit("loaded");
@@ -325,6 +363,7 @@ class Room {
 
     }
 
+    // clears buzzer and pauses question
     clearQuestion() {
 
         this.clearBuzz();
@@ -335,6 +374,7 @@ class Room {
 
     }
 
+    // gets random question from question bank
     fetchQuestion() {
 
         if (this.question) this.question.stop();
@@ -349,6 +389,8 @@ class Room {
         this.question = new Question(q.text, q.formatted_answer, q.info, this.rules.speed, this.io, q);
     }
 
+    // adds message to server log
+    // this log is synced with all clients
     log(msg, author) {
 
         const str = author ? `${author}: ${msg}` : msg;

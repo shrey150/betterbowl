@@ -326,25 +326,12 @@ function changeName() {
 
 function searchQuizDB(qIndex) {
 
-    //let boldedEls = $(`a[href='.q${qIndex}'] > strong`);
-    let query = "";
+    let query = $(`a[href='.q${qIndex}']`).text();
 
-    //if (boldedEls === 0) {
-
-        query = $(`a[href='.q${qIndex}']`).text();
-
-        // remove text between <>, [], and ()
-        query = query.replace(/<.*?>/g, "");
-        query = query.replace(/\[.*?\]/g, "");
-        query = query.replace(/\(.*?\)/g, "");
-
-    /*
-    } else {
-
-        query = bolded.textContent;
-
-    }
-    */
+    // remove text between <>, [], and ()
+    query = query.replace(/<.*?>/g, "");
+    query = query.replace(/\[.*?\]/g, "");
+    query = query.replace(/\(.*?\)/g, "");
 
     window.open(`https://www.quizdb.org/?query=${query}`);
 }

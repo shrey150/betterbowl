@@ -21,6 +21,9 @@ class Timer {
     }
 
     tick() {
+
+        // if timer is not over (more than 0 seconds left),
+        // subtract 0.1 seconds and update clients
         if (this.timer > 0.00001) {
             this.io.emit("tick", {
                 time: this.timer,
@@ -28,6 +31,7 @@ class Timer {
             });
             this.timer -= 0.1;
         }
+        // otherwise, clear the timer
         else {
             this.clearTimer();
             this.callback();

@@ -1,3 +1,4 @@
+
 // submit answer when buzzed in
 $("#answerInput").keydown(e => {
     if (e.key === "Enter") sendAnswer();
@@ -15,20 +16,24 @@ window.addEventListener("keydown", e => {
 
     switch (e.key) {
 
+        // BUZZ
         case " ":
             e.preventDefault();
             if (!$("#answerInput").is(":visible")) buzz();
             break;
 
+        // CHAT
         case "Enter":
             e.preventDefault();
             if (!$("#answerInput").is(":visible")) openChat();
             break;
 
+        // NEXT/SKIP
         case "n":
             nextQuestion();
             break;
 
+        // PAUSE
         case "p":
             pause();
             break;
