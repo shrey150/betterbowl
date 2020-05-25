@@ -193,9 +193,6 @@ class Room {
                 // if player who sent answer was the one who was buzzed in
                 if (socket.id === this.users.getIdByIndex(this.buzzed) && this.question) {
 
-                    // send all clients the guess
-                    this.log(`${this.users.getName(socket.id)} guessed "${data}".`);
-
                     const verdict = this.checker.smartCheck(data, this.question.answer);
 
                     // CORRECT answer
@@ -203,11 +200,11 @@ class Room {
 
                         if (this.question.index <= this.question.powerIndex) {
                             this.users.changeScore(socket.id, 15);
-                            this.log(`${this.users.getName(socket.id)} powered!`);
+                            this.log(`${this.users.getName(socket.id)} guessed "${data}" and powered!`);
                         }
                         else {
                             this.users.changeScore(socket.id, 10);
-                            this.log(`${this.users.getName(socket.id)} buzzed correctly!`);
+                            this.log(`${this.users.getName(socket.id)} guessed "${data}" and buzzed correctly!`);
                         }
 
                         this.question.finishQuestion();
@@ -225,10 +222,10 @@ class Room {
                         if (!this.question.finished) {
 
                             this.users.changeScore(socket.id, -5);
-                            this.log(`${this.users.getName(socket.id)} negged.`);
+                            this.log(`${this.users.getName(socket.id)} guessed "${data}" and negged.`);
                         
                         } else {
-                            this.log(`${this.users.getName(socket.id)} buzzed incorrectly, no penalty.`);
+                            this.log(`${this.users.getName(socket.id)} guessed "${data}" and buzzed incorrectly, no penalty.`);
                             this.io.emit("deadTimer");
                             this.question.endTimer.countdown(this.question.endTimer.timer);
                         }
@@ -253,10 +250,14 @@ class Room {
             });
 
             socket.on("resetScore", data => {
-                const oldScore = this.users.resetScore(socket.id);
+
+                const stats = this.users.getStats(socket.id);
                 const name = this.users.getName(socket.id);
 
-                this.log(`${name} reset their score from ${oldScore} to 0.`);
+                this.log(`${name} reset their score of ${stats.score} points (with a ${stats.powers}/${stats.gets}/${stats.negs} statline).`);
+
+                this.users.resetScore(socket.id);
+                
             });
 
             // fired when a client changes the room's settings

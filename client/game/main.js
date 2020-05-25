@@ -350,10 +350,6 @@ function sendChat() {
     $("#chatInput").val("");
 }
 
-function updateAnswerLine(data) {
-    $("#log").prepend(`<li class="list-group-item list-group-item-primary">${escapeHTML(data)}</li>`);
-}
-
 function resetSettings() {
     socket.emit("requestSettings");
 }

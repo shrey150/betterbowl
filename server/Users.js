@@ -109,6 +109,10 @@ class Users {
         return this.getUser(id).name;
     }
 
+    getStats(id) {
+        return this.getUser(id).stats;
+    }
+
     getScore(id) {
         return this.getUser(id).stats.score;
     }
