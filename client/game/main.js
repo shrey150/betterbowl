@@ -354,6 +354,14 @@ function updateAnswerLine(data) {
     $("#log").prepend(`<li class="list-group-item list-group-item-primary">${escapeHTML(data)}</li>`);
 }
 
+function resetSettings() {
+    socket.emit("requestSettings");
+}
+
+function resetScore() {
+    socket.emit("resetScore");
+}
+
 function saveSettings() {
 
     //const search        = $("#qSearch").val();
@@ -386,7 +394,8 @@ function saveSettings() {
     });
 }
 
-$("#speed").on("oninput", console.log);
+// reset room settings to server's version when closing menu
+$("#settings").on("hide.bs.modal", () => resetSettings());
 
 // update subcategory list from subcats.js
 function updateSubcats() {
@@ -448,9 +457,3 @@ setInterval(() => {
     lastPing = Date.now();
     socket.emit("netCheck");
 }, 2000);
-
-// close room settings by clicking outside the window
-window.onclick = e => {
-    if (e.target === $("#settings")[0])
-        $("#settings").style.display = "";
-}

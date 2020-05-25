@@ -55,12 +55,36 @@
                         </div><br>
                         <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#settings">Room settings</button>
                         <hr>
-                        <ul class="list-group" id="scores"></ul><hr>
+                        <ul class="list-group" id="scores"></ul><br>
+                        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#confirmResetScore">Reset score</button>
+                        <hr>
                         <ul class="list-group" id="log"></ul>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div id="confirmResetScore" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirm</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to reset your score?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="resetScore()" data-dismiss="modal">Yes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
         <div id="stats" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
@@ -97,7 +121,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Room settings</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" onclick="resetSettings()" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -173,8 +197,8 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" onclick="saveSettings()">Save changes</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" onclick="resetSettings()" data-dismiss="modal">Discard changes</button>
+                        <button type="button" class="btn btn-primary" onclick="saveSettings()" data-dismiss="modal">Save changes</button>
                     </div>
                 </div>
             </div>

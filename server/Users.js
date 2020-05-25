@@ -119,12 +119,12 @@ class Users {
     //==============================================================
 
     // update a player's score
-    changeScore(user, num) {
+    changeScore(id, num) {
 
         let score = 0;
 
         this.players.forEach(n => {
-            if (n.id === user) {
+            if (n.id === id) {
                 n.stats.score += num;
                 score = n.stats.score;
 
@@ -132,6 +132,28 @@ class Users {
                 if (num === 15) n.stats.powers++;
                 if (num === 10) n.stats.gets++;
                 if (num === -5)  n.stats.negs++;
+            }
+        });
+
+        // update scoreboard for clients
+        this.sendScoreboard();
+        return score;
+    }
+
+    resetScore(id) {
+
+        let score = 0;
+
+        this.players.forEach(n => {
+
+            if (n.id === id) {
+
+                score = n.stats.score;
+
+                n.stats.score = 0;
+                n.stats.powers = 0;
+                n.stats.gets = 0;
+                n.stats.negs = 0;
             }
         });
 

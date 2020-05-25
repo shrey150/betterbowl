@@ -194,7 +194,7 @@ class Room {
                 if (socket.id === this.users.getIdByIndex(this.buzzed) && this.question) {
 
                     // send all clients the guess
-                    this.io.emit("updateAnswerLine", data);
+                    this.log(`${this.users.getName(socket.id)} guessed "${data}".`);
 
                     const verdict = this.checker.smartCheck(data, this.question.answer);
 
@@ -252,6 +252,13 @@ class Room {
                 this.users.changeName(socket.id, data);
             });
 
+            socket.on("resetScore", data => {
+                const oldScore = this.users.resetScore(socket.id);
+                const name = this.users.getName(socket.id);
+
+                this.log(`${name} reset their score from ${oldScore} to 0.`);
+            });
+
             // fired when a client changes the room's settings
             socket.on("updateSettings", data => {
 
@@ -288,6 +295,18 @@ class Room {
 
                 this.log("Room settings updated.");
 
+            });
+
+            /*
+            Fired when a client discards changes and needs to
+            reset their room settings to the server's version.
+            */
+            socket.on("requestSettings", data => {
+                socket.emit("syncSettings", {
+                    search  : this.query,
+                    privacy : this.privacy,
+                    rules   : this.rules
+                });
             });
 
             socket.on("chat", data => {
