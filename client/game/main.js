@@ -126,7 +126,6 @@ socket.on("playerBuzzed", data => {
     $("#timer").removeAttr("style");
 });
 
-socket.on("updateAnswerLine", updateAnswerLine);
 socket.on("revealAnswer", data => {
     $("#answer").show();
     $("#q_info").show();
