@@ -446,6 +446,25 @@ function privacyInfo() {
 
 }
 
+function checkSite() {
+
+    if (!window.location.href.includes("betterbowl")) {
+        document.querySelector("#title").innerHTML = "Betabowl";
+        $("body").prepend(`
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <b>Heads up!</b> You're on the beta version of Betterbowl.
+                Click <a href="https://betterbowl.herokuapp.com" class="alert-link">here</a>
+                to head to the main site.
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        `)
+    }
+}
+
+checkSite();
+
 // set up timer to send pings to server
 // done every 2 seconds
 setInterval(() => {

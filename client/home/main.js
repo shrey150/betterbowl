@@ -29,4 +29,28 @@ function goToRoom() {
     window.location.href = "/" + room.value;
 }
 
+function checkSite() {
+
+    function htmlToElement(html) {
+        var template = document.createElement('template');
+        html = html.trim();
+        template.innerHTML = html;
+        return template.content.firstChild;
+    }
+
+    if (!window.location.href.includes("betterbowl")) {
+        document.querySelector("#title").innerHTML = "Welcome to Betabowl";
+        document.querySelector("#title-caption").innerHTML = "Looking for the main site? Click <a href='http://betterbowl.herokuapp.com'>here</a>";
+        
+        document.querySelector("body").prepend(htmlToElement(`
+            <div class="alert alert-danger text-center" role="alert">
+                <b>Heads up!</b> You're on the beta version of Betterbowl.
+                Click <a href="https://betterbowl.herokuapp.com" class="alert-link">here</a>
+                to head to the main site.
+            </div>
+        `))
+    }
+}
+
+checkSite();
 listRooms();
