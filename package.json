@@ -19,7 +19,7 @@
     "js-cookie": "^2.2.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
-    "socket.io": "^2.2.0",
+    "socket.io": "^2.5.0",
     "string-similarity": "^3.0.0"
   }
 }
